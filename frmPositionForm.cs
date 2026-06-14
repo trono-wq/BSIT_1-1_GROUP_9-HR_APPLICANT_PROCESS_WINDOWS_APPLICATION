@@ -1,0 +1,117 @@
+﻿using HRApplicantProcessSystem.Database;
+using MySql.Data.MySqlClient;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.Common;
+using System.Drawing;
+using System.Text;
+using System.Windows.Forms;
+
+namespace COMP_003_CAPSTONE
+{
+    public partial class frmPositionForm : Form
+    {
+        // ======================================== SECTION 31.1: ( FORM INITIALIZATION ) =================================== //
+        public frmPositionForm()
+        {
+            InitializeComponent();
+            this.Load += new EventHandler(PositionForm_Load);
+        }
+
+        // ======================================== SECTION 31.2: ( FORM LOAD ) ============================================ //
+        private void PositionForm_Load(object sender, EventArgs e)
+        {
+            LoadPositions();
+            dgvPositions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
+        // =================== SECTION 31.3: ( LOAD POSITIONS FROM DATABASE ) =========================================== //
+        private void LoadPositions()
+        {
+            MySqlConnection conn = new DatabaseConnection().GetConnection();
+            conn.Open();
+            string query = "SELECT position_id, position_name FROM Positions";
+            MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt); //acsfault error
+            dgvPositions.DataSource = dt;
+            conn.Close();
+        }
+
+        // =================== SECTION 31.4: ( ADD POSITION ) =========================================================== //
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (txtPositionName.Text == "")
+            {
+                MessageBox.Show("Please enter a position name!");
+                return;
+            }
+            MySqlConnection conn = new DatabaseConnection().GetConnection();
+            conn.Open();
+            string query = "INSERT INTO Positions (position_name) VALUES (@name)";
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@name", txtPositionName.Text);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+            MessageBox.Show("Position added successfully!");
+            txtPositionName.Text = "";
+            LoadPositions();
+        }
+
+        // =================== SECTION 31.5: ( EDIT POSITION ) =========================================================== //
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (dgvPositions.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a position to edit!");
+                return;
+            }
+
+            if (txtPositionName.Text == "")
+            {
+                MessageBox.Show("Please enter a new position name!");
+                return;
+            }
+            int id = Convert.ToInt32(dgvPositions.SelectedRows[0].Cells["position_id"].Value);
+            MySqlConnection conn = new DatabaseConnection().GetConnection();
+            conn.Open();
+            string query = "UPDATE Positions SET position_name = @name WHERE position_id = @id";
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@name", txtPositionName.Text);
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+            MessageBox.Show("Position updated successfully!");
+            txtPositionName.Text = "";
+            LoadPositions();
+        }
+
+        // =================== SECTION 31.6: ( DELETE POSITION ) ========================================================= //
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (dgvPositions.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a position to delete!");
+                return;
+            }
+            DialogResult confirm = MessageBox.Show("Are you sure you want to delete this position?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (confirm == DialogResult.Yes)
+            {
+                int id = Convert.ToInt32(dgvPositions.SelectedRows[0].Cells["position_id"].Value);
+                MySqlConnection conn = new DatabaseConnection().GetConnection();
+                conn.Open();
+                string query = "DELETE FROM Positions WHERE position_id = @id";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                MessageBox.Show("Position deleted successfully!");
+                LoadPositions();
+            }
+        }
+
+
+    }
+}

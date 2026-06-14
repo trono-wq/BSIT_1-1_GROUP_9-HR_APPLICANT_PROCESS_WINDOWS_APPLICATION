@@ -354,3 +354,20 @@ CREATE TABLE AuditTrail
         REFERENCES Users(user_id)
 );
 
+CREATE TABLE Positions
+(
+    position_id INT AUTO_INCREMENT PRIMARY KEY,
+    position_name VARCHAR(100)
+);
+
+CREATE TABLE PositionTypes 
+(
+    position_id INT AUTO_INCREMENT PRIMARY KEY,
+    position_name VARCHAR(100),
+    o_position_updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    ON UPDATE CURRENT_TIMESTAMP,
+    o_position_updated_by INT,
+
+    FOREIGN KEY (o_position_updated_by)
+        REFERENCES Users(user_id)
+);
