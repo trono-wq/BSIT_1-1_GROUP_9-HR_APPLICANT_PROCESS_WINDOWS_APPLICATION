@@ -36,7 +36,6 @@
             this.cmbStatus = new System.Windows.Forms.ComboBox();
             this.cmbEmploymentType = new System.Windows.Forms.ComboBox();
             this.cmbDepartment = new System.Windows.Forms.ComboBox();
-            this.txtPosition = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -50,6 +49,7 @@
             this.txtUpdatedBy = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.cmbPosition = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVacancies)).BeginInit();
             this.SuspendLayout();
             // 
@@ -115,14 +115,6 @@
             this.cmbDepartment.Name = "cmbDepartment";
             this.cmbDepartment.Size = new System.Drawing.Size(123, 21);
             this.cmbDepartment.TabIndex = 41;
-            // 
-            // txtPosition
-            // 
-            this.txtPosition.Location = new System.Drawing.Point(109, 34);
-            this.txtPosition.Name = "txtPosition";
-            this.txtPosition.Size = new System.Drawing.Size(123, 20);
-            this.txtPosition.TabIndex = 38;
-            this.txtPosition.TextChanged += new System.EventHandler(this.txtPosition_TextChanged_1);
             // 
             // label6
             // 
@@ -245,11 +237,20 @@
             this.label9.TabIndex = 55;
             this.label9.Text = "Updated by";
             // 
+            // cmbPosition
+            // 
+            this.cmbPosition.FormattingEnabled = true;
+            this.cmbPosition.Location = new System.Drawing.Point(109, 34);
+            this.cmbPosition.Name = "cmbPosition";
+            this.cmbPosition.Size = new System.Drawing.Size(123, 21);
+            this.cmbPosition.TabIndex = 56;
+            // 
             // frmJobVacancyManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(948, 427);
+            this.Controls.Add(this.cmbPosition);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtUpdatedBy);
@@ -263,7 +264,6 @@
             this.Controls.Add(this.cmbStatus);
             this.Controls.Add(this.cmbEmploymentType);
             this.Controls.Add(this.cmbDepartment);
-            this.Controls.Add(this.txtPosition);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -287,7 +287,6 @@
         private System.Windows.Forms.ComboBox cmbStatus;
         private System.Windows.Forms.ComboBox cmbEmploymentType;
         private System.Windows.Forms.ComboBox cmbDepartment;
-        private System.Windows.Forms.TextBox txtPosition;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -301,5 +300,6 @@
         private System.Windows.Forms.TextBox txtUpdatedBy;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox cmbPosition;
     }
 }

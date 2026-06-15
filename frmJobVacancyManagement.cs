@@ -78,7 +78,7 @@ namespace COMP_003_CAPSTONE
                     string query =
                     @"SELECT
                     j.job_vacancy_id,
-                    j.position,
+                    p.position_type_name,
                     d.department_name,
                     e.employment_type_name,
                     j.qualifications,
@@ -98,7 +98,11 @@ namespace COMP_003_CAPSTONE
 
                     LEFT JOIN Users u
                     ON j.o_vacancy_updated_by =
-                    u.user_id";
+                    u.user_id
+
+                    LEFT JOIN PositionTypes p
+                    ON j.position_type_id =             
+                    p.position_type_id";
 
                     MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
 
@@ -109,6 +113,7 @@ namespace COMP_003_CAPSTONE
                     dgvVacancies.DataSource = table;
 
                     dgvVacancies.Columns["job_vacancy_id"].HeaderText = "Job Vacancy ID";
+                    dgvVacancies.Columns["position_type_name"].HeaderText = "Position Name";
                     dgvVacancies.Columns["department_name"].HeaderText = "Department";
                     dgvVacancies.Columns["qualifications"].HeaderText = "Requirements";
                     dgvVacancies.Columns["employment_type_name"].HeaderText = "Employment Type";
@@ -139,7 +144,8 @@ namespace COMP_003_CAPSTONE
                     );
                 }
 
-                txtPosition.Text = row.Cells["position"].Value?.ToString();
+                int positionIndex = cmbPosition.FindStringExact
+                (row.Cells["position_type_name"].Value?.ToString());
 
                 int departmentIndex
                          = cmbDepartment.
@@ -237,14 +243,8 @@ namespace COMP_003_CAPSTONE
             clbDocuments.Items.Add("Valid ID");
             clbDocuments.Items.Add("Transcript of Records");
             clbDocuments.Items.Add("Birth Certificate");
-            clbDocuments.Items.Add("Certificate of Employment");
             clbDocuments.Items.Add("Diploma");
-            clbDocuments.Items.Add("NBI Clearance");
-            clbDocuments.Items.Add("Police Clearance");
-            clbDocuments.Items.Add("SSS");
-            clbDocuments.Items.Add("PhilHealth");
-            clbDocuments.Items.Add("PAG-IBIG");
-
+       
             DatabaseConnection db = new DatabaseConnection();
 
             using (MySqlConnection conn = db.GetConnection())
@@ -294,6 +294,34 @@ namespace COMP_003_CAPSTONE
 
                 clbRequirements.Items.Clear();
 
+                cmbPosition.DataSource = null;
+                cmbPosition.Items.Clear();
+
+                string positionQuery =
+                @"SELECT * FROM PositionTypes";
+
+                MySqlCommand positionCmd =
+                new MySqlCommand(positionQuery, conn);
+
+                MySqlDataReader positionReader =
+                positionCmd.ExecuteReader();
+
+                DataTable positionTable =
+                new DataTable();
+
+                positionTable.Load(positionReader);
+
+                positionReader.Close();
+
+                cmbPosition.DataSource =
+                positionTable;
+
+                cmbPosition.DisplayMember =
+                "position_type_name";
+
+                cmbPosition.ValueMember =
+                "position_type_id";
+
                 string requirementQuery = @"SELECT * FROM RequirementTypes";
 
                 MySqlCommand requirementCmd = new MySqlCommand(requirementQuery, conn);
@@ -336,7 +364,7 @@ namespace COMP_003_CAPSTONE
                 {
                     conn.Open();
 
-                    if (string.IsNullOrWhiteSpace(txtPosition.Text))
+                    if (cmbPosition.SelectedIndex == -1)
                     {
                         MessageBox.Show("Please enter a position.");
                         return;
@@ -356,13 +384,13 @@ namespace COMP_003_CAPSTONE
 
                     string checkQuery = @"SELECT COUNT(*)
                     FROM JobVacancies
-                    WHERE LOWER(position) = LOWER(@position)
+                    WHERE position_type_id = @positionId
                     AND department_id = @departmentId
                     AND employment_type_id = @employmentTypeId";
 
                     MySqlCommand checkCmd = new MySqlCommand(checkQuery, conn);
 
-                    checkCmd.Parameters.AddWithValue("@position", txtPosition.Text);
+                    checkCmd.Parameters.AddWithValue("@positionId", cmbPosition.SelectedValue);
                     checkCmd.Parameters.AddWithValue("@departmentId", cmbDepartment.SelectedValue);
                     checkCmd.Parameters.AddWithValue("@employmentTypeId", cmbEmploymentType.SelectedValue);
 
@@ -380,7 +408,7 @@ namespace COMP_003_CAPSTONE
 
                     string query = @"INSERT INTO JobVacancies
                     (
-                        position,
+                        position_type_id,
                         department_id,
                         employment_type_id,
                         qualifications,
@@ -404,7 +432,7 @@ namespace COMP_003_CAPSTONE
 
                     MySqlCommand cmd = new MySqlCommand(query, conn);
 
-                    cmd.Parameters.AddWithValue("@position", txtPosition.Text);
+                    cmd.Parameters.AddWithValue("@position", cmbPosition.SelectedValue);
                     cmd.Parameters.AddWithValue("@departmentId", cmbDepartment.SelectedValue);
                     cmd.Parameters.AddWithValue("@employmentTypeId", cmbEmploymentType.SelectedValue);
                     cmd.Parameters.AddWithValue("@qualifications", qualifications);
@@ -448,7 +476,7 @@ namespace COMP_003_CAPSTONE
                         }
                     }
 
-                    txtPosition.Clear();
+                    cmbPosition.SelectedIndex = -1;
 
                     for (int i = 0; i < clbRequirements.Items.Count; i++)
                     {
@@ -488,7 +516,7 @@ namespace COMP_003_CAPSTONE
                         return;
                     }
 
-                    if (string.IsNullOrWhiteSpace(txtPosition.Text))
+                    if (cmbPosition.SelectedIndex == -1)
                     {
                         MessageBox.Show("Please enter a position.");
                         return;
@@ -508,7 +536,7 @@ namespace COMP_003_CAPSTONE
 
                     string checkQuery = @"SELECT COUNT(*)
                     FROM JobVacancies
-                    WHERE LOWER (position)  = LOWER (@position)
+                    WHERE position_type_id = @positionId
                     AND department_id       = @departmentId
                     AND employment_type_id  = @employmentTypeId
                     AND job_vacancy_id <> @id";
@@ -517,7 +545,7 @@ namespace COMP_003_CAPSTONE
                     new MySqlCommand(
                     checkQuery, conn);
 
-                    checkCmd.Parameters.AddWithValue("@position", txtPosition.Text);
+                    checkCmd.Parameters.AddWithValue("@positionId", cmbPosition.SelectedValue);
                     checkCmd.Parameters.AddWithValue("@departmentId", cmbDepartment.SelectedValue);
                     checkCmd.Parameters.AddWithValue("@employmentTypeId", cmbEmploymentType.SelectedValue);
                     checkCmd.Parameters.AddWithValue("@id", selectedVacancyId);
@@ -535,7 +563,7 @@ namespace COMP_003_CAPSTONE
 
                     string query = @"UPDATE JobVacancies
                     SET
-                    position                = @position,
+                    position_type_id        = @position,
                     department_id           = @departmentId,
                     employment_type_id      = @employmentTypeId,
                     qualifications          = @qualifications,
@@ -547,7 +575,7 @@ namespace COMP_003_CAPSTONE
 
                     MySqlCommand cmd = new MySqlCommand(query, conn);
 
-                    cmd.Parameters.AddWithValue("@position", txtPosition.Text);
+                    cmd.Parameters.AddWithValue("@position", cmbPosition.SelectedValue);
                     cmd.Parameters.AddWithValue("@qualifications", qualifications);
                     cmd.Parameters.AddWithValue("@requiredDocuments", documents);
                     cmd.Parameters.AddWithValue("@departmentId", cmbDepartment.SelectedValue);
@@ -597,7 +625,7 @@ namespace COMP_003_CAPSTONE
 
                     selectedVacancyId = 0;
 
-                    txtPosition.Clear();
+                    cmbPosition.SelectedIndex = -1;
 
                     for (int i = 0; i < clbRequirements.Items.Count; i++)
                     {

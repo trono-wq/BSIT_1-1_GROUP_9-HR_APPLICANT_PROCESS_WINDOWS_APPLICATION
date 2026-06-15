@@ -1,7 +1,6 @@
 CREATE DATABASE hr_applicant_process_window_application;
 USE hr_applicant_process_window_application;
 
-
 CREATE TABLE Roles 
 (
     role_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -25,20 +24,12 @@ CREATE TABLE Users
     FOREIGN KEY (role_id) 
         REFERENCES Roles(role_id)
 );
-INSERT INTO Users
-(
-role_id,
-email,
-password
-)
-VALUES
-(
-1,
-'a',
-'a'
-);
 
-SELECT * FROM Users;
+INSERT INTO Users
+(role_id, email, password)
+VALUES
+(1, 'hrma@gmail.com', 'password123'), 
+(2, 'hrs@gmail.com', 'password456');
 
 CREATE TABLE ApplicantAccounts 
 (
@@ -83,8 +74,28 @@ CREATE TABLE Departments
 
     FOREIGN KEY (o_department_updated_by)
         REFERENCES Users(user_id)
-        
 );
+
+INSERT INTO Departments
+(department_name)
+VALUES
+('IT'), ('Finance'), ('Marketing');
+
+CREATE TABLE PositionTypes
+(
+    position_type_id INT AUTO_INCREMENT PRIMARY KEY,
+	position_type_name VARCHAR(100),
+    o_position_type_updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    o_position_type_added_by INT,
+
+    FOREIGN KEY (o_position_type_added_by)
+        REFERENCES Users(user_id)
+);
+
+INSERT INTO PositionTypes
+(position_type_name)
+VALUES
+('Manager'), ('Assistant'), ('Coordinator');
 
 CREATE TABLE EmploymentTypes 
 (
@@ -97,12 +108,17 @@ CREATE TABLE EmploymentTypes
         REFERENCES Users(user_id)
 );
 
+INSERT INTO EmploymentTypes
+(employment_type_name)
+VALUES
+('Full-Time'), ('Part-Time'), ('Contractual');
+
 CREATE TABLE JobVacancies 
 (
     job_vacancy_id INT AUTO_INCREMENT PRIMARY KEY,
     employment_type_id INT,
     department_id INT,
-    position VARCHAR(100),
+    position_type_id INT,
     qualifications TEXT,
     required_documents TEXT,
     vacancy_status ENUM('Open','Closed'),
@@ -115,6 +131,8 @@ CREATE TABLE JobVacancies
         REFERENCES EmploymentTypes(employment_type_id),
     FOREIGN KEY (department_id)
         REFERENCES Departments(department_id),
+	FOREIGN KEY (position_type_id)
+		REFERENCES PositionTypes(position_type_id),
     FOREIGN KEY (o_vacancy_updated_by) 
         REFERENCES Users(user_id)
 );
@@ -160,6 +178,15 @@ CREATE TABLE RequirementTypes
     FOREIGN KEY (o_requirement_type_added_by)
         REFERENCES Users(user_id)
 );
+
+INSERT INTO RequirementTypes
+(requirement_type_name)
+VALUES
+('Certificate of Employment'), 
+('Training / Seminar Certificate'), 
+('NBI Clearance'),
+('Barangay Clearance'),
+('Character Reference Letter');
 
 CREATE TABLE ApplicantDocuments 
 (

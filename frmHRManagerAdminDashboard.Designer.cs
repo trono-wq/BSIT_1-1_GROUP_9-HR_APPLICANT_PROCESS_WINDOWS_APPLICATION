@@ -125,6 +125,7 @@
             this.txtOJV.Size = new System.Drawing.Size(10, 13);
             this.txtOJV.TabIndex = 39;
             this.txtOJV.Text = "‎ ";
+            this.txtOJV.Click += new System.EventHandler(this.txtOJV_Click);
             // 
             // txtRA
             // 
@@ -289,6 +290,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(453, 287);
             this.dataGridView1.TabIndex = 43;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             // 
             // button4
             // 

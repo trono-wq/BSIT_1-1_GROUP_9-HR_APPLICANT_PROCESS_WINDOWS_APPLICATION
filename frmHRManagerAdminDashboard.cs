@@ -72,25 +72,26 @@ namespace COMP_003_CAPSTONE
 
         private void frmHRDashboard_Load(object sender, EventArgs e)
         {
-            comboBox1.Items.Add("Users");
-            comboBox1.Items.Add("Roles");
             comboBox1.Items.Add("ApplicantAccounts");
+            comboBox1.Items.Add("ApplicantDocuments");
             comboBox1.Items.Add("Applicants");
+            comboBox1.Items.Add("ApplicationStatusHistory");
+            comboBox1.Items.Add("Applications");
+            comboBox1.Items.Add("AssessmentScores");
+            comboBox1.Items.Add("AssessmentTypes");
+            comboBox1.Items.Add("AuditTrail");
             comboBox1.Items.Add("Departments");
             comboBox1.Items.Add("EmploymentTypes");
-            comboBox1.Items.Add("JobVacancies");
-            comboBox1.Items.Add("Applications");
-            comboBox1.Items.Add("RequirementTypes");
-            comboBox1.Items.Add("ApplicantDocuments");
-            comboBox1.Items.Add("ScreeningResults");
-            comboBox1.Items.Add("InterviewTypes");
-            comboBox1.Items.Add("InterviewSchedules");
-            comboBox1.Items.Add("InterviewEvaluations");
-            comboBox1.Items.Add("AssessmentTypes");
-            comboBox1.Items.Add("AssessmentScores");
             comboBox1.Items.Add("HiringDecisions");
-            comboBox1.Items.Add("ApplicationStatusHistory");
-            comboBox1.Items.Add("AuditTrail");
+            comboBox1.Items.Add("InterviewEvaluations");
+            comboBox1.Items.Add("InterviewSchedules");
+            comboBox1.Items.Add("InterviewTypes");
+            comboBox1.Items.Add("JobVacancies");
+            comboBox1.Items.Add("PositionTypes");
+            comboBox1.Items.Add("RequirementTypes");
+            comboBox1.Items.Add("Roles");
+            comboBox1.Items.Add("ScreeningResults");
+            comboBox1.Items.Add("Users");
 
             RefreshDashboard();
         }
@@ -152,6 +153,16 @@ namespace COMP_003_CAPSTONE
         private void label6_Click(object sender, EventArgs e) { }
         private void label10_Click(object sender, EventArgs e) { }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
+
+        private void txtOJV_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
 
