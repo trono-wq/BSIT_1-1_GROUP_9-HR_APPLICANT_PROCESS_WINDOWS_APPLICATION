@@ -21,74 +21,109 @@ namespace COMP_003_CAPSTONE
 
         private void InitializeComponent()
         {
-            label1 = new Label();
-            txtEmploymentTypeName = new TextBox();
-            btnAdd = new Button();
-            btnEdit = new Button();
-            btnDelete = new Button();
-            dgvEmploymentTypes = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)dgvEmploymentTypes).BeginInit();
-            SuspendLayout();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtEmploymentTypeName = new System.Windows.Forms.TextBox();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.dgvEmploymentTypes = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmploymentTypes)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(11, 26);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(125, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Employment Type Name:";
+            // 
+            // txtEmploymentTypeName
+            // 
+            this.txtEmploymentTypeName.Location = new System.Drawing.Point(140, 23);
+            this.txtEmploymentTypeName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEmploymentTypeName.Name = "txtEmploymentTypeName";
+            this.txtEmploymentTypeName.Size = new System.Drawing.Size(422, 20);
+            this.txtEmploymentTypeName.TabIndex = 1;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(14, 47);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(122, 21);
+            this.btnAdd.TabIndex = 2;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click_1);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(14, 72);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(122, 21);
+            this.btnEdit.TabIndex = 3;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click_1);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(14, 97);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(122, 21);
+            this.btnDelete.TabIndex = 4;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click_1);
+            // 
+            // dgvEmploymentTypes
+            // 
+            this.dgvEmploymentTypes.AllowUserToAddRows = false;
+            this.dgvEmploymentTypes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEmploymentTypes.Location = new System.Drawing.Point(140, 47);
+            this.dgvEmploymentTypes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvEmploymentTypes.Name = "dgvEmploymentTypes";
+            this.dgvEmploymentTypes.ReadOnly = true;
+            this.dgvEmploymentTypes.RowHeadersWidth = 62;
+            this.dgvEmploymentTypes.Size = new System.Drawing.Size(422, 211);
+            this.dgvEmploymentTypes.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(250, 1);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(216, 20);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Employment Management";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // frmEmploymentTypeForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(576, 270);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.dgvEmploymentTypes);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnEdit);
+            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.txtEmploymentTypeName);
+            this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Name = "frmEmploymentTypeForm";
+            this.Text = "Employment Type Management";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmploymentTypes)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
-            label1.AutoSize = true;
-            label1.Location = new Point(91, 105);
-            label1.Name = "label1";
-            label1.Size = new Size(211, 25);
-            label1.TabIndex = 0;
-            label1.Text = "Employment Type Name:";
-
-            txtEmploymentTypeName.Location = new Point(304, 100);
-            txtEmploymentTypeName.Name = "txtEmploymentTypeName";
-            txtEmploymentTypeName.Size = new Size(700, 31);
-            txtEmploymentTypeName.TabIndex = 1;
-
-            btnAdd.Location = new Point(1010, 100);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(112, 34);
-            btnAdd.TabIndex = 2;
-            btnAdd.Text = "Add";
-            btnAdd.UseVisualStyleBackColor = true;
-            btnAdd.Click += btnAdd_Click;
-
-            btnEdit.Location = new Point(1010, 140);
-            btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(112, 34);
-            btnEdit.TabIndex = 3;
-            btnEdit.Text = "Edit";
-            btnEdit.UseVisualStyleBackColor = true;
-            btnEdit.Click += btnEdit_Click;
-
-            btnDelete.Location = new Point(1010, 180);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(112, 34);
-            btnDelete.TabIndex = 4;
-            btnDelete.Text = "Delete";
-            btnDelete.UseVisualStyleBackColor = true;
-            btnDelete.Click += btnDelete_Click;
-
-            dgvEmploymentTypes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvEmploymentTypes.Location = new Point(304, 137);
-            dgvEmploymentTypes.Name = "dgvEmploymentTypes";
-            dgvEmploymentTypes.RowHeadersWidth = 62;
-            dgvEmploymentTypes.Size = new Size(698, 406);
-            dgvEmploymentTypes.TabIndex = 5;
-            dgvEmploymentTypes.ReadOnly = true;
-            dgvEmploymentTypes.AllowUserToAddRows = false;
-
-            AutoScaleDimensions = new SizeF(10F, 25F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1296, 706);
-            Controls.Add(dgvEmploymentTypes);
-            Controls.Add(btnDelete);
-            Controls.Add(btnEdit);
-            Controls.Add(btnAdd);
-            Controls.Add(txtEmploymentTypeName);
-            Controls.Add(label1);
-            Name = "EmploymentTypeForm";
-            Text = "Employment Type Management";
-            ((System.ComponentModel.ISupportInitialize)dgvEmploymentTypes).EndInit();
-            ResumeLayout(false);
-            PerformLayout();
         }
 
         private Label label1;
@@ -97,5 +132,6 @@ namespace COMP_003_CAPSTONE
         private Button btnEdit;
         private Button btnDelete;
         private DataGridView dgvEmploymentTypes;
+        private Label label2;
     }
 }

@@ -292,6 +292,9 @@
     <EmbeddedResource Include="frmDepartmentManagement.resx">
       <DependentUpon>frmDepartmentManagement.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmEmploymentTypeForm.resx">
+      <DependentUpon>frmEmploymentTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmGeneralLogin.resx">
       <DependentUpon>frmGeneralLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -324,6 +327,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMyApplication.resx">
       <DependentUpon>frmMyApplication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPositionForm.resx">
+      <DependentUpon>frmPositionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRequirementTypeForm.resx">
+      <DependentUpon>frmRequirementTypeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

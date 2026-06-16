@@ -106,6 +106,8 @@ namespace COMP_003_CAPSTONE
             this.dgvDepartments.RowHeadersWidth = 62;
             this.dgvDepartments.Size = new System.Drawing.Size(447, 246);
             this.dgvDepartments.TabIndex = 5;
+            this.dgvDepartments.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDepartments_CellClick);
+            this.dgvDepartments.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDepartments_CellContentClick);
             // 
             // label2
             // 

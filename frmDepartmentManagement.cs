@@ -1,12 +1,7 @@
 ﻿using HRApplicantProcessSystem.Database;
 using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.Common;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace COMP_003_CAPSTONE
@@ -21,25 +16,81 @@ namespace COMP_003_CAPSTONE
         }
 
         // ======================================== SECTION 26.2: ( FORM LOAD ) ============================================ //
-        private void DepartmentForm_Load(object sender, EventArgs e)
+        private void DepartmentForm_Load(
+        object sender,
+        EventArgs e)
         {
             LoadDepartments();
-            dgvDepartments.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            dgvDepartments.AutoSizeColumnsMode =
+            DataGridViewAutoSizeColumnsMode.Fill;
+
+            dgvDepartments.SelectionMode =
+            DataGridViewSelectionMode.FullRowSelect;
+
+            dgvDepartments.MultiSelect =
+            false;
         }
 
         // =================== SECTION 26.3: ( LOAD DEPARTMENTS FROM DATABASE ) =========================================== //
         private void LoadDepartments()
         {
-            MySqlConnection conn = new DatabaseConnection().GetConnection();
-            conn.Open();
-            string query = "SELECT department_id, department_name FROM Departments";
-            MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-            dgvDepartments.DataSource = dt;
-            conn.Close();
+            try
+            {
+                MySqlConnection conn =
+                new DatabaseConnection()
+                .GetConnection();
+
+                conn.Open();
+
+                string query =
+                @"SELECT
+                department_id,
+                department_name
+                FROM Departments";
+
+                MySqlDataAdapter adapter =
+                new MySqlDataAdapter(
+                query,
+                conn);
+
+                DataTable dt =
+                new DataTable();
+
+                adapter.Fill(dt);
+
+                dgvDepartments.DataSource =
+                dt;
+
+                conn.Close();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                ex.Message);
+            }
         }
-        private void AddAuditTrail(string action)
+
+        // =================== SECTION 26.4: ( CELL CLICK ) =========================================== //
+        private void dgvDepartments_CellClick(
+        object sender,
+        DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row =
+                dgvDepartments.Rows[e.RowIndex];
+
+                txtDepartmentName.Text =
+                row.Cells["department_name"]
+                .Value.ToString();
+            }
+        }
+
+        // =================== SECTION 26.5: ( AUDIT TRAIL ) =========================================== //
+        private void AddAuditTrail(
+        string action)
         {
             try
             {
@@ -67,11 +118,22 @@ namespace COMP_003_CAPSTONE
                         NULL
                     )";
 
-                    MySqlCommand cmd = new MySqlCommand (query, conn);
+                    MySqlCommand cmd =
+                    new MySqlCommand(
+                    query,
+                    conn);
 
-                    cmd.Parameters.AddWithValue ("@userId", UserSession.UserId);
-                    cmd.Parameters.AddWithValue ("@action", action);
-                    cmd.Parameters.AddWithValue("@table", "Departments");
+                    cmd.Parameters.AddWithValue(
+                    "@userId",
+                    UserSession.UserId);
+
+                    cmd.Parameters.AddWithValue(
+                    "@action",
+                    action);
+
+                    cmd.Parameters.AddWithValue(
+                    "@table",
+                    "Departments");
 
                     cmd.ExecuteNonQuery();
                 }
@@ -79,164 +141,317 @@ namespace COMP_003_CAPSTONE
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(
+                ex.Message);
             }
         }
 
-        // =================== SECTION 26.4: ( ADD DEPARTMENT ) =================================================================== //
-        private void btnAdd_Click_1(object sender, EventArgs e)
+        // =================== SECTION 26.6: ( ADD DEPARTMENT ) =========================================== //
+        private void btnAdd_Click_1(
+        object sender,
+        EventArgs e)
         {
-            if (txtDepartmentName.Text == "")
+            if (txtDepartmentName.Text.Trim() == "")
             {
-                MessageBox.Show("Please enter a department name!");
+                MessageBox.Show(
+                "Please enter a department name!");
+
                 return;
             }
 
-            MySqlConnection conn = new DatabaseConnection().GetConnection();
+            MySqlConnection conn =
+            new DatabaseConnection()
+            .GetConnection();
+
             conn.Open();
 
-            string checkQuery = @"SELECT COUNT(*)
+            string checkQuery =
+            @"SELECT COUNT(*)
             FROM Departments
             WHERE LOWER(department_name)
             = LOWER(@name)";
 
-            MySqlCommand checkCmd = new MySqlCommand(checkQuery, conn);
+            MySqlCommand checkCmd =
+            new MySqlCommand(
+            checkQuery,
+            conn);
 
-            checkCmd.Parameters.AddWithValue ("@name", txtDepartmentName.Text.Trim());
+            checkCmd.Parameters.AddWithValue(
+            "@name",
+            txtDepartmentName.Text.Trim());
 
-            int count = Convert.ToInt32 (checkCmd.ExecuteScalar());
+            int count =
+            Convert.ToInt32(
+            checkCmd.ExecuteScalar());
 
             if (count > 0)
             {
-                MessageBox.Show ("This department already exists!");
+                MessageBox.Show(
+                "This department already exists!");
+
                 conn.Close();
+
                 return;
             }
 
-            string query = @"INSERT INTO Departments
-            (department_name)
-            VALUES (@name)";
+            string query =
+            @"INSERT INTO Departments
+            (department_name, o_department_updated_by)
+            VALUES
+            (@name, @updatedBy)";
 
-            MySqlCommand cmd = new MySqlCommand(query, conn);
+            MySqlCommand cmd =
+            new MySqlCommand(
+            query,
+            conn);
 
             cmd.Parameters.AddWithValue(
             "@name",
             txtDepartmentName.Text.Trim());
 
+            cmd.Parameters.AddWithValue(    
+                "@updatedBy", UserSession.UserId);
+
             cmd.ExecuteNonQuery();
 
-            AddAuditTrail ("Added department");
+            AddAuditTrail(
+            "Added Department");
 
             conn.Close();
 
-            MessageBox.Show("Department added successfully!");
-            txtDepartmentName.Text = "";
+            MessageBox.Show(
+            "Department added successfully!");
+
+            txtDepartmentName.Clear();
+
             LoadDepartments();
-
-            foreach (Form form in Application.OpenForms)
-            {
-                if (form is frmHRManagerAdminDashboard dashboard)
-                {
-                    dashboard.RefreshDashboard();
-                }
-            }
         }
-        // =================== SECTION 26.5: ( EDIT DEPARTMENT ) ========================================================= //
-        private void btnEdit_Click_1(object sender, EventArgs e)
+
+        // =================== SECTION 26.7: ( EDIT DEPARTMENT ) =========================================== //
+        private void btnEdit_Click_1(
+        object sender,
+        EventArgs e)
         {
-            if (dgvDepartments.SelectedRows.Count == 0)
+            if (dgvDepartments.CurrentRow == null)
             {
-                MessageBox.Show("Please select a department to edit!");
-                return;
-            }
-            if (txtDepartmentName.Text == "")
-            {
-                MessageBox.Show("Please enter a new department name!");
+                MessageBox.Show(
+                "Please select a department to edit!");
+
                 return;
             }
 
-            int id = Convert.ToInt32(dgvDepartments.SelectedRows[0].Cells["department_id"].Value);
+            if (txtDepartmentName.Text.Trim() == "")
+            {
+                MessageBox.Show(
+                "Please enter a new department name!");
 
-            MySqlConnection conn = new DatabaseConnection().GetConnection();
+                return;
+            }
+
+            int id =
+            Convert.ToInt32(
+            dgvDepartments.CurrentRow
+            .Cells["department_id"]
+            .Value);
+
+            MySqlConnection conn =
+            new DatabaseConnection()
+            .GetConnection();
+
             conn.Open();
 
-            string checkQuery = @"SELECT COUNT(*)
+            string checkQuery =
+            @"SELECT COUNT(*)
             FROM Departments
-            WHERE LOWER(department_name) = LOWER(@name)
+            WHERE LOWER(department_name)
+            = LOWER(@name)
             AND department_id <> @id";
 
             MySqlCommand checkCmd =
-            new MySqlCommand(checkQuery, conn);
+            new MySqlCommand(
+            checkQuery,
+            conn);
 
-            checkCmd.Parameters.AddWithValue ("@name", txtDepartmentName.Text.Trim());
-            checkCmd.Parameters.AddWithValue ("@id", id);
+            checkCmd.Parameters.AddWithValue(
+            "@name",
+            txtDepartmentName.Text.Trim());
 
-            int count = Convert.ToInt32 (checkCmd.ExecuteScalar());
+            checkCmd.Parameters.AddWithValue(
+            "@id",
+            id);
+
+            int count =
+            Convert.ToInt32(
+            checkCmd.ExecuteScalar());
 
             if (count > 0)
             {
-                MessageBox.Show ("This department already exists!");
+                MessageBox.Show(
+                "This department already exists!");
+
                 conn.Close();
+
                 return;
             }
-            
-            string query = "UPDATE Departments SET department_name = @name WHERE department_id = @id";
-            MySqlCommand cmd = new MySqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@name", txtDepartmentName.Text);
-            cmd.Parameters.AddWithValue("@id", id);
+
+            string query =
+            @"UPDATE Departments
+            SET department_name = @name
+            o_department_updated_by = @updatedBy
+            WHERE department_id = @id";
+
+            MySqlCommand cmd =
+            new MySqlCommand(
+            query,
+            conn);
+
+            cmd.Parameters.AddWithValue(
+            "@name",
+            txtDepartmentName.Text.Trim());
+
+            cmd.Parameters.AddWithValue(
+            "@id",
+            id);
+
+            cmd.Parameters.AddWithValue(
+                "@updatedBy", UserSession.UserId);
+
             cmd.ExecuteNonQuery();
 
-            AddAuditTrail ("Edited department");
+            AddAuditTrail(
+            "Edited Department");
 
             conn.Close();
-            MessageBox.Show("Department updated successfully!");
-            txtDepartmentName.Text = "";
-            LoadDepartments();
 
-            foreach (Form form in Application.OpenForms)
-            {
-                if (form is frmHRManagerAdminDashboard dashboard)
-                {
-                    dashboard.RefreshDashboard();
-                }
-            }
+            MessageBox.Show(
+            "Department updated successfully!");
+
+            txtDepartmentName.Clear();
+
+            LoadDepartments();
         }
 
-        // =================== SECTION 26.6: ( DELETE DEPARTMENT ) ===================================================== //
-        private void btnDelete_Click_1(object sender, EventArgs e)
+        // =================== SECTION 26.8: ( DELETE DEPARTMENT ) =========================================== //
+        private void btnDelete_Click_1(
+        object sender,
+        EventArgs e)
         {
-            if (dgvDepartments.SelectedRows.Count == 0)
+            if (dgvDepartments.CurrentRow == null)
             {
-                MessageBox.Show("Please select a department to delete!");
+                MessageBox.Show(
+                "Please select a department to delete!");
+
                 return;
             }
 
-            DialogResult confirm = MessageBox.Show("Are you sure you want to delete this department?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult confirm =
+            MessageBox.Show(
+            "Are you sure you want to delete this department?",
+            "Confirm Delete",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Warning);
 
             if (confirm == DialogResult.Yes)
             {
-                int id = Convert.ToInt32(dgvDepartments.SelectedRows[0].Cells["department_id"].Value);
-                MySqlConnection conn = new DatabaseConnection().GetConnection();
+                int id =
+                Convert.ToInt32(
+                dgvDepartments.CurrentRow
+                .Cells["department_id"]
+                .Value);
+
+                MySqlConnection conn =
+                new DatabaseConnection()
+                .GetConnection();
+
                 conn.Open();
-                string query = "DELETE FROM Departments WHERE department_id = @id";
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@id", id);
-                cmd.ExecuteNonQuery();
 
-                AddAuditTrail ("Deleted department");
-                
-                conn.Close();
-                MessageBox.Show("Department deleted successfully!");
-                LoadDepartments();
-
-                foreach (Form form in Application.OpenForms)
+                try
                 {
-                    if (form is frmHRManagerAdminDashboard dashboard)
+                    // CHECK OPEN VACANCIES
+                    string checkQuery =
+                    @"SELECT COUNT(*)
+                    FROM JobVacancies
+                    WHERE department_id = @id
+                    AND vacancy_status = 'Open'";
+
+                    MySqlCommand checkCmd =
+                    new MySqlCommand(
+                    checkQuery,
+                    conn);
+
+                    checkCmd.Parameters.AddWithValue(
+                    "@id",
+                    id);
+
+                    int openCount =
+                    Convert.ToInt32(
+                    checkCmd.ExecuteScalar());
+
+                    if (openCount > 0)
                     {
-                        dashboard.RefreshDashboard();
+                        MessageBox.Show(
+                        "Cannot delete this department because there are active job vacancies using it.");
+
+                        conn.Close();
+                        return;
                     }
+
+                    // DELETE CLOSED VACANCIES
+                    string deleteVacanciesQuery =
+                    @"DELETE FROM JobVacancies
+                    WHERE department_id = @id
+                    AND vacancy_status = 'Closed'";
+
+                    MySqlCommand deleteVacanciesCmd =
+                    new MySqlCommand(
+                    deleteVacanciesQuery,
+                    conn);
+
+                    deleteVacanciesCmd.Parameters.AddWithValue(
+                    "@id",
+                    id);
+
+                    deleteVacanciesCmd.ExecuteNonQuery();
+
+                    // DELETE DEPARTMENT
+                    string deleteDepartmentQuery =
+                    @"DELETE FROM Departments
+                    WHERE department_id = @id";
+
+                    MySqlCommand deleteDepartmentCmd =
+                    new MySqlCommand(
+                    deleteDepartmentQuery,
+                    conn);
+
+                    deleteDepartmentCmd.Parameters.AddWithValue(
+                    "@id",
+                    id);
+
+                    deleteDepartmentCmd.ExecuteNonQuery();
+
+                    AddAuditTrail(
+                    "Deleted Department");
+
+                    conn.Close();
+
+                    MessageBox.Show(
+                    "Department deleted successfully!");
+
+                    txtDepartmentName.Clear();
+
+                    LoadDepartments();
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show(
+                    ex.Message);
                 }
             }
+        }
+        private void dgvDepartments_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
