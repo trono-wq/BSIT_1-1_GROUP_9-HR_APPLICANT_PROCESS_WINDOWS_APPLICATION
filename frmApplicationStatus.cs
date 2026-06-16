@@ -21,5 +21,22 @@ namespace COMP_003_CAPSTONE
     {
 
     }
-}
+
+        private void dgvApplicationStatus_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmApplicantDashboard dashboard = new frmApplicantDashboard();
+            dashboard.Show();
+            this.Hide();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

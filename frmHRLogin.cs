@@ -68,7 +68,6 @@ namespace COMP_003_CAPSTONE
                         @userId";
 
                         MySqlCommand updateCmd = new MySqlCommand(updateQuery, conn);
-
                         updateCmd.Parameters.AddWithValue("@userId", userId);
 
                         updateCmd.ExecuteNonQuery();
