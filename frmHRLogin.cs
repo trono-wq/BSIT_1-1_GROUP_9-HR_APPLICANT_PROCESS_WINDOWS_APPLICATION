@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,7 @@ namespace COMP_003_CAPSTONE
         {
             InitializeComponent();
         }
-        
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             try
@@ -46,60 +47,46 @@ namespace COMP_003_CAPSTONE
 
                     if (reader.Read())
                     {
-                        int userId =
-                        Convert.ToInt32(
-                        reader["user_id"]);
+                        int userId = Convert.ToInt32(reader["user_id"]);
 
                         UserSession.UserId = userId;
-
                         UserSession.Email = txtEmail.Text.Trim();
 
-
-                        string role =
-                        reader["role_name"]
-                        .ToString();
+                        string role = reader["role_name"].ToString();
 
                         reader.Close();
 
                         string updateQuery = @"UPDATE Users
-                        SET o_last_user_login_at =
-                        NOW()
-                        WHERE user_id =
-                        @userId";
+                        SET o_last_user_login_at = NOW()
+                        WHERE user_id = @userId";
 
                         MySqlCommand updateCmd = new MySqlCommand(updateQuery, conn);
-
                         updateCmd.Parameters.AddWithValue("@userId", userId);
-
                         updateCmd.ExecuteNonQuery();
 
                         if (role == "HR Manager / Admin")
                         {
                             frmHRManagerAdminDashboard manageradmindashboard = new frmHRManagerAdminDashboard();
-
                             manageradmindashboard.Show();
                             this.Hide();
                         }
-
                         else if (role == "HR Staff")
                         {
+                            AuditTrail.Log("Login", "HR Staff logged in", "frmHRLogin");
                             frmStaffDashboard staffdashboard = new frmStaffDashboard();
-
                             staffdashboard.Show();
                             this.Hide();
                         }
                     }
-
                     else
                     {
-                        MessageBox.Show ("Invalid email or password.");
+                        MessageBox.Show("Invalid email or password.");
                     }
                 }
             }
-
             catch (Exception ex)
             {
-                MessageBox.Show ("Error: " + ex.Message);
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
 
@@ -109,7 +96,6 @@ namespace COMP_003_CAPSTONE
             {
                 txtPassword.UseSystemPasswordChar = false;
             }
-
             else
             {
                 txtPassword.UseSystemPasswordChar = true;
@@ -117,7 +103,7 @@ namespace COMP_003_CAPSTONE
         }
 
         private void button1_Click(object sender, EventArgs e)
-        { 
+        {
             label4.Visible = true;
             label5.Visible = true;
             label6.Visible = true;
@@ -143,12 +129,12 @@ namespace COMP_003_CAPSTONE
             textBox4.Visible = false;
             button2.Visible = false;
         }
- 
-        private void button2_Click(object sender, EventArgs e) 
+
+        private void button2_Click(object sender, EventArgs e)
         {
             if (textBox2.Text != textBox3.Text)
             {
-                MessageBox.Show ("Passwords do not match.");
+                MessageBox.Show("Passwords do not match.");
                 return;
             }
 
@@ -165,8 +151,7 @@ namespace COMP_003_CAPSTONE
                     WHERE email = @email
                     AND password = @password";
 
-                    MySqlCommand checkCmd = new MySqlCommand (checkQuery, conn);
-
+                    MySqlCommand checkCmd = new MySqlCommand(checkQuery, conn);
                     checkCmd.Parameters.AddWithValue("@email", textBox4.Text.Trim());
                     checkCmd.Parameters.AddWithValue("@password", textBox1.Text.Trim());
 
@@ -174,7 +159,7 @@ namespace COMP_003_CAPSTONE
 
                     if (result == null)
                     {
-                        MessageBox.Show ("Old password is incorrect.");
+                        MessageBox.Show("Old password is incorrect.");
                         return;
                     }
 
@@ -182,13 +167,12 @@ namespace COMP_003_CAPSTONE
                     SET password = @newPassword
                     WHERE user_id = @userId";
 
-                    MySqlCommand updateCmd = new MySqlCommand (updateQuery, conn);
-
+                    MySqlCommand updateCmd = new MySqlCommand(updateQuery, conn);
                     updateCmd.Parameters.AddWithValue("@newPassword", textBox2.Text.Trim());
                     updateCmd.Parameters.AddWithValue("@userId", Convert.ToInt32(result));
                     updateCmd.ExecuteNonQuery();
 
-                    MessageBox.Show ("Password changed successfully!");
+                    MessageBox.Show("Password changed successfully!");
 
                     label4.Visible = false;
                     label5.Visible = false;
@@ -206,10 +190,9 @@ namespace COMP_003_CAPSTONE
                     textBox3.Clear();
                 }
             }
-
             catch (Exception ex)
             {
-                MessageBox.Show ("Error: " + ex.Message);
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
 
