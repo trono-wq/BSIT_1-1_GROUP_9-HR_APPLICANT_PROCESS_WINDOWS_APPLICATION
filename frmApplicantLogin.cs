@@ -18,62 +18,7 @@ namespace COMP_003_CAPSTONE
         {
             InitializeComponent();
         }
-        private void btnLogin_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                DatabaseConnection db = new DatabaseConnection();
 
-                using (MySqlConnection conn = db.GetConnection())
-                {
-                    conn.Open();
-
-                    string query = @"SELECT applicant_account_id
-                             FROM ApplicantAccounts
-                             WHERE email = @email
-                             AND password = @password
-                             AND account_status = 'Active'";
-
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
-
-                    cmd.Parameters.AddWithValue("@email", txtEmail.Text);
-                    cmd.Parameters.AddWithValue("@password", txtPassword.Text);
-
-                    object result = cmd.ExecuteScalar();
-
-                    if (result != null)
-                    {
-                        string updateLogin =
-                            @"UPDATE ApplicantAccounts
-                      SET o_last_account_login_at = NOW()
-                      WHERE applicant_account_id = @id";
-
-                        MySqlCommand updateCmd =
-                            new MySqlCommand(updateLogin, conn);
-
-                        updateCmd.Parameters.AddWithValue("@id", result);
-                        updateCmd.ExecuteNonQuery();
-
-                        MessageBox.Show("Login Successful!");
-
-                        frmApplicantDashboard AD =
-                            new frmApplicantDashboard();
-
-                        AD.Show();
-                        this.Hide();
-                    }
-                    else
-                    {
-                        MessageBox.Show(
-                            "Invalid email/password or account inactive.");
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
@@ -95,11 +40,16 @@ namespace COMP_003_CAPSTONE
         {
 
             string connString =
-        "server=localhost;database=hr_applicant_process_window_application;uid=root;pwd=09303281417Ms;";
+ "server=localhost;port=3306;database=hr_applicant_process_window_application;user id=root;password=1234;";
+
+
+
+
 
             using (MySqlConnection conn = new MySqlConnection(connString))
             {
                 conn.Open();
+                MessageBox.Show(conn.ConnectionString);
 
                 string query = @"SELECT applicant_account_id
                  FROM ApplicantAccounts
