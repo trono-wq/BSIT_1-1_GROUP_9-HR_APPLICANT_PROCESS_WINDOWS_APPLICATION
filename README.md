@@ -10,9 +10,13 @@ project.
 AI was used to: 
 
 • Understand C# and MySQL programming concepts
+
 • Assist in debugging and fixing errors
+
 • Generate sample code and logic suggestions
+
 • Help design forms and user interfaces
+
 • Assist in writing documentation and reports
 
 The project remains the original work of the development team, with AI serving only as a 
