@@ -24,6 +24,10 @@ namespace COMP_003_CAPSTONE
             SetupControls();
         }
 
+        private void frmInterviewEvaluation_Load(object sender, EventArgs e)
+        {
+        }
+
         public void SetApplicationId(int applicationId)
         {
             _applicationId = applicationId;
