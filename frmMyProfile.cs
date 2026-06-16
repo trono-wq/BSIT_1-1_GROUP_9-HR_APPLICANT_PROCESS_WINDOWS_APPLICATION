@@ -13,7 +13,7 @@ namespace COMP_003_CAPSTONE
 {
     public partial class frmMyProfile : Form
     {
-        string connString = "server=localhost;database=hr_applicant_process_window_application;uid=root;pwd=;";
+        string connString = "server=localhost;database=hr_applicant_process_window_application;uid=root;pwd=1234;";
         private int applicantAccountId;
 
         public frmMyProfile()
@@ -137,3 +137,8 @@ namespace COMP_003_CAPSTONE
         }
     }
 }
+
+
+
+
+
