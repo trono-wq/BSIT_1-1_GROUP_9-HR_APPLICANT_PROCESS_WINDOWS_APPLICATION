@@ -7,11 +7,13 @@ The development team reviewed, tested, and modified all AI-generated suggestions
 using them in the project. Final decisions regarding the system design, database structure, 
 functionality, and implementation were made by the researchers and developers of the 
 project.
-AI was used to:
+AI was used to: 
+
 • Understand C# and MySQL programming concepts
 • Assist in debugging and fixing errors
 • Generate sample code and logic suggestions
 • Help design forms and user interfaces
 • Assist in writing documentation and reports
+
 The project remains the original work of the development team, with AI serving only as a 
 supporting tool throughout the development process
