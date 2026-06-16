@@ -439,7 +439,7 @@ namespace COMP_003_CAPSTONE
                     cmd.Parameters.AddWithValue("@requiredDocuments", documents);
                     cmd.Parameters.AddWithValue("@status", cmbStatus.Text);
                     cmd.Parameters.AddWithValue("@updatedAt", DateTime.Now);
-                    cmd.Parameters.AddWithValue("@updatedBy", 1);
+                    cmd.Parameters.AddWithValue("@updatedBy", UserSession.UserId);
                     cmd.ExecuteNonQuery();
 
                     if (cmbStatus.Text == "Open")
@@ -583,7 +583,7 @@ namespace COMP_003_CAPSTONE
                     cmd.Parameters.AddWithValue("@status", cmbStatus.Text);
                     cmd.Parameters.AddWithValue("@id", selectedVacancyId);
                     cmd.Parameters.AddWithValue("@updatedAt", DateTime.Now);
-                    cmd.Parameters.AddWithValue("@updatedBy", 1);
+                    cmd.Parameters.AddWithValue("@updatedBy", UserSession.UserId);
                     cmd.ExecuteNonQuery();
 
                     if (cmbStatus.Text == "Open")

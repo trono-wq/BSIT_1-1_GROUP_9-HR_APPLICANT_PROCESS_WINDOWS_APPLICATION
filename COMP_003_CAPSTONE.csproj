@@ -138,11 +138,11 @@
     <Compile Include="frmAssessmentTypeForm.Designer.cs">
       <DependentUpon>frmAssessmentTypeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmDepartmentForm.cs">
+    <Compile Include="frmDepartmentManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDepartmentForm.Designer.cs">
-      <DependentUpon>frmDepartmentForm.cs</DependentUpon>
+    <Compile Include="frmDepartmentManagement.Designer.cs">
+      <DependentUpon>frmDepartmentManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="frmEmploymentTypeForm.cs">
       <SubType>Form</SubType>
@@ -211,11 +211,11 @@
       <DependentUpon>frmHRStaffDashboard.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMaintenance.cs">
+    <Compile Include="frmMaintenanceManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMaintenance.Designer.cs">
-      <DependentUpon>frmMaintenance.cs</DependentUpon>
+    <Compile Include="frmMaintenanceManagement.Designer.cs">
+      <DependentUpon>frmMaintenanceManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMyApplication.cs">
       <SubType>Form</SubType>
@@ -289,6 +289,9 @@
     <EmbeddedResource Include="frmApplicationStatus.resx">
       <DependentUpon>frmApplicationStatus.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDepartmentManagement.resx">
+      <DependentUpon>frmDepartmentManagement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmGeneralLogin.resx">
       <DependentUpon>frmGeneralLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -316,8 +319,8 @@
     <EmbeddedResource Include="frmHRStaffDashboard.resx">
       <DependentUpon>frmHRStaffDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMaintenance.resx">
-      <DependentUpon>frmMaintenance.cs</DependentUpon>
+    <EmbeddedResource Include="frmMaintenanceManagement.resx">
+      <DependentUpon>frmMaintenanceManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMyApplication.resx">
       <DependentUpon>frmMyApplication.cs</DependentUpon>

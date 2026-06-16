@@ -146,7 +146,7 @@ namespace COMP_003_CAPSTONE
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            frmMaintenance MT = new frmMaintenance();
+            frmMaintenanceManagement MT = new frmMaintenanceManagement();
             MT.Show();
         }
 
