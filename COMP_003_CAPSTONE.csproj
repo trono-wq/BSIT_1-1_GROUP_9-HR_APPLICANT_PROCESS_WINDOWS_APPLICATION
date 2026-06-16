@@ -329,6 +329,12 @@
     <EmbeddedResource Include="frmMyApplication.resx">
       <DependentUpon>frmMyApplication.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmMyDocuments.resx">
+      <DependentUpon>frmMyDocuments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMyProfile.resx">
+      <DependentUpon>frmMyProfile.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPositionForm.resx">
       <DependentUpon>frmPositionForm.cs</DependentUpon>
     </EmbeddedResource>

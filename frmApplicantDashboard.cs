@@ -22,35 +22,38 @@ namespace COMP_003_CAPSTONE
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnMyApplication_Click(object sender, EventArgs e)
+        {
+            frmMyApplication MA = new frmMyApplication();
+            MA.Show();
+            this.Hide();
+        }
+
+        private void btnMyDocuments_Click(object sender, EventArgs e)
+        {
+            frmMyDocuments MD = new frmMyDocuments();
+            MD.Show();
+            this.Hide();
+        }
+
+        private void btnApplicationStatus_Click(object sender, EventArgs e)
+        {
+            frmApplicationStatus AS = new frmApplicationStatus();
+            AS.Show();
+            this.Hide();
+        }
+
+        private void btnMyProfile_Click_1(object sender, EventArgs e)
         {
             frmMyProfile MP = new frmMyProfile();
             MP.Show();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnJobVacancies_Click_1(object sender, EventArgs e)
         {
             frmJobVacancies JV = new frmJobVacancies();
             JV.Show();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            frmMyApplication MA = new frmMyApplication();
-            MA.Show();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            frmMyDocuments MD = new frmMyDocuments();
-            MD.Show();
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            frmApplicationStatus AS = new frmApplicationStatus();
-            AS.Show();
-
+            this.Hide();
         }
     }
 }
