@@ -170,9 +170,9 @@ namespace COMP_003_CAPSTONE
 
             string query =
             @"INSERT INTO RequirementTypes
-            (requirement_type_name)
+            (requirement_type_name, o_requirement_type_updated_by)
             VALUES
-            (@name)";
+            (@name, @updatedBy)";
 
             MySqlCommand cmd =
             new MySqlCommand(query, conn);
@@ -180,7 +180,8 @@ namespace COMP_003_CAPSTONE
             cmd.Parameters.AddWithValue(
             "@name",
             txtRequirementTypeName.Text.Trim());
-
+            cmd.Parameters.AddWithValue(    
+                "@updatedBy", UserSession.UserId);
             cmd.ExecuteNonQuery();
 
             AddAuditTrail(
