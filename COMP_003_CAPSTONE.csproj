@@ -95,6 +95,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuditTrail.cs" />
     <Compile Include="Database\DatabaseConnection.cs" />
     <Compile Include="frmAddHRUsers.cs">
       <SubType>Form</SubType>
