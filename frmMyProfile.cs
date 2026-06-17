@@ -81,62 +81,193 @@ namespace COMP_003_CAPSTONE
             cmbCivilStatus.Items.Add("Married");
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void btnSave_Click(
+object sender,
+EventArgs e)
         {
-            string query = @"INSERT INTO Applicants
-                    (
-                        applicant_account_id,
-                        pi_full_name,
-                        pi_date_of_birth,
-                        pi_gender,
-                        pi_civil_status,
-                        pi_nationality,
-                        address,
-                        contact,
-                        education,
-                        skills,
-                        work_experience
-                    )
-                    VALUES
-                    (
-                        @accountId,
-                        @fullname,
-                        @dob,
-                        @gender,
-                        @civil,
-                        @nationality,
-                        @address,
-                        @contact,
-                        @education,
-                        @skills,
-                        @experience
-                    )";
-
-            using (MySqlConnection conn = new MySqlConnection(connString))
+            try
             {
-                conn.Open();
+                using (MySqlConnection conn =
+                new MySqlConnection(connString))
+                {
+                    conn.Open();
 
-                MySqlCommand cmd = new MySqlCommand(query, conn);
+                    // AUTO GET ACCOUNT ID
+                    if (applicantAccountId == 0)
+                    {
+                        string getIdQuery =
+                        @"SELECT applicant_account_id
+                FROM ApplicantAccounts
+                ORDER BY applicant_account_id DESC
+                LIMIT 1";
 
-                cmd.Parameters.AddWithValue("@accountId", applicantAccountId);
-                cmd.Parameters.AddWithValue("@fullname", txtFullName.Text);
-                cmd.Parameters.AddWithValue("@dob", dtpDOB.Value.Date);
-                cmd.Parameters.AddWithValue("@gender", cmbGender.Text);
-                cmd.Parameters.AddWithValue("@civil", cmbCivilStatus.Text);
-                cmd.Parameters.AddWithValue("@nationality", txtNationality.Text);
-                cmd.Parameters.AddWithValue("@address", txtAddress.Text);
-                cmd.Parameters.AddWithValue("@contact", txtContact.Text);
-                cmd.Parameters.AddWithValue("@education", txtEducation.Text);
-                cmd.Parameters.AddWithValue("@skills", txtSkills.Text);
-                cmd.Parameters.AddWithValue("@experience", txtExperience.Text);
+                        MySqlCommand getIdCmd =
+                        new MySqlCommand(
+                        getIdQuery,
+                        conn);
 
-                cmd.ExecuteNonQuery();
+                        object result =
+                        getIdCmd.ExecuteScalar();
 
-                MessageBox.Show("Profile saved successfully!");
+                        if (result != null)
+                        {
+                            applicantAccountId =
+                            Convert.ToInt32(result);
+                        }
+                        else
+                        {
+                            MessageBox.Show(
+                            "No applicant account found.");
+                            return;
+                        }
+                    }
+
+                    MessageBox.Show(
+                    "Applicant ID = "
+                    + applicantAccountId);
+
+                    // CHECK IF PROFILE EXISTS
+                    string checkQuery =
+                    @"SELECT COUNT(*)
+            FROM Applicants
+            WHERE applicant_account_id = @id";
+
+                    MySqlCommand checkCmd =
+                    new MySqlCommand(
+                    checkQuery,
+                    conn);
+
+                    checkCmd.Parameters.AddWithValue(
+                    "@id",
+                    applicantAccountId);
+
+                    int count =
+                    Convert.ToInt32(
+                    checkCmd.ExecuteScalar());
+
+                    string query = "";
+
+                    // UPDATE
+                    if (count > 0)
+                    {
+                        query =
+                        @"UPDATE Applicants
+                SET
+                pi_full_name = @fullname,
+                pi_date_of_birth = @dob,
+                pi_gender = @gender,
+                pi_civil_status = @civil,
+                pi_nationality = @nationality,
+                address = @address,
+                contact = @contact,
+                education = @education,
+                skills = @skills,
+                work_experience = @experience
+                WHERE applicant_account_id =
+                @accountId";
+                    }
+
+                    // INSERT
+                    else
+                    {
+                        query =
+                        @"INSERT INTO Applicants
+                (
+                    applicant_account_id,
+                    pi_full_name,
+                    pi_date_of_birth,
+                    pi_gender,
+                    pi_civil_status,
+                    pi_nationality,
+                    address,
+                    contact,
+                    education,
+                    skills,
+                    work_experience
+                )
+                VALUES
+                (
+                    @accountId,
+                    @fullname,
+                    @dob,
+                    @gender,
+                    @civil,
+                    @nationality,
+                    @address,
+                    @contact,
+                    @education,
+                    @skills,
+                    @experience
+                )";
+                    }
+
+                    MySqlCommand cmd =
+                    new MySqlCommand(
+                    query,
+                    conn);
+
+                    cmd.Parameters.AddWithValue(
+                    "@accountId",
+                    applicantAccountId);
+
+                    cmd.Parameters.AddWithValue(
+                    "@fullname",
+                    txtFullName.Text);
+
+                    cmd.Parameters.AddWithValue(
+                    "@dob",
+                    dtpDOB.Value.Date);
+
+                    cmd.Parameters.AddWithValue(
+                    "@gender",
+                    cmbGender.Text);
+
+                    cmd.Parameters.AddWithValue(
+                    "@civil",
+                    cmbCivilStatus.Text);
+
+                    cmd.Parameters.AddWithValue(
+                    "@nationality",
+                    txtNationality.Text);
+
+                    cmd.Parameters.AddWithValue(
+                    "@address",
+                    txtAddress.Text);
+
+                    cmd.Parameters.AddWithValue(
+                    "@contact",
+                    txtContact.Text);
+
+                    cmd.Parameters.AddWithValue(
+                    "@education",
+                    txtEducation.Text);
+
+                    cmd.Parameters.AddWithValue(
+                    "@skills",
+                    txtSkills.Text);
+
+                    cmd.Parameters.AddWithValue(
+                    "@experience",
+                    txtExperience.Text);
+
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show(
+                    "Profile saved successfully!");
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
+
+
+
     }
 }
+    
 
 
 

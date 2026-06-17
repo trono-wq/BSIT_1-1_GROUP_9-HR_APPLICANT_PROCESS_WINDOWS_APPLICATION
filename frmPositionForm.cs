@@ -184,7 +184,7 @@ namespace COMP_003_CAPSTONE
 
             string query =
             @"INSERT INTO PositionTypes
-            (position_type_name, o_position_updated_by)
+            (position_type_name, o_position_type_added_by)
             VALUES
             (@name, @updatedBy)";
 
@@ -290,7 +290,7 @@ namespace COMP_003_CAPSTONE
             string query =
             @"UPDATE PositionTypes
             SET position_type_name = @name
-            o_position_updated_by = @updatedBy  
+            o_position_type_added_by = @updatedBy  
             WHERE position_type_id = @id";
 
             MySqlCommand cmd =

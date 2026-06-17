@@ -146,42 +146,137 @@ namespace COMP_003_CAPSTONE
 
 
         private void btnApply_Click(
-object sender,
-EventArgs e)
+ object sender,
+ EventArgs e)
         {
-            if (dgvJobVacancies.CurrentRow != null)
-            {
-                string position =
-                dgvJobVacancies.CurrentRow
-                .Cells["position_type_name"]
-                .Value
-                .ToString();
-
-                MessageBox.Show(
-                "You applied for: "
-                + position);
-            }
-            else
+            if (dgvJobVacancies.SelectedRows.Count == 0)
             {
                 MessageBox.Show(
                 "Please select a job first.");
+
+                return;
+            }
+
+            try
+            {
+                int jobVacancyId =
+                Convert.ToInt32(
+                dgvJobVacancies
+                .SelectedRows[0]
+                .Cells["job_vacancy_id"]
+                .Value);
+
+                string connString =
+                "server=localhost;database=hr_applicant_process_window_application;uid=root;pwd=1234;";
+
+                using (MySqlConnection conn =
+                new MySqlConnection(connString))
+                {
+                    conn.Open();
+
+                    // =====================================
+                    // GET APPLICANT ID
+                    // =====================================
+                    string applicantQuery =
+                    @"SELECT applicant_id
+            FROM Applicants
+            ORDER BY applicant_id DESC
+            LIMIT 1";
+
+                    MySqlCommand applicantCmd =
+                    new MySqlCommand(
+                    applicantQuery,
+                    conn);
+
+                    object applicantResult =
+                    applicantCmd.ExecuteScalar();
+
+                    if (applicantResult == null)
+                    {
+                        MessageBox.Show(
+                        "Please complete your profile first.");
+
+                        return;
+                    }
+
+                    int applicantId =
+                    Convert.ToInt32(
+                    applicantResult);
+
+                    string checkQuery =
+                    @"SELECT COUNT(*)
+            FROM Applications
+            WHERE applicant_id = @applicantId
+            AND job_vacancy_id = @jobId";
+
+                    MySqlCommand checkCmd =
+                    new MySqlCommand(
+                    checkQuery,
+                    conn);
+
+                    checkCmd.Parameters.AddWithValue(
+                    "@applicantId",
+                    applicantId);
+
+                    checkCmd.Parameters.AddWithValue(
+                    "@jobId",
+                    jobVacancyId);
+
+                    int count =
+                    Convert.ToInt32(
+                    checkCmd.ExecuteScalar());
+
+                    if (count > 0)
+                    {
+                        MessageBox.Show(
+                        "You already applied for this job.");
+
+                        return;
+                    }
+
+  
+                    string insertQuery =
+                    @"INSERT INTO Applications
+            (
+                applicant_id,
+                job_vacancy_id,
+                application_status
+            )
+            VALUES
+            (
+                @applicantId,
+                @jobId,
+                'Submitted'
+            )";
+
+                    MySqlCommand insertCmd =
+                    new MySqlCommand(
+                    insertQuery,
+                    conn);
+
+                    insertCmd.Parameters.AddWithValue(
+                    "@applicantId",
+                    applicantId);
+
+                    insertCmd.Parameters.AddWithValue(
+                    "@jobId",
+                    jobVacancyId);
+
+                    insertCmd.ExecuteNonQuery();
+
+                    MessageBox.Show(
+                    "Application submitted successfully!");
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
 
 
-
-        private void btnBack_Click(
-        object sender,
-        EventArgs e)
-        {
-            frmApplicantDashboard dashboard =
-            new frmApplicantDashboard();
-
-            dashboard.Show();
-
-            this.Hide();
-        }
     }
 }
 
