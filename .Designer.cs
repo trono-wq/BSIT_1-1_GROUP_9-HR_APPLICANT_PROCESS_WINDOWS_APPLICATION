@@ -1,6 +1,6 @@
 ﻿namespace COMP_003_CAPSTONE
 {
-    partial class frmStaffDashboard
+    partial class frmHRStaffDashboard
     {
         /// <summary>
         /// Required designer variable.

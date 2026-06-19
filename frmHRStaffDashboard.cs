@@ -12,10 +12,10 @@ using System.Windows.Forms;
 
 namespace COMP_003_CAPSTONE
 {
-    public partial class frmStaffDashboard : Form
+    public partial class frmHRStaffDashboard : Form
     {
 
-        public frmStaffDashboard()
+        public frmHRStaffDashboard()
         {
             InitializeComponent();
         }

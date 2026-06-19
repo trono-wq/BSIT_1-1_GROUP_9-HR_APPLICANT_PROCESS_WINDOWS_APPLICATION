@@ -1,13 +1,6 @@
 ﻿using HRApplicantProcessSystem.Database;
 using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace COMP_003_CAPSTONE
@@ -17,8 +10,9 @@ namespace COMP_003_CAPSTONE
         public frmHRLogin()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
-        
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             try
@@ -38,74 +32,59 @@ namespace COMP_003_CAPSTONE
                     AND u.password = @password";
 
                     MySqlCommand cmd = new MySqlCommand(query, conn);
-
                     cmd.Parameters.AddWithValue("@email", txtEmail.Text.Trim());
                     cmd.Parameters.AddWithValue("@password", txtPassword.Text.Trim());
-
                     MySqlDataReader reader = cmd.ExecuteReader();
 
                     if (reader.Read())
                     {
-                        int userId =
-                        Convert.ToInt32(
-                        reader["user_id"]);
+                        int userId = Convert.ToInt32(reader["user_id"]);
 
                         UserSession.UserId = userId;
-
                         UserSession.Email = txtEmail.Text.Trim();
 
-
-                        string role =
-                        reader["role_name"]
-                        .ToString();
-
+                        string role = reader["role_name"].ToString();
                         reader.Close();
 
                         string updateQuery = @"UPDATE Users
-                        SET o_last_user_login_at =
-                        NOW()
-                        WHERE user_id =
-                        @userId";
+                        SET o_last_user_login_at = NOW()
+                        WHERE user_id = @userId";
 
                         MySqlCommand updateCmd = new MySqlCommand(updateQuery, conn);
-
                         updateCmd.Parameters.AddWithValue("@userId", userId);
-
                         updateCmd.ExecuteNonQuery();
 
                         if (role == "HR Manager / Admin")
                         {
-                            frmHRManagerAdminDashboard manageradmindashboard = new frmHRManagerAdminDashboard();
-
-                            manageradmindashboard.Show();
+                            frmHRManagerAdminDashboard HRManagerAdminDashboard = new frmHRManagerAdminDashboard();
+                            HRManagerAdminDashboard.Show();
                             this.Hide();
                         }
 
                         else if (role == "HR Staff")
                         {
-                            frmStaffDashboard staffdashboard = new frmStaffDashboard();
-
-                            staffdashboard.Show();
+                            frmHRStaffDashboard HRStaffDashboard = new frmHRStaffDashboard();
+                            HRStaffDashboard.Show();
                             this.Hide();
                         }
                     }
 
                     else
                     {
-                        MessageBox.Show ("Invalid email or password.");
+                        MessageBox.Show("Invalid email or password.");
                     }
                 }
             }
 
             catch (Exception ex)
             {
-                MessageBox.Show ("Error: " + ex.Message);
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void chkShowPassword_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked)
+            if (chkShowPassword.Checked)
             {
                 txtPassword.UseSystemPasswordChar = false;
             }
@@ -116,39 +95,39 @@ namespace COMP_003_CAPSTONE
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        { 
-            label4.Visible = true;
-            label5.Visible = true;
-            label6.Visible = true;
-            label7.Visible = true;
-            label8.Visible = true;
-            textBox1.Visible = true;
-            textBox2.Visible = true;
-            textBox3.Visible = true;
-            textBox4.Visible = true;
-            button2.Visible = true;
+        private void btnChangePassword_Click(object sender, EventArgs e)
+        {
+            lblChangePassword.Visible = true;
+            lblOldPassword.Visible = true;
+            lblNewPassword.Visible = true;
+            lblConfirmPassword.Visible = true;
+            lblEmail.Visible = true;
+            txtOldPassword.Visible = true;
+            txtNewPassword.Visible = true;
+            txtConfirmPassword.Visible = true;
+            txtEmail2.Visible = true;
+            btnConfirmNewPassword.Visible = true;
         }
 
         private void frmHRLogin_Load(object sender, EventArgs e)
         {
-            label4.Visible = false;
-            label5.Visible = false;
-            label6.Visible = false;
-            label7.Visible = false;
-            label8.Visible = false;
-            textBox1.Visible = false;
-            textBox2.Visible = false;
-            textBox3.Visible = false;
-            textBox4.Visible = false;
-            button2.Visible = false;
+            lblChangePassword.Visible = false;
+            lblOldPassword.Visible = false;
+            lblNewPassword.Visible = false;
+            lblConfirmPassword.Visible = false;
+            lblEmail.Visible = false;
+            txtOldPassword.Visible = false;
+            txtNewPassword.Visible = false;
+            txtConfirmPassword.Visible = false;
+            txtEmail2.Visible = false;
+            btnConfirmNewPassword.Visible = false;
         }
- 
-        private void button2_Click(object sender, EventArgs e) 
+
+        private void btnConfirmNewPassword_Click(object sender, EventArgs e)
         {
-            if (textBox2.Text != textBox3.Text)
+            if (txtNewPassword.Text != txtConfirmPassword.Text)
             {
-                MessageBox.Show ("Passwords do not match.");
+                MessageBox.Show("Passwords do not match.");
                 return;
             }
 
@@ -165,16 +144,15 @@ namespace COMP_003_CAPSTONE
                     WHERE email = @email
                     AND password = @password";
 
-                    MySqlCommand checkCmd = new MySqlCommand (checkQuery, conn);
-
-                    checkCmd.Parameters.AddWithValue("@email", textBox4.Text.Trim());
-                    checkCmd.Parameters.AddWithValue("@password", textBox1.Text.Trim());
+                    MySqlCommand checkCmd = new MySqlCommand(checkQuery, conn);
+                    checkCmd.Parameters.AddWithValue("@email", txtEmail2.Text.Trim());
+                    checkCmd.Parameters.AddWithValue("@password", txtOldPassword.Text.Trim());
 
                     object result = checkCmd.ExecuteScalar();
 
                     if (result == null)
                     {
-                        MessageBox.Show ("Old password is incorrect.");
+                        MessageBox.Show("Old password is incorrect.");
                         return;
                     }
 
@@ -182,44 +160,49 @@ namespace COMP_003_CAPSTONE
                     SET password = @newPassword
                     WHERE user_id = @userId";
 
-                    MySqlCommand updateCmd = new MySqlCommand (updateQuery, conn);
-
-                    updateCmd.Parameters.AddWithValue("@newPassword", textBox2.Text.Trim());
+                    MySqlCommand updateCmd = new MySqlCommand(updateQuery, conn);
+                    updateCmd.Parameters.AddWithValue("@newPassword", txtNewPassword.Text.Trim());
                     updateCmd.Parameters.AddWithValue("@userId", Convert.ToInt32(result));
                     updateCmd.ExecuteNonQuery();
+                    MessageBox.Show("Password changed successfully!");
 
-                    MessageBox.Show ("Password changed successfully!");
-
-                    label4.Visible = false;
-                    label5.Visible = false;
-                    label6.Visible = false;
-                    label7.Visible = false;
-                    label8.Visible = false;
-                    textBox1.Visible = false;
-                    textBox2.Visible = false;
-                    textBox3.Visible = false;
-                    textBox4.Visible = false;
-                    button2.Visible = false;
-
-                    textBox1.Clear();
-                    textBox2.Clear();
-                    textBox3.Clear();
+                    lblChangePassword.Visible = false;
+                    lblOldPassword.Visible = false;
+                    lblNewPassword.Visible = false;
+                    lblConfirmPassword.Visible = false;
+                    lblEmail.Visible = false;
+                    txtOldPassword.Visible = false;
+                    txtNewPassword.Visible = false;
+                    txtConfirmPassword.Visible = false;
+                    txtEmail2.Visible = false;
+                    btnConfirmNewPassword.Visible = false;
+                    txtOldPassword.Clear();
+                    txtNewPassword.Clear();
+                    txtConfirmPassword.Clear();
                 }
             }
-
             catch (Exception ex)
             {
-                MessageBox.Show ("Error: " + ex.Message);
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
 
-        private void label1_Click(object sender, EventArgs e) { }
-        private void label3_Click(object sender, EventArgs e) { }
-        private void txtEmail_TextChanged(object sender, EventArgs e) { }
-        private void label4_Click(object sender, EventArgs e) { }
-        private void label5_Click(object sender, EventArgs e) { }
-        private void textBox1_TextChanged(object sender, EventArgs e) { }
-        private void textBox2_TextChanged(object sender, EventArgs e) { }
-        private void textBox3_TextChanged(object sender, EventArgs e) { }
+        private void frmHRLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is frmGeneralLogin)
+                {
+                    form.Show();
+                    break;
+                }
+            }
+            this.Close();
+        }
     }
 }
