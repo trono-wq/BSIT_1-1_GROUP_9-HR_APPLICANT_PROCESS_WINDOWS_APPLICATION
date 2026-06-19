@@ -22,8 +22,23 @@ namespace COMP_003_CAPSTONE
                 using (MySqlConnection conn = db.GetConnection())
                 {
                     conn.Open();
+                    string emailCheckQuery =
+                    @"SELECT COUNT(*)
+                    FROM Users
+                    WHERE email = @email";
 
-                    string query = @"SELECT u.user_id,
+                    MySqlCommand emailCheckCmd = new MySqlCommand(emailCheckQuery, conn);
+                    emailCheckCmd.Parameters.AddWithValue ("@email", txtEmail.Text.Trim());
+                    int emailCount = Convert.ToInt32(emailCheckCmd.ExecuteScalar());
+
+                    if (emailCount == 0)
+                    {
+                        MessageBox.Show("Email not found.");
+                        return;
+                    }
+
+                    string query = 
+                    @"SELECT u.user_id,
                     r.role_name
                     FROM Users u
                     INNER JOIN Roles r
@@ -71,7 +86,7 @@ namespace COMP_003_CAPSTONE
 
                     else
                     {
-                        MessageBox.Show("Invalid email or password.");
+                        MessageBox.Show("Invalid password.");
                     }
                 }
             }
@@ -95,16 +110,16 @@ namespace COMP_003_CAPSTONE
             }
         }
 
-        private void btnChangePassword_Click(object sender, EventArgs e)
+        private void btnChangeToNewPassword_Click(object sender, EventArgs e)
         {
             lblChangePassword.Visible = true;
             lblOldPassword.Visible = true;
             lblNewPassword.Visible = true;
-            lblConfirmPassword.Visible = true;
+            lblConfirmNewPassword.Visible = true;
             lblEmail.Visible = true;
             txtOldPassword.Visible = true;
             txtNewPassword.Visible = true;
-            txtConfirmPassword.Visible = true;
+            txtConfirmNewPassword.Visible = true;
             txtEmail2.Visible = true;
             btnConfirmNewPassword.Visible = true;
         }
@@ -114,20 +129,26 @@ namespace COMP_003_CAPSTONE
             lblChangePassword.Visible = false;
             lblOldPassword.Visible = false;
             lblNewPassword.Visible = false;
-            lblConfirmPassword.Visible = false;
+            lblConfirmNewPassword.Visible = false;
             lblEmail.Visible = false;
             txtOldPassword.Visible = false;
             txtNewPassword.Visible = false;
-            txtConfirmPassword.Visible = false;
+            txtConfirmNewPassword.Visible = false;
             txtEmail2.Visible = false;
             btnConfirmNewPassword.Visible = false;
         }
 
         private void btnConfirmNewPassword_Click(object sender, EventArgs e)
         {
-            if (txtNewPassword.Text != txtConfirmPassword.Text)
+            if (txtNewPassword.Text != txtConfirmNewPassword.Text)
             {
                 MessageBox.Show("Passwords do not match.");
+                return;
+            }
+
+            if (txtOldPassword.Text == txtNewPassword.Text)
+            {
+                MessageBox.Show("New password cannot be the same as the old password.");
                 return;
             }
 
@@ -138,6 +159,20 @@ namespace COMP_003_CAPSTONE
                 using (MySqlConnection conn = db.GetConnection())
                 {
                     conn.Open();
+                    string emailCheckQuery =
+                    @"SELECT COUNT(*)
+                    FROM Users
+                    WHERE email = @email";
+
+                    MySqlCommand emailCheckCmd = new MySqlCommand(emailCheckQuery, conn);
+                    emailCheckCmd.Parameters.AddWithValue("@email", txtEmail2.Text.Trim());
+                    int emailCount = Convert.ToInt32(emailCheckCmd.ExecuteScalar());
+
+                    if (emailCount == 0)
+                    {
+                        MessageBox.Show("Email not found.");
+                        return;
+                    }
 
                     string checkQuery = @"SELECT user_id
                     FROM Users
@@ -147,7 +182,6 @@ namespace COMP_003_CAPSTONE
                     MySqlCommand checkCmd = new MySqlCommand(checkQuery, conn);
                     checkCmd.Parameters.AddWithValue("@email", txtEmail2.Text.Trim());
                     checkCmd.Parameters.AddWithValue("@password", txtOldPassword.Text.Trim());
-
                     object result = checkCmd.ExecuteScalar();
 
                     if (result == null)
@@ -169,16 +203,16 @@ namespace COMP_003_CAPSTONE
                     lblChangePassword.Visible = false;
                     lblOldPassword.Visible = false;
                     lblNewPassword.Visible = false;
-                    lblConfirmPassword.Visible = false;
+                    lblConfirmNewPassword.Visible = false;
                     lblEmail.Visible = false;
                     txtOldPassword.Visible = false;
                     txtNewPassword.Visible = false;
-                    txtConfirmPassword.Visible = false;
+                    txtConfirmNewPassword.Visible = false;
                     txtEmail2.Visible = false;
                     btnConfirmNewPassword.Visible = false;
                     txtOldPassword.Clear();
                     txtNewPassword.Clear();
-                    txtConfirmPassword.Clear();
+                    txtConfirmNewPassword.Clear();
                 }
             }
             catch (Exception ex)
