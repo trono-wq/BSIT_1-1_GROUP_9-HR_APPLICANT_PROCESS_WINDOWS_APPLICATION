@@ -1,13 +1,6 @@
 ﻿using HRApplicantProcessSystem.Database;
 using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace COMP_003_CAPSTONE
@@ -27,11 +20,21 @@ namespace COMP_003_CAPSTONE
         {
             comboBox1.Items.Add ("HR Manager / Admin");
             comboBox1.Items.Add ("HR Staff");
-
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string email = textBox1.Text.Trim();
+
+            if (!System.Text.RegularExpressions.Regex.IsMatch(
+            email,
+            @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+            {
+                MessageBox.Show("Please enter a valid email address.");
+                return;
+            }
+
+
             try
             {
                 DatabaseConnection db =
