@@ -25,14 +25,16 @@ namespace COMP_003_CAPSTONE
         {
             foreach (Form form in Application.OpenForms)
             {
-                if (form is frmHRManagerAdminDashboard)
+                if (form is frmHRManagerAdminDashboard HRMAD)
                 {
+                    HRMAD.ClearHRManagerAdminDashboard();
                     form.Show();
                     break;
                 }
             }
+            this.Close();
         }
-    
+
         private void FrmAddHRUsers_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();

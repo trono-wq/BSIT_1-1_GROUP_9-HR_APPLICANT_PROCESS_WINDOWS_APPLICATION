@@ -19,15 +19,16 @@ namespace COMP_003_CAPSTONE
 
         private void frmJobVacancyManagement_Load(object sender, EventArgs e)
         {
+            LoadRequirementTypes();
             cmbStatus.Items.Clear();
             cmbStatus.Items.AddRange(new string[] { "Open", "Closed" });
 
-            clbDocuments.Items.Clear();
-            clbDocuments.Items.Add("Resume / CV");
-            clbDocuments.Items.Add("Valid ID");
-            clbDocuments.Items.Add("Transcript of Records");
-            clbDocuments.Items.Add("Birth Certificate");
-            clbDocuments.Items.Add("Diploma");
+            clbQualifications.Items.Clear();
+            clbQualifications.Items.Add("Bachelor's Degree");
+            clbQualifications.Items.Add("At least one year of work experience");
+            clbQualifications.Items.Add("Basic computer literacy");
+            clbQualifications.Items.Add("Good communication skills");
+            clbQualifications.Items.Add("Team-oriented");
 
             DatabaseConnection db = new DatabaseConnection();
 
@@ -64,7 +65,7 @@ namespace COMP_003_CAPSTONE
                 cmbEmploymentType.DisplayMember = "employment_type_name";
                 cmbEmploymentType.ValueMember = "employment_type_id";
 
-                clbRequirements.Items.Clear();
+                clbQualifications.Items.Clear();
                 cmbPosition.DataSource = null;
                 cmbPosition.Items.Clear();
 
@@ -85,7 +86,7 @@ namespace COMP_003_CAPSTONE
 
                 while (requirementReader.Read())
                 {
-                    clbRequirements.Items.Add(requirementReader["requirement_type_name"].ToString());
+                    clbQualifications.Items.Add(requirementReader["requirement_type_name"].ToString());
                 }
 
                 requirementReader.Close();
@@ -168,13 +169,13 @@ namespace COMP_003_CAPSTONE
                         return;
                     }
 
-                    if (clbRequirements.CheckedItems.Count == 0)
+                    if (clbQualifications.CheckedItems.Count == 0)
                     {
                         MessageBox.Show("Please select at least one requirement.");
                         return;
                     }
 
-                    if (clbDocuments.CheckedItems.Count == 0)
+                    if (clbRequiredDocuments.CheckedItems.Count == 0)
                     {
                         MessageBox.Show("Please select at least one document.");
                         return;
@@ -200,8 +201,8 @@ namespace COMP_003_CAPSTONE
                         return;
                     }
 
-                    string qualifications = string.Join(", ", clbRequirements.CheckedItems.Cast<object>());
-                    string documents = string.Join(", ", clbDocuments.CheckedItems.Cast<object>());
+                    string qualifications = string.Join(", ", clbQualifications.CheckedItems.Cast<object>());
+                    string documents = string.Join(", ", clbRequiredDocuments.CheckedItems.Cast<object>());
 
                     string query = @"INSERT INTO JobVacancies
                     (
@@ -248,12 +249,12 @@ namespace COMP_003_CAPSTONE
                         AddAuditTrail("Updated status: Closed");
                     }
 
-                    if (!string.IsNullOrWhiteSpace(clbRequirements.Text))
+                    if (!string.IsNullOrWhiteSpace(clbQualifications.Text))
                     {
                         AddAuditTrail("Defined qualifications");
                     }
 
-                    if (!string.IsNullOrWhiteSpace(clbDocuments.Text))
+                    if (!string.IsNullOrWhiteSpace(clbRequiredDocuments.Text))
                     {
                         AddAuditTrail("Defined Documents");
                     }
@@ -263,17 +264,17 @@ namespace COMP_003_CAPSTONE
                     LoadVacancies();
                     cmbPosition.SelectedIndex = -1;
 
-                    for (int i = 0; i < clbRequirements.Items.Count; i++)
+                    for (int i = 0; i < clbQualifications.Items.Count; i++)
                     {
-                        clbRequirements.SetItemChecked(i, false);
+                        clbQualifications.SetItemChecked(i, false);
                     }
 
-                    for (int i = 0; i < clbDocuments.Items.Count; i++)
+                    for (int i = 0; i < clbRequiredDocuments.Items.Count; i++)
                     {
-                        clbDocuments.SetItemChecked(i, false);
+                        clbRequiredDocuments.SetItemChecked(i, false);
                     }
 
-                    cmbPosition.SelectedIndex = -1;
+                    cmbPosition.SelectedIndex       = -1;
                     cmbDepartment.SelectedIndex     = -1;
                     cmbEmploymentType.SelectedIndex = -1;
                     cmbStatus.SelectedIndex         = -1;
@@ -308,13 +309,13 @@ namespace COMP_003_CAPSTONE
                         return;
                     }
                     
-                    if (clbRequirements.CheckedItems.Count == 0)
+                    if (clbQualifications.CheckedItems.Count == 0)
                     {
                         MessageBox.Show("Please select at least one requirement.");
                         return;
                     }
 
-                    if (clbDocuments.CheckedItems.Count == 0)
+                    if (clbRequiredDocuments.CheckedItems.Count == 0)
                     {
                         MessageBox.Show("Please select at least one document.");
                         return;
@@ -341,8 +342,8 @@ namespace COMP_003_CAPSTONE
                         return;
                     }
 
-                    string qualifications = string.Join(", ", clbRequirements.CheckedItems.Cast<object>());
-                    string documents = string.Join(", ", clbDocuments.CheckedItems.Cast<object>());
+                    string qualifications = string.Join(", ", clbQualifications.CheckedItems.Cast<object>());
+                    string documents = string.Join(", ", clbRequiredDocuments.CheckedItems.Cast<object>());
 
                     string query = 
                     @"UPDATE JobVacancies SET
@@ -379,12 +380,12 @@ namespace COMP_003_CAPSTONE
                         AddAuditTrail("Updated status: Closed");
                     }
 
-                    if (!string.IsNullOrWhiteSpace(clbRequirements.Text))
+                    if (!string.IsNullOrWhiteSpace(clbQualifications.Text))
                     {
                         AddAuditTrail("Defined qualifications");
                     }
 
-                    if (!string.IsNullOrWhiteSpace(clbDocuments.Text))
+                    if (!string.IsNullOrWhiteSpace(clbRequiredDocuments.Text))
                     {
                         AddAuditTrail("Defined Documents");
                     }
@@ -396,14 +397,14 @@ namespace COMP_003_CAPSTONE
                     selectedVacancyId = 0;
                     cmbPosition.SelectedIndex = -1;
 
-                    for (int i = 0; i < clbRequirements.Items.Count; i++)
+                    for (int i = 0; i < clbQualifications.Items.Count; i++)
                     {
-                        clbRequirements.SetItemChecked(i, false);
+                        clbQualifications.SetItemChecked(i, false);
                     }
 
-                    for (int i = 0; i < clbDocuments.Items.Count; i++)
+                    for (int i = 0; i < clbRequiredDocuments.Items.Count; i++)
                     {
-                        clbDocuments.SetItemChecked(i, false);
+                        clbRequiredDocuments.SetItemChecked(i, false);
                     }
 
                     cmbPosition.SelectedIndex = -1;
@@ -535,6 +536,31 @@ namespace COMP_003_CAPSTONE
             {
                 DataGridViewRow row = dgvVacancies.Rows[e.RowIndex];
 
+                if (row.IsNewRow)
+                {
+                    selectedVacancyId = 0;
+
+                    cmbPosition.SelectedIndex = -1;
+                    cmbDepartment.SelectedIndex = -1;
+                    cmbEmploymentType.SelectedIndex = -1;
+                    cmbStatus.SelectedIndex = -1;
+
+                    txtUpdatedBy.Clear();
+                    txtUpdatedAt.Clear();
+
+                    for (int i = 0; i < clbQualifications.Items.Count; i++)
+                    {
+                        clbQualifications.SetItemChecked(i, false);
+                    }
+
+                    for (int i = 0; i < clbRequiredDocuments.Items.Count; i++)
+                    {
+                        clbRequiredDocuments.SetItemChecked(i, false);
+                    }
+
+                    return;
+                }
+
                 if (row.Cells["job_vacancy_id"].Value != DBNull.Value)
                 {
                     selectedVacancyId = Convert.ToInt32
@@ -562,11 +588,11 @@ namespace COMP_003_CAPSTONE
                     cmbEmploymentType.SelectedIndex = employmentIndex;
                 }
 
-                clbRequirements.ClearSelected();
+                clbQualifications.ClearSelected();
 
-                for (int i = 0; i < clbRequirements.Items.Count; i++)
+                for (int i = 0; i < clbQualifications.Items.Count; i++)
                 {
-                    clbRequirements.SetItemChecked(i, false);
+                    clbQualifications.SetItemChecked(i, false);
                 }
 
                 string qualificationsText = "";
@@ -580,18 +606,18 @@ namespace COMP_003_CAPSTONE
 
                 foreach (string q in qualifications)
                 {
-                    for (int i = 0; i < clbRequirements.Items.Count; i++)
+                    for (int i = 0; i < clbQualifications.Items.Count; i++)
                     {
-                        if (clbRequirements.Items[i].ToString().Trim() == q.Trim())
+                        if (clbQualifications.Items[i].ToString().Trim() == q.Trim())
                         {
-                            clbRequirements.SetItemChecked(i, true);
+                            clbQualifications.SetItemChecked(i, true);
                         }
                     }
                 }
 
-                for (int i = 0; i < clbDocuments.Items.Count; i++)
+                for (int i = 0; i < clbRequiredDocuments.Items.Count; i++)
                 {
-                    clbDocuments.SetItemChecked(i, false);
+                    clbRequiredDocuments.SetItemChecked(i, false);
                 }
 
                 string documentsText = "";
@@ -605,11 +631,11 @@ namespace COMP_003_CAPSTONE
 
                 foreach (string d in documents)
                 {
-                    for (int i = 0; i < clbDocuments.Items.Count; i++)
+                    for (int i = 0; i < clbRequiredDocuments.Items.Count; i++)
                     {
-                        if (clbDocuments.Items[i].ToString().Trim() == d.Trim())
+                        if (clbRequiredDocuments.Items[i].ToString().Trim() == d.Trim())
                         {
-                            clbDocuments.SetItemChecked(i, true);
+                            clbRequiredDocuments.SetItemChecked(i, true);
                         }
                     }
                 }
@@ -620,5 +646,45 @@ namespace COMP_003_CAPSTONE
                 btnAdd.Enabled = true;
             }
         }
+
+        public class RequirementItem
+        {
+            public int Id { get; set; }
+            public string Name { get; set; }
+            public override string ToString()
+            {
+                return Name;
+            }
+        }
+
+        private void LoadRequirementTypes()
+        {
+            try
+            {
+                DatabaseConnection db = new DatabaseConnection();
+                using (MySqlConnection conn = db.GetConnection())
+                {
+                    conn.Open();
+                    string query = @"SELECT * FROM RequirementTypes";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    clbQualifications.Items.Clear();
+                    while (reader.Read())
+                    {
+                        clbRequiredDocuments.Items.Add(new RequirementItem
+                        {
+                            Id = Convert.ToInt32(reader["requirement_type_id"]),
+                            Name = reader["requirement_type_name"].ToString()
+                        });
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
     }
 }

@@ -43,8 +43,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.clbRequirements = new System.Windows.Forms.CheckedListBox();
-            this.clbDocuments = new System.Windows.Forms.CheckedListBox();
+            this.clbQualifications = new System.Windows.Forms.CheckedListBox();
+            this.clbRequiredDocuments = new System.Windows.Forms.CheckedListBox();
             this.txtUpdatedAt = new System.Windows.Forms.TextBox();
             this.txtUpdatedBy = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -62,17 +62,17 @@
             // dgvVacancies
             // 
             this.dgvVacancies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVacancies.Location = new System.Drawing.Point(270, 9);
+            this.dgvVacancies.Location = new System.Drawing.Point(286, 8);
             this.dgvVacancies.Name = "dgvVacancies";
-            this.dgvVacancies.Size = new System.Drawing.Size(666, 407);
+            this.dgvVacancies.Size = new System.Drawing.Size(650, 407);
             this.dgvVacancies.TabIndex = 47;
             this.dgvVacancies.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVacancies_CellClick);
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(100, 393);
+            this.btnEdit.Location = new System.Drawing.Point(126, 393);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(79, 23);
+            this.btnEdit.Size = new System.Drawing.Size(104, 23);
             this.btnEdit.TabIndex = 45;
             this.btnEdit.Text = "Edit Vacancy";
             this.btnEdit.UseVisualStyleBackColor = true;
@@ -82,7 +82,7 @@
             // 
             this.btnAdd.Location = new System.Drawing.Point(15, 393);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(79, 23);
+            this.btnAdd.Size = new System.Drawing.Size(104, 23);
             this.btnAdd.TabIndex = 44;
             this.btnAdd.Text = "Add Vacancy";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -94,7 +94,7 @@
             this.cmbStatus.Items.AddRange(new object[] {
             "Open",
             "Closed"});
-            this.cmbStatus.Location = new System.Drawing.Point(109, 314);
+            this.cmbStatus.Location = new System.Drawing.Point(125, 314);
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(155, 21);
             this.cmbStatus.TabIndex = 43;
@@ -102,7 +102,7 @@
             // cmbEmploymentType
             // 
             this.cmbEmploymentType.FormattingEnabled = true;
-            this.cmbEmploymentType.Location = new System.Drawing.Point(109, 287);
+            this.cmbEmploymentType.Location = new System.Drawing.Point(125, 287);
             this.cmbEmploymentType.Name = "cmbEmploymentType";
             this.cmbEmploymentType.Size = new System.Drawing.Size(155, 21);
             this.cmbEmploymentType.TabIndex = 42;
@@ -110,7 +110,7 @@
             // cmbDepartment
             // 
             this.cmbDepartment.FormattingEnabled = true;
-            this.cmbDepartment.Location = new System.Drawing.Point(109, 260);
+            this.cmbDepartment.Location = new System.Drawing.Point(125, 260);
             this.cmbDepartment.Name = "cmbDepartment";
             this.cmbDepartment.Size = new System.Drawing.Size(155, 21);
             this.cmbDepartment.TabIndex = 41;
@@ -147,18 +147,18 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 160);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 13);
+            this.label3.Size = new System.Drawing.Size(107, 13);
             this.label3.TabIndex = 34;
-            this.label3.Text = "Documents";
+            this.label3.Text = "Required Documents";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 60);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 13);
+            this.label2.Size = new System.Drawing.Size(70, 13);
             this.label2.TabIndex = 33;
-            this.label2.Text = "Requirements";
+            this.label2.Text = "Qualifications";
             // 
             // label1
             // 
@@ -179,26 +179,26 @@
             this.label7.TabIndex = 48;
             this.label7.Text = "Job Vacancy Management";
             // 
-            // clbRequirements
+            // clbQualifications
             // 
-            this.clbRequirements.FormattingEnabled = true;
-            this.clbRequirements.Location = new System.Drawing.Point(109, 60);
-            this.clbRequirements.Name = "clbRequirements";
-            this.clbRequirements.Size = new System.Drawing.Size(155, 94);
-            this.clbRequirements.TabIndex = 50;
+            this.clbQualifications.FormattingEnabled = true;
+            this.clbQualifications.Location = new System.Drawing.Point(125, 60);
+            this.clbQualifications.Name = "clbQualifications";
+            this.clbQualifications.Size = new System.Drawing.Size(155, 94);
+            this.clbQualifications.TabIndex = 50;
             // 
-            // clbDocuments
+            // clbRequiredDocuments
             // 
-            this.clbDocuments.CheckOnClick = true;
-            this.clbDocuments.FormattingEnabled = true;
-            this.clbDocuments.Location = new System.Drawing.Point(109, 160);
-            this.clbDocuments.Name = "clbDocuments";
-            this.clbDocuments.Size = new System.Drawing.Size(155, 94);
-            this.clbDocuments.TabIndex = 51;
+            this.clbRequiredDocuments.CheckOnClick = true;
+            this.clbRequiredDocuments.FormattingEnabled = true;
+            this.clbRequiredDocuments.Location = new System.Drawing.Point(125, 160);
+            this.clbRequiredDocuments.Name = "clbRequiredDocuments";
+            this.clbRequiredDocuments.Size = new System.Drawing.Size(155, 94);
+            this.clbRequiredDocuments.TabIndex = 51;
             // 
             // txtUpdatedAt
             // 
-            this.txtUpdatedAt.Location = new System.Drawing.Point(109, 341);
+            this.txtUpdatedAt.Location = new System.Drawing.Point(125, 341);
             this.txtUpdatedAt.Name = "txtUpdatedAt";
             this.txtUpdatedAt.ReadOnly = true;
             this.txtUpdatedAt.Size = new System.Drawing.Size(155, 20);
@@ -206,7 +206,7 @@
             // 
             // txtUpdatedBy
             // 
-            this.txtUpdatedBy.Location = new System.Drawing.Point(109, 367);
+            this.txtUpdatedBy.Location = new System.Drawing.Point(125, 367);
             this.txtUpdatedBy.Name = "txtUpdatedBy";
             this.txtUpdatedBy.ReadOnly = true;
             this.txtUpdatedBy.Size = new System.Drawing.Size(155, 20);
@@ -233,16 +233,16 @@
             // cmbPosition
             // 
             this.cmbPosition.FormattingEnabled = true;
-            this.cmbPosition.Location = new System.Drawing.Point(109, 34);
+            this.cmbPosition.Location = new System.Drawing.Point(125, 34);
             this.cmbPosition.Name = "cmbPosition";
             this.cmbPosition.Size = new System.Drawing.Size(155, 21);
             this.cmbPosition.TabIndex = 56;
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(185, 393);
+            this.btnBack.Location = new System.Drawing.Point(236, 393);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(79, 23);
+            this.btnBack.Size = new System.Drawing.Size(44, 23);
             this.btnBack.TabIndex = 57;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -259,8 +259,8 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtUpdatedBy);
             this.Controls.Add(this.txtUpdatedAt);
-            this.Controls.Add(this.clbDocuments);
-            this.Controls.Add(this.clbRequirements);
+            this.Controls.Add(this.clbRequiredDocuments);
+            this.Controls.Add(this.clbQualifications);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.dgvVacancies);
             this.Controls.Add(this.btnEdit);
@@ -298,8 +298,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.CheckedListBox clbRequirements;
-        private System.Windows.Forms.CheckedListBox clbDocuments;
+        private System.Windows.Forms.CheckedListBox clbQualifications;
+        private System.Windows.Forms.CheckedListBox clbRequiredDocuments;
         private System.Windows.Forms.TextBox txtUpdatedAt;
         private System.Windows.Forms.TextBox txtUpdatedBy;
         private System.Windows.Forms.Label label8;
