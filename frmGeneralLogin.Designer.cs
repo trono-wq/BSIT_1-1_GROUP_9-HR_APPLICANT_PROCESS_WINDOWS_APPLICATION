@@ -84,7 +84,6 @@
             this.Controls.Add(this.label1);
             this.Name = "frmGeneralLogin";
             this.Text = "General Login";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmGeneralLogin_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

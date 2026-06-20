@@ -7,44 +7,56 @@ namespace COMP_003_CAPSTONE
 {
     public partial class FrmAddHRUsers : Form
     {
+        // FORMS
+        
         public FrmAddHRUsers()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
-
-        private void label1_Click(object sender, EventArgs e) { }
-        private void label2_Click(object sender, EventArgs e) { }
-
 
         private void FrmAddHRUsers_Load(object sender, EventArgs e)
         {
-            comboBox1.Items.Add ("HR Manager / Admin");
-            comboBox1.Items.Add ("HR Staff");
+            comboBox1.Items.Add("HR Manager / Admin");
+            comboBox1.Items.Add("HR Staff");
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is frmHRManagerAdminDashboard)
+                {
+                    form.Show();
+                    break;
+                }
+            }
+        }
+    
+        private void FrmAddHRUsers_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        // BUTTONS
+
+        private void btn_AddNewUser_Click(object sender, EventArgs e)
         {
             string email = textBox1.Text.Trim();
 
-            if (!System.Text.RegularExpressions.Regex.IsMatch(
-            email,
-            @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+            if (!System.Text.RegularExpressions.Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
             {
                 MessageBox.Show("Please enter a valid email address.");
                 return;
             }
 
-
             try
             {
-                DatabaseConnection db =
-                new DatabaseConnection();
+                DatabaseConnection db = new DatabaseConnection();
 
-                using (MySqlConnection conn =
-                db.GetConnection())
+                using (MySqlConnection conn = db.GetConnection())
                 {
                     conn.Open();
-
                     int roleId = 0;
 
                     switch (comboBox1.Text.Trim())
@@ -58,8 +70,7 @@ namespace COMP_003_CAPSTONE
                             break;
 
                         default:
-                            MessageBox.Show(
-                            "Invalid role selected.");
+                            MessageBox.Show("Invalid role selected.");
                             return;
                     }
 
@@ -80,27 +91,14 @@ namespace COMP_003_CAPSTONE
                         NOW()
                     )";
 
-                    MySqlCommand cmd = new MySqlCommand (query, conn);
-
-                    cmd.Parameters.AddWithValue ("@roleId", roleId);
-
-                    cmd.Parameters.AddWithValue ("@email", textBox1.Text.Trim());
-
-                    cmd.Parameters.AddWithValue( "@password", textBox2.Text.Trim());
-
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@roleId", roleId);
+                    cmd.Parameters.AddWithValue("@email", textBox1.Text.Trim());
+                    cmd.Parameters.AddWithValue("@password", textBox2.Text.Trim());
                     cmd.ExecuteNonQuery();
-
-                    MessageBox.Show ("HR User Added Successfully!");
-
-                    foreach (Form form in Application.OpenForms)
-                    {
-                        if (form is frmHRManagerAdminDashboard dashboard)
-                        {
-                            dashboard.RefreshDashboard();
-                        }
-                    }
-
+                    MessageBox.Show("HR User Added Successfully!");
                     comboBox1.SelectedIndex = -1;
+
                     textBox1.Clear();
                     textBox2.Clear();
                 }
@@ -108,10 +106,8 @@ namespace COMP_003_CAPSTONE
 
             catch (Exception ex)
             {
-                MessageBox.Show ("Error: " + ex.Message);
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) { }
     }
 }

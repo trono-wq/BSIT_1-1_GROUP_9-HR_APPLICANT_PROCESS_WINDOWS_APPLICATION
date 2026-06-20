@@ -5,16 +5,15 @@ namespace COMP_003_CAPSTONE
 {
     public partial class frmGeneralLogin : Form
     {
+        // FORMS
+        
         public frmGeneralLogin()
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
-        private void frmGeneralLogin_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Application.Exit();
-        }
+        // BUTTONS
 
         private void btn_Applicant_Click(object sender, EventArgs e)
         {

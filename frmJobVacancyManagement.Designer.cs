@@ -50,6 +50,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.cmbPosition = new System.Windows.Forms.ComboBox();
+            this.btnBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVacancies)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,16 +62,15 @@
             // dgvVacancies
             // 
             this.dgvVacancies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVacancies.Location = new System.Drawing.Point(238, 9);
+            this.dgvVacancies.Location = new System.Drawing.Point(270, 9);
             this.dgvVacancies.Name = "dgvVacancies";
-            this.dgvVacancies.Size = new System.Drawing.Size(698, 407);
+            this.dgvVacancies.Size = new System.Drawing.Size(666, 407);
             this.dgvVacancies.TabIndex = 47;
             this.dgvVacancies.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVacancies_CellClick);
-            this.dgvVacancies.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVacancies_CellContentClick);
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(153, 393);
+            this.btnEdit.Location = new System.Drawing.Point(100, 393);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(79, 23);
             this.btnEdit.TabIndex = 45;
@@ -86,7 +86,7 @@
             this.btnAdd.TabIndex = 44;
             this.btnAdd.Text = "Add Vacancy";
             this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click_1);
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // cmbStatus
             // 
@@ -96,16 +96,15 @@
             "Closed"});
             this.cmbStatus.Location = new System.Drawing.Point(109, 314);
             this.cmbStatus.Name = "cmbStatus";
-            this.cmbStatus.Size = new System.Drawing.Size(123, 21);
+            this.cmbStatus.Size = new System.Drawing.Size(155, 21);
             this.cmbStatus.TabIndex = 43;
-            this.cmbStatus.SelectedIndexChanged += new System.EventHandler(this.cmbStatus_SelectedIndexChanged);
             // 
             // cmbEmploymentType
             // 
             this.cmbEmploymentType.FormattingEnabled = true;
             this.cmbEmploymentType.Location = new System.Drawing.Point(109, 287);
             this.cmbEmploymentType.Name = "cmbEmploymentType";
-            this.cmbEmploymentType.Size = new System.Drawing.Size(123, 21);
+            this.cmbEmploymentType.Size = new System.Drawing.Size(155, 21);
             this.cmbEmploymentType.TabIndex = 42;
             // 
             // cmbDepartment
@@ -113,7 +112,7 @@
             this.cmbDepartment.FormattingEnabled = true;
             this.cmbDepartment.Location = new System.Drawing.Point(109, 260);
             this.cmbDepartment.Name = "cmbDepartment";
-            this.cmbDepartment.Size = new System.Drawing.Size(123, 21);
+            this.cmbDepartment.Size = new System.Drawing.Size(155, 21);
             this.cmbDepartment.TabIndex = 41;
             // 
             // label6
@@ -124,7 +123,6 @@
             this.label6.Size = new System.Drawing.Size(82, 13);
             this.label6.TabIndex = 37;
             this.label6.Text = "Vacancy Status";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label5
             // 
@@ -161,7 +159,6 @@
             this.label2.Size = new System.Drawing.Size(72, 13);
             this.label2.TabIndex = 33;
             this.label2.Text = "Requirements";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -176,21 +173,19 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(12, 9);
+            this.label7.Location = new System.Drawing.Point(29, 9);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(220, 20);
             this.label7.TabIndex = 48;
             this.label7.Text = "Job Vacancy Management";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // clbRequirements
             // 
             this.clbRequirements.FormattingEnabled = true;
             this.clbRequirements.Location = new System.Drawing.Point(109, 60);
             this.clbRequirements.Name = "clbRequirements";
-            this.clbRequirements.Size = new System.Drawing.Size(123, 94);
+            this.clbRequirements.Size = new System.Drawing.Size(155, 94);
             this.clbRequirements.TabIndex = 50;
-            this.clbRequirements.SelectedIndexChanged += new System.EventHandler(this.clbRequirements_SelectedIndexChanged);
             // 
             // clbDocuments
             // 
@@ -198,16 +193,15 @@
             this.clbDocuments.FormattingEnabled = true;
             this.clbDocuments.Location = new System.Drawing.Point(109, 160);
             this.clbDocuments.Name = "clbDocuments";
-            this.clbDocuments.Size = new System.Drawing.Size(123, 94);
+            this.clbDocuments.Size = new System.Drawing.Size(155, 94);
             this.clbDocuments.TabIndex = 51;
-            this.clbDocuments.SelectedIndexChanged += new System.EventHandler(this.clbDocuments_SelectedIndexChanged);
             // 
             // txtUpdatedAt
             // 
             this.txtUpdatedAt.Location = new System.Drawing.Point(109, 341);
             this.txtUpdatedAt.Name = "txtUpdatedAt";
             this.txtUpdatedAt.ReadOnly = true;
-            this.txtUpdatedAt.Size = new System.Drawing.Size(123, 20);
+            this.txtUpdatedAt.Size = new System.Drawing.Size(155, 20);
             this.txtUpdatedAt.TabIndex = 52;
             // 
             // txtUpdatedBy
@@ -215,7 +209,7 @@
             this.txtUpdatedBy.Location = new System.Drawing.Point(109, 367);
             this.txtUpdatedBy.Name = "txtUpdatedBy";
             this.txtUpdatedBy.ReadOnly = true;
-            this.txtUpdatedBy.Size = new System.Drawing.Size(123, 20);
+            this.txtUpdatedBy.Size = new System.Drawing.Size(155, 20);
             this.txtUpdatedBy.TabIndex = 53;
             // 
             // label8
@@ -226,7 +220,6 @@
             this.label8.Size = new System.Drawing.Size(60, 13);
             this.label8.TabIndex = 54;
             this.label8.Text = "Updated at";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label9
             // 
@@ -242,14 +235,25 @@
             this.cmbPosition.FormattingEnabled = true;
             this.cmbPosition.Location = new System.Drawing.Point(109, 34);
             this.cmbPosition.Name = "cmbPosition";
-            this.cmbPosition.Size = new System.Drawing.Size(123, 21);
+            this.cmbPosition.Size = new System.Drawing.Size(155, 21);
             this.cmbPosition.TabIndex = 56;
+            // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(185, 393);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(79, 23);
+            this.btnBack.TabIndex = 57;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // frmJobVacancyManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(948, 427);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.cmbPosition);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -271,7 +275,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "frmJobVacancyManagement";
-            this.Text = "frmJobVacancyManagement";
+            this.Text = "Job Vacancy Management";
             this.Load += new System.EventHandler(this.frmJobVacancyManagement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVacancies)).EndInit();
             this.ResumeLayout(false);
@@ -301,5 +305,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cmbPosition;
+        private System.Windows.Forms.Button btnBack;
     }
 }

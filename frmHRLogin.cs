@@ -7,11 +7,53 @@ namespace COMP_003_CAPSTONE
 {
     public partial class frmHRLogin : Form
     {
+        // FORMS
+
         public frmHRLogin()
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
         }
+
+        private void frmHRLogin_Load(object sender, EventArgs e)
+        {
+            lblChangePassword.Visible = false;
+            lblOldPassword.Visible = false;
+            lblNewPassword.Visible = false;
+            lblConfirmNewPassword.Visible = false;
+            lblEmail.Visible = false;
+            txtOldPassword.Visible = false;
+            txtNewPassword.Visible = false;
+            txtConfirmNewPassword.Visible = false;
+            txtEmail2.Visible = false;
+            btnConfirmNewPassword.Visible = false;
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is frmGeneralLogin)
+                {
+                    form.Show();
+                    break;
+                }
+            }
+            this.Close();
+        }
+
+        private void frmHRLogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        public void ClearHRLogin()
+        {
+            txtEmail.Clear();
+            txtPassword.Clear();
+        }
+
+        // BUTTONS
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -97,19 +139,6 @@ namespace COMP_003_CAPSTONE
             }
         }
 
-        private void chkShowPassword_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkShowPassword.Checked)
-            {
-                txtPassword.UseSystemPasswordChar = false;
-            }
-
-            else
-            {
-                txtPassword.UseSystemPasswordChar = true;
-            }
-        }
-
         private void btnChangeToNewPassword_Click(object sender, EventArgs e)
         {
             lblChangePassword.Visible = true;
@@ -122,20 +151,6 @@ namespace COMP_003_CAPSTONE
             txtConfirmNewPassword.Visible = true;
             txtEmail2.Visible = true;
             btnConfirmNewPassword.Visible = true;
-        }
-
-        private void frmHRLogin_Load(object sender, EventArgs e)
-        {
-            lblChangePassword.Visible = false;
-            lblOldPassword.Visible = false;
-            lblNewPassword.Visible = false;
-            lblConfirmNewPassword.Visible = false;
-            lblEmail.Visible = false;
-            txtOldPassword.Visible = false;
-            txtNewPassword.Visible = false;
-            txtConfirmNewPassword.Visible = false;
-            txtEmail2.Visible = false;
-            btnConfirmNewPassword.Visible = false;
         }
 
         private void btnConfirmNewPassword_Click(object sender, EventArgs e)
@@ -210,6 +225,7 @@ namespace COMP_003_CAPSTONE
                     txtConfirmNewPassword.Visible = false;
                     txtEmail2.Visible = false;
                     btnConfirmNewPassword.Visible = false;
+                    txtEmail2.Clear();
                     txtOldPassword.Clear();
                     txtNewPassword.Clear();
                     txtConfirmNewPassword.Clear();
@@ -221,22 +237,19 @@ namespace COMP_003_CAPSTONE
             }
         }
 
-        private void frmHRLogin_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Application.Exit();
-        }
+        // OTHERS
 
-        private void btnBack_Click(object sender, EventArgs e)
+        private void chkShowPassword_CheckedChanged(object sender, EventArgs e)
         {
-            foreach (Form form in Application.OpenForms)
+            if (chkShowPassword.Checked)
             {
-                if (form is frmGeneralLogin)
-                {
-                    form.Show();
-                    break;
-                }
+                txtPassword.UseSystemPasswordChar = false;
             }
-            this.Close();
+
+            else
+            {
+                txtPassword.UseSystemPasswordChar = true;
+            }
         }
     }
 }

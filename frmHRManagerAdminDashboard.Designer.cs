@@ -30,9 +30,9 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.btnJobVacancyManagement = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnMaintenance = new System.Windows.Forms.Button();
+            this.btnReports = new System.Windows.Forms.Button();
+            this.btnHiringDecision = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.txtOJV = new System.Windows.Forms.Label();
             this.txtRA = new System.Windows.Forms.Label();
@@ -51,9 +51,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbDatabases = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnAddHRUsers = new System.Windows.Forms.Button();
+            this.btnLogOut = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,37 +76,37 @@
             this.btnJobVacancyManagement.TabIndex = 1;
             this.btnJobVacancyManagement.Text = "Job Vacancy Management";
             this.btnJobVacancyManagement.UseVisualStyleBackColor = true;
-            this.btnJobVacancyManagement.Click += new System.EventHandler(this.button1_Click);
+            this.btnJobVacancyManagement.Click += new System.EventHandler(this.btnJobVacancyManagement_Click);
             // 
-            // button1
+            // btnMaintenance
             // 
-            this.button1.Location = new System.Drawing.Point(12, 121);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(147, 20);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Maintenance";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnMaintenance.Location = new System.Drawing.Point(12, 121);
+            this.btnMaintenance.Name = "btnMaintenance";
+            this.btnMaintenance.Size = new System.Drawing.Size(147, 20);
+            this.btnMaintenance.TabIndex = 2;
+            this.btnMaintenance.Text = "Maintenance";
+            this.btnMaintenance.UseVisualStyleBackColor = true;
+            this.btnMaintenance.Click += new System.EventHandler(this.btnMaintenance_Click);
             // 
-            // button2
+            // btnReports
             // 
-            this.button2.Location = new System.Drawing.Point(12, 95);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(147, 20);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Reports";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnReports.Location = new System.Drawing.Point(12, 95);
+            this.btnReports.Name = "btnReports";
+            this.btnReports.Size = new System.Drawing.Size(147, 20);
+            this.btnReports.TabIndex = 3;
+            this.btnReports.Text = "Reports";
+            this.btnReports.UseVisualStyleBackColor = true;
+            this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
             // 
-            // button3
+            // btnHiringDecision
             // 
-            this.button3.Location = new System.Drawing.Point(12, 69);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(147, 20);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Hiring Decision";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnHiringDecision.Location = new System.Drawing.Point(12, 69);
+            this.btnHiringDecision.Name = "btnHiringDecision";
+            this.btnHiringDecision.Size = new System.Drawing.Size(147, 20);
+            this.btnHiringDecision.TabIndex = 4;
+            this.btnHiringDecision.Text = "Hiring Decision";
+            this.btnHiringDecision.UseVisualStyleBackColor = true;
+            this.btnHiringDecision.Click += new System.EventHandler(this.btnHiringDecision_Click);
             // 
             // label18
             // 
@@ -125,7 +126,6 @@
             this.txtOJV.Size = new System.Drawing.Size(10, 13);
             this.txtOJV.TabIndex = 39;
             this.txtOJV.Text = "‎ ";
-            this.txtOJV.Click += new System.EventHandler(this.txtOJV_Click);
             // 
             // txtRA
             // 
@@ -225,7 +225,6 @@
             this.label6.Size = new System.Drawing.Size(68, 13);
             this.label6.TabIndex = 28;
             this.label6.Text = "For Interview";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label5
             // 
@@ -272,16 +271,15 @@
             this.label10.Size = new System.Drawing.Size(67, 13);
             this.label10.TabIndex = 41;
             this.label10.Text = "Databases";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
-            // comboBox1
+            // cmbDatabases
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(85, 180);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(147, 21);
-            this.comboBox1.TabIndex = 42;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.cmbDatabases.FormattingEnabled = true;
+            this.cmbDatabases.Location = new System.Drawing.Point(87, 180);
+            this.cmbDatabases.Name = "cmbDatabases";
+            this.cmbDatabases.Size = new System.Drawing.Size(147, 21);
+            this.cmbDatabases.TabIndex = 42;
+            this.cmbDatabases.SelectedIndexChanged += new System.EventHandler(this.cmbDatabases_SelectedIndexChanged);
             // 
             // dataGridView1
             // 
@@ -290,26 +288,36 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(453, 287);
             this.dataGridView1.TabIndex = 43;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             // 
-            // button4
+            // btnAddHRUsers
             // 
-            this.button4.Location = new System.Drawing.Point(12, 147);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(147, 20);
-            this.button4.TabIndex = 44;
-            this.button4.Text = "Add HR Users";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btnAddHRUsers.Location = new System.Drawing.Point(12, 147);
+            this.btnAddHRUsers.Name = "btnAddHRUsers";
+            this.btnAddHRUsers.Size = new System.Drawing.Size(147, 20);
+            this.btnAddHRUsers.TabIndex = 44;
+            this.btnAddHRUsers.Text = "Add HR Users";
+            this.btnAddHRUsers.UseVisualStyleBackColor = true;
+            this.btnAddHRUsers.Click += new System.EventHandler(this.btnAddHRUsers_Click);
+            // 
+            // btnLogOut
+            // 
+            this.btnLogOut.Location = new System.Drawing.Point(410, 180);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(55, 21);
+            this.btnLogOut.TabIndex = 45;
+            this.btnLogOut.Text = "Log out";
+            this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // frmHRManagerAdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(477, 506);
-            this.Controls.Add(this.button4);
+            this.ClientSize = new System.Drawing.Size(477, 507);
+            this.Controls.Add(this.btnLogOut);
+            this.Controls.Add(this.btnAddHRUsers);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbDatabases);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.txtOJV);
@@ -328,14 +336,14 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnHiringDecision);
+            this.Controls.Add(this.btnReports);
+            this.Controls.Add(this.btnMaintenance);
             this.Controls.Add(this.btnJobVacancyManagement);
             this.Controls.Add(this.label1);
             this.Name = "frmHRManagerAdminDashboard";
-            this.Text = "frmHRDashboard";
-            this.Load += new System.EventHandler(this.frmHRDashboard_Load);
+            this.Text = "HR Manager / Admin Dashboard";
+            this.Load += new System.EventHandler(this.frmHRManagerAdminDashboard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -346,9 +354,9 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnJobVacancyManagement;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnMaintenance;
+        private System.Windows.Forms.Button btnReports;
+        private System.Windows.Forms.Button btnHiringDecision;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label txtOJV;
         private System.Windows.Forms.Label txtRA;
@@ -367,8 +375,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbDatabases;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnAddHRUsers;
+        private System.Windows.Forms.Button btnLogOut;
     }
 }
