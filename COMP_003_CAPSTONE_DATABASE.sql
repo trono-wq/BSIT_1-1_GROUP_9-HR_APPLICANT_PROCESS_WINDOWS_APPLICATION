@@ -125,7 +125,6 @@ CREATE TABLE JobVacancies
     o_vacancy_updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     ON UPDATE CURRENT_TIMESTAMP,
     o_vacancy_updated_by INT,
-    o_vacancy_description TEXT,
 
     FOREIGN KEY (employment_type_id) 
         REFERENCES EmploymentTypes(employment_type_id),
@@ -182,11 +181,11 @@ CREATE TABLE RequirementTypes
 INSERT INTO RequirementTypes
 (requirement_type_name)
 VALUES
-('Certificate of Employment'), 
-('Training / Seminar Certificate'), 
-('NBI Clearance'),
-('Barangay Clearance'),
-('Character Reference Letter');
+('Curriculum Vitae'), 
+('Valid Government ID'), 
+('Transcript of Records'),
+('Police Clearance'),
+('Application Letter');
 
 CREATE TABLE ApplicantDocuments 
 (
