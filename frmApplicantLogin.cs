@@ -18,6 +18,7 @@ namespace COMP_003_CAPSTONE
         {
             InitializeComponent();
         }
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             try
@@ -56,11 +57,11 @@ namespace COMP_003_CAPSTONE
 
                         MessageBox.Show("Login Successful!");
 
-                        frmApplicantDashboard AD =
+                        frmApplicantDashboard dashboard =
                             new frmApplicantDashboard();
 
-                        AD.Show();
-                        this.Hide();
+                        dashboard.Show();
+                        this.Hide(); ;
                     }
                     else
                     {
@@ -112,12 +113,16 @@ namespace COMP_003_CAPSTONE
                 cmd.Parameters.AddWithValue("@pass", txtPassword.Text.Trim());
 
                 object result = cmd.ExecuteScalar();
-
                 if (result != null)
                 {
                     MessageBox.Show("Login Successful!");
 
-                    frmApplicantDashboard dashboard = new frmApplicantDashboard();
+                    int applicantAccountId =
+                        Convert.ToInt32(result);
+
+                    frmApplicantDashboard dashboard =
+                        new frmApplicantDashboard(applicantAccountId);
+
                     dashboard.Show();
 
                     this.Hide();
@@ -135,6 +140,14 @@ namespace COMP_003_CAPSTONE
         {
             frmApplicantRegistration AR = new frmApplicantRegistration();
             AR.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmChangePassword cp =
+                new frmChangePassword();
+
+            cp.Show();
         }
     }
     }

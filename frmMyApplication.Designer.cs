@@ -33,11 +33,10 @@
             this.colDepartment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnSaveDraft = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
-            this.lblApplicationStatus = new System.Windows.Forms.Label();
-            this.txtApplicationStatus = new System.Windows.Forms.TextBox();
+            this.btnEditApplication = new System.Windows.Forms.Button();
+            this.btnSaveDraft = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMyApplication)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +48,7 @@
             this.colDepartment,
             this.colStatus,
             this.colDate});
-            this.dgvMyApplication.Location = new System.Drawing.Point(32, 222);
+            this.dgvMyApplication.Location = new System.Drawing.Point(25, 93);
             this.dgvMyApplication.Name = "dgvMyApplication";
             this.dgvMyApplication.RowHeadersWidth = 62;
             this.dgvMyApplication.RowTemplate.Height = 28;
@@ -85,19 +84,9 @@
             this.colDate.Name = "colDate";
             this.colDate.Width = 150;
             // 
-            // btnSaveDraft
-            // 
-            this.btnSaveDraft.Location = new System.Drawing.Point(57, 483);
-            this.btnSaveDraft.Name = "btnSaveDraft";
-            this.btnSaveDraft.Size = new System.Drawing.Size(107, 32);
-            this.btnSaveDraft.TabIndex = 1;
-            this.btnSaveDraft.Text = "Save Draft";
-            this.btnSaveDraft.UseVisualStyleBackColor = true;
-            this.btnSaveDraft.Click += new System.EventHandler(this.btnSaveDraft_Click);
-            // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(189, 485);
+            this.btnSubmit.Location = new System.Drawing.Point(211, 424);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(180, 30);
             this.btnSubmit.TabIndex = 2;
@@ -107,7 +96,7 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(57, 576);
+            this.btnBack.Location = new System.Drawing.Point(37, 579);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(75, 32);
             this.btnBack.TabIndex = 3;
@@ -115,34 +104,35 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // lblApplicationStatus
+            // btnEditApplication
             // 
-            this.lblApplicationStatus.AutoSize = true;
-            this.lblApplicationStatus.Location = new System.Drawing.Point(53, 61);
-            this.lblApplicationStatus.Name = "lblApplicationStatus";
-            this.lblApplicationStatus.Size = new System.Drawing.Size(138, 20);
-            this.lblApplicationStatus.TabIndex = 4;
-            this.lblApplicationStatus.Text = "Application Status";
+            this.btnEditApplication.Location = new System.Drawing.Point(397, 424);
+            this.btnEditApplication.Name = "btnEditApplication";
+            this.btnEditApplication.Size = new System.Drawing.Size(180, 30);
+            this.btnEditApplication.TabIndex = 4;
+            this.btnEditApplication.Text = "Edit Application";
+            this.btnEditApplication.UseVisualStyleBackColor = true;
+            this.btnEditApplication.Click += new System.EventHandler(this.btnEditApplication_Click);
             // 
-            // txtApplicationStatus
+            // btnSaveDraft
             // 
-            this.txtApplicationStatus.Location = new System.Drawing.Point(219, 55);
-            this.txtApplicationStatus.Name = "txtApplicationStatus";
-            this.txtApplicationStatus.ReadOnly = true;
-            this.txtApplicationStatus.Size = new System.Drawing.Size(100, 26);
-            this.txtApplicationStatus.TabIndex = 5;
-            this.txtApplicationStatus.Text = "Submitted";
+            this.btnSaveDraft.Location = new System.Drawing.Point(25, 424);
+            this.btnSaveDraft.Name = "btnSaveDraft";
+            this.btnSaveDraft.Size = new System.Drawing.Size(180, 30);
+            this.btnSaveDraft.TabIndex = 5;
+            this.btnSaveDraft.Text = "Save Draft";
+            this.btnSaveDraft.UseVisualStyleBackColor = true;
+            this.btnSaveDraft.Click += new System.EventHandler(this.btnSaveDraft_Click_1);
             // 
             // frmMyApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 692);
-            this.Controls.Add(this.txtApplicationStatus);
-            this.Controls.Add(this.lblApplicationStatus);
+            this.Controls.Add(this.btnSaveDraft);
+            this.Controls.Add(this.btnEditApplication);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnSubmit);
-            this.Controls.Add(this.btnSaveDraft);
             this.Controls.Add(this.dgvMyApplication);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmMyApplication";
@@ -150,7 +140,6 @@
             this.Load += new System.EventHandler(this.frmMyApplication_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMyApplication)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -161,10 +150,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colDepartment;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDate;
-        private System.Windows.Forms.Button btnSaveDraft;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.Label lblApplicationStatus;
-        private System.Windows.Forms.TextBox txtApplicationStatus;
+        private System.Windows.Forms.Button btnEditApplication;
+        private System.Windows.Forms.Button btnSaveDraft;
     }
 }

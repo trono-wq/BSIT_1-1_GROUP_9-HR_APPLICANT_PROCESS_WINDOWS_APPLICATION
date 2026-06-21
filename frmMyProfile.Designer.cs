@@ -190,9 +190,11 @@
             // 
             // txtExperience
             // 
-            this.txtExperience.Location = new System.Drawing.Point(166, 480);
+            this.txtExperience.Location = new System.Drawing.Point(166, 477);
+            this.txtExperience.Multiline = true;
             this.txtExperience.Name = "txtExperience";
-            this.txtExperience.Size = new System.Drawing.Size(100, 26);
+            this.txtExperience.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtExperience.Size = new System.Drawing.Size(170, 155);
             this.txtExperience.TabIndex = 16;
             // 
             // lblAddress
@@ -233,7 +235,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(24, 601);
+            this.btnSave.Location = new System.Drawing.Point(24, 642);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 31);
             this.btnSave.TabIndex = 21;

@@ -32,6 +32,7 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.dgvJobVacancies = new System.Windows.Forms.DataGridView();
+            this.colJobVacancyId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDepartment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEmployment = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,17 +72,28 @@
             // 
             this.dgvJobVacancies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvJobVacancies.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colJobVacancyId,
             this.colPosition,
             this.colDepartment,
             this.colEmployment,
             this.colStatus});
             this.dgvJobVacancies.Location = new System.Drawing.Point(24, 134);
+            this.dgvJobVacancies.MultiSelect = false;
             this.dgvJobVacancies.Name = "dgvJobVacancies";
             this.dgvJobVacancies.RowHeadersWidth = 62;
             this.dgvJobVacancies.RowTemplate.Height = 28;
+            this.dgvJobVacancies.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvJobVacancies.Size = new System.Drawing.Size(685, 150);
             this.dgvJobVacancies.TabIndex = 3;
             this.dgvJobVacancies.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvJobVacancies_CellContentClick);
+            // 
+            // colJobVacancyId
+            // 
+            this.colJobVacancyId.HeaderText = "ID";
+            this.colJobVacancyId.MinimumWidth = 8;
+            this.colJobVacancyId.Name = "colJobVacancyId";
+            this.colJobVacancyId.Visible = false;
+            this.colJobVacancyId.Width = 150;
             // 
             // colPosition
             // 
@@ -159,11 +171,12 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.DataGridView dgvJobVacancies;
+        private System.Windows.Forms.Button btnApply;
+        private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colJobVacancyId;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPosition;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDepartment;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEmployment;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
-        private System.Windows.Forms.Button btnApply;
-        private System.Windows.Forms.Button btnBack;
     }
 }

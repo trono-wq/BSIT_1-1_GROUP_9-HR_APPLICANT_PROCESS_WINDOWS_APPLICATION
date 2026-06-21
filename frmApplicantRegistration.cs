@@ -32,6 +32,13 @@ namespace COMP_003_CAPSTONE
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(
+                txtEmail.Text.Trim(),
+                @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+            {
+                MessageBox.Show("Please enter a valid email address.");
+                return;
+            }
             try
             {
                 if (txtEmail.Text == "" || txtPassword.Text == "" || txtConfirmPassword.Text == "")

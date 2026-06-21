@@ -132,6 +132,12 @@
     <Compile Include="frmApplicantReview.Designer.cs">
       <DependentUpon>frmApplicantReview.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChangePassword.Designer.cs">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmGeneralLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -252,6 +258,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmApplicationStatus.resx">
       <DependentUpon>frmApplicationStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChangePassword.resx">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGeneralLogin.resx">
       <DependentUpon>frmGeneralLogin.cs</DependentUpon>
