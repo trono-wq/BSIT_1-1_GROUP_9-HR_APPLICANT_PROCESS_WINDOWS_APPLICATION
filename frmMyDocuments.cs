@@ -281,5 +281,10 @@ namespace COMP_003_CAPSTONE
         {
 
         }
+
+        private void btnUploadNBI_Click(object sender, EventArgs e)
+        {
+            UploadDocument(5);
+        }
     }
 }    

@@ -229,6 +229,57 @@ namespace COMP_003_CAPSTONE
 
                     cmd.ExecuteNonQuery();
 
+                    string getApplicationIdQuery = @"
+                    SELECT a.application_id
+                    FROM Applications a
+                    INNER JOIN Applicants ap
+                        ON a.applicant_id = ap.applicant_id
+                    INNER JOIN JobVacancies j
+                        ON a.job_vacancy_id = j.job_vacancy_id
+                    WHERE ap.applicant_account_id = @accountId
+                    AND j.position = @position
+                    LIMIT 1";
+  
+                    MySqlCommand getIdCmd =
+                        new MySqlCommand(getApplicationIdQuery, conn);
+
+                    getIdCmd.Parameters.AddWithValue(
+                        "@accountId",
+                        applicantAccountId);
+
+                    getIdCmd.Parameters.AddWithValue(
+                        "@position",
+                        position);
+
+                    int applicationId =
+                        Convert.ToInt32(getIdCmd.ExecuteScalar());
+
+                    // Insert history
+                    string historyQuery = @"
+                    INSERT INTO ApplicationStatusHistory
+                    (
+                        application_id,
+                        old_status,
+                        new_status,
+                        updated_at
+                    )
+                    VALUES
+                    (
+                        @applicationId,
+                        'Submitted',
+                        'Draft',
+                         NOW()
+                    )";
+
+                    MySqlCommand historyCmd =
+                        new MySqlCommand(historyQuery, conn);
+
+                    historyCmd.Parameters.AddWithValue(
+                        "@applicationId",
+                        applicationId);
+
+                    historyCmd.ExecuteNonQuery();
+
                     MessageBox.Show("Application returned to Draft status.");
 
                     LoadApplications();

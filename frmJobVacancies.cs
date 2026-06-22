@@ -83,13 +83,13 @@ namespace COMP_003_CAPSTONE
                 if (row.IsNewRow) continue;
 
                 bool visible =
-                    row.Cells["colPosition"].Value.ToString()
+                    (row.Cells["colPosition"].Value?.ToString() ?? "")
                         .ToLower().Contains(searchText)
 
-                    || row.Cells["colDepartment"].Value.ToString()
+                    || (row.Cells["colDepartment"].Value?.ToString() ?? "")
                         .ToLower().Contains(searchText)
 
-                    || row.Cells["colEmploymentType"].Value.ToString()
+                    || (row.Cells["colEmployment"].Value?.ToString() ?? "")
                         .ToLower().Contains(searchText);
 
                 row.Visible = visible;

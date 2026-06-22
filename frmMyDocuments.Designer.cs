@@ -37,6 +37,7 @@
             this.btnUploadID = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.btnUploadNBI = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocuments)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,7 +47,7 @@
             this.dgvDocuments.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colRequirementType,
             this.colStatus});
-            this.dgvDocuments.Location = new System.Drawing.Point(12, 55);
+            this.dgvDocuments.Location = new System.Drawing.Point(12, 24);
             this.dgvDocuments.Name = "dgvDocuments";
             this.dgvDocuments.RowHeadersWidth = 62;
             this.dgvDocuments.RowTemplate.Height = 28;
@@ -70,7 +71,7 @@
             // 
             // btnUploadResume
             // 
-            this.btnUploadResume.Location = new System.Drawing.Point(12, 237);
+            this.btnUploadResume.Location = new System.Drawing.Point(12, 197);
             this.btnUploadResume.Name = "btnUploadResume";
             this.btnUploadResume.Size = new System.Drawing.Size(147, 36);
             this.btnUploadResume.TabIndex = 1;
@@ -122,11 +123,22 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // btnUploadNBI
+            // 
+            this.btnUploadNBI.Location = new System.Drawing.Point(12, 239);
+            this.btnUploadNBI.Name = "btnUploadNBI";
+            this.btnUploadNBI.Size = new System.Drawing.Size(147, 36);
+            this.btnUploadNBI.TabIndex = 6;
+            this.btnUploadNBI.Text = "Upload NBI";
+            this.btnUploadNBI.UseVisualStyleBackColor = true;
+            this.btnUploadNBI.Click += new System.EventHandler(this.btnUploadNBI_Click);
+            // 
             // frmMyDocuments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnUploadNBI);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnUploadID);
             this.Controls.Add(this.btnUploadTranscript);
@@ -152,5 +164,6 @@
         private System.Windows.Forms.Button btnUploadID;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button btnUploadNBI;
     }
 }

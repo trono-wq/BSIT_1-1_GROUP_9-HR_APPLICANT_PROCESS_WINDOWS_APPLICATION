@@ -201,7 +201,7 @@
             this.lstRecentUpdates.ItemHeight = 20;
             this.lstRecentUpdates.Location = new System.Drawing.Point(6, 25);
             this.lstRecentUpdates.Name = "lstRecentUpdates";
-            this.lstRecentUpdates.Size = new System.Drawing.Size(120, 84);
+            this.lstRecentUpdates.Size = new System.Drawing.Size(237, 84);
             this.lstRecentUpdates.TabIndex = 2;
             // 
             // frmApplicantDashboard
