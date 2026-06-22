@@ -1,12 +1,7 @@
 ﻿using HRApplicantProcessSystem.Database;
 using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.Common;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace COMP_003_CAPSTONE
@@ -18,6 +13,7 @@ namespace COMP_003_CAPSTONE
         {
             InitializeComponent();
             this.Load += new EventHandler(DepartmentForm_Load);
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         // ======================================== SECTION 26.2: ( FORM LOAD ) ============================================ //
@@ -43,7 +39,7 @@ namespace COMP_003_CAPSTONE
 
 
         // =================== SECTION 26.4: ( ADD DEPARTMENT ) =================================================================== //
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void btnAdd_Click_1(object sender, EventArgs e)
         {
 
             if (txtDepartmentName.Text == "")
@@ -93,7 +89,7 @@ namespace COMP_003_CAPSTONE
         }
 
         // =================== SECTION 26.6: ( DELETE DEPARTMENT ) ===================================================== //
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void btnDelete_Click_1(object sender, EventArgs e)
         {
             if (dgvDepartments.SelectedRows.Count == 0)
             {
@@ -116,6 +112,20 @@ namespace COMP_003_CAPSTONE
                 MessageBox.Show("Department deleted successfully!");
                 LoadDepartments();
             }
+        }
+
+        // =================== SECTION 26.7: ( BACK ) ===================================================== //
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is frmMaintenance)
+                {
+                    form.Show();
+                    break;
+                }
+            }
+            this.Close();
         }
     }
 }

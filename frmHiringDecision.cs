@@ -1,12 +1,8 @@
 ﻿using HRApplicantProcessSystem.Database;
 using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Asn1.BC;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.Common;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace COMP_003_CAPSTONE
@@ -18,6 +14,7 @@ namespace COMP_003_CAPSTONE
         {
             InitializeComponent();
             this.Load += new EventHandler(HiringDecisionForm_Load);
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         // ============================ SECTION 22.2: ( FORM LOAD ) ========================================================================================= //
@@ -56,7 +53,7 @@ namespace COMP_003_CAPSTONE
             }
         }
         // ============================ SECTION 22.4: ( SUBMIT HIRING DECISION ) ============================================================================= //
-        private void btnSubmitDecision_Click(object sender, EventArgs e)
+        private void btnSubmitDecision_Click_1(object sender, EventArgs e)
         {
             if (dgvApplicants.SelectedRows.Count == 0)
             {
@@ -125,12 +122,22 @@ namespace COMP_003_CAPSTONE
             }
         }
 
-        private void btnSubmitDecision_Click_1(object sender, EventArgs e)
+        // ======= SECTION 22.8: ( BACK ) ======================================================================================= //
+        private void btnBack_Click(object sender, EventArgs e)
         {
-
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is frmHRManagerAdminDashboard)
+                {
+                    form.Show();
+                    break;
+                }
+            }
+            this.Close();
         }
     }
 }
+
 
 
 

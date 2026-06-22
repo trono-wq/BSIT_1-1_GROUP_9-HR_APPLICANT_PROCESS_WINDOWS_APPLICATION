@@ -42,11 +42,6 @@ namespace COMP_003_CAPSTONE
             this.Close();
         }
 
-        private void frmHRLogin_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
-        }
-
         public void ClearHRLogin()
         {
             txtEmail.Clear();

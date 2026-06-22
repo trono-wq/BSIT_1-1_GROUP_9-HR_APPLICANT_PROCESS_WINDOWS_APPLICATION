@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace COMP_003_CAPSTONE
 {
-    public partial class frmAssessmentTypeForm : Form
+    public partial class frmAssessmentTypeMaintenance : Form
     {
         // ======================================== SECTION 30.1: ( FORM INITIALIZATION ) ==================================== //
-        public frmAssessmentTypeForm()
+        public frmAssessmentTypeMaintenance()
         {
             InitializeComponent();
             this.Load += new EventHandler(AssessmentTypeForm_Load);
@@ -28,7 +28,7 @@ namespace COMP_003_CAPSTONE
         }
 
         // =================== SECTION 30.3: ( LOAD ASSESSMENT TYPES FROM DATABASE ) ========================================= //
-        private void LoadAssessmentTypes()
+        private void LoadAssessmentTypes()  
         {
             MySqlConnection conn = new DatabaseConnection().GetConnection();
             conn.Open();
@@ -41,7 +41,7 @@ namespace COMP_003_CAPSTONE
         }
 
         // =================== SECTION 30.4: ( ADD ASSESSMENT TYPE ) ========================================================== //
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void btnAdd_Click_1(object sender, EventArgs e)
         {
             if (txtAssessmentTypeName.Text == "")
             {
@@ -61,7 +61,7 @@ namespace COMP_003_CAPSTONE
         }
 
         // =================== SECTION 30.5: ( EDIT ASSESSMENT TYPE ) =========================================================== //
-        private void btnEdit_Click(object sender, EventArgs e)
+        private void btnEdit_Click_1(object sender, EventArgs e)
         {
             if (dgvAssessmentTypes.SelectedRows.Count == 0)
             {
@@ -88,7 +88,7 @@ namespace COMP_003_CAPSTONE
         }
 
         // =================== SECTION 30.6: ( DELETE ASSESSMENT TYPE ) ========================================================== //
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void btnDelete_Click_1(object sender, EventArgs e)
         {
             if (dgvAssessmentTypes.SelectedRows.Count == 0)
             {
@@ -109,6 +109,20 @@ namespace COMP_003_CAPSTONE
                 MessageBox.Show("Assessment type deleted successfully!");
                 LoadAssessmentTypes();
             }
+        }
+
+        // =================== SECTION 30.6: ( DELETE ASSESSMENT TYPE ) ========================================================== //
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is frmMaintenance)
+                {
+                    form.Show();
+                    break;
+                }
+            }
+            this.Close();
         }
     }
 }

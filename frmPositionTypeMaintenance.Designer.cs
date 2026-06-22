@@ -6,7 +6,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace COMP_003_CAPSTONE
 {
-    partial class frmPositionForm
+    partial class frmPositionTypeMaintenance
     {
         /// <summary>
         /// Required designer variable.
@@ -40,13 +40,15 @@ namespace COMP_003_CAPSTONE
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.dgvPositions = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPositions)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(65, 35);
+            this.label1.Location = new System.Drawing.Point(11, 44);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 13);
@@ -55,18 +57,18 @@ namespace COMP_003_CAPSTONE
             // 
             // txtPositionName
             // 
-            this.txtPositionName.Location = new System.Drawing.Point(147, 35);
-            this.txtPositionName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPositionName.Location = new System.Drawing.Point(93, 41);
+            this.txtPositionName.Margin = new System.Windows.Forms.Padding(2);
             this.txtPositionName.Name = "txtPositionName";
             this.txtPositionName.Size = new System.Drawing.Size(521, 20);
             this.txtPositionName.TabIndex = 1;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(670, 35);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAdd.Location = new System.Drawing.Point(11, 65);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(67, 18);
+            this.btnAdd.Size = new System.Drawing.Size(78, 22);
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -74,50 +76,75 @@ namespace COMP_003_CAPSTONE
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(670, 55);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEdit.Location = new System.Drawing.Point(11, 91);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(2);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(67, 18);
+            this.btnEdit.Size = new System.Drawing.Size(78, 22);
             this.btnEdit.TabIndex = 3;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click_1);
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(670, 75);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDelete.Location = new System.Drawing.Point(11, 117);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(67, 18);
+            this.btnDelete.Size = new System.Drawing.Size(78, 20);
             this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click_1);
             // 
             // dgvPositions
             // 
             this.dgvPositions.AllowUserToAddRows = false;
             this.dgvPositions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPositions.Location = new System.Drawing.Point(147, 55);
-            this.dgvPositions.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvPositions.Location = new System.Drawing.Point(93, 65);
+            this.dgvPositions.Margin = new System.Windows.Forms.Padding(2);
             this.dgvPositions.Name = "dgvPositions";
             this.dgvPositions.ReadOnly = true;
             this.dgvPositions.RowHeadersWidth = 62;
             this.dgvPositions.Size = new System.Drawing.Size(520, 240);
             this.dgvPositions.TabIndex = 5;
             // 
-            // frmPositionForm
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(243, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(224, 20);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Position Type Maintenance";
+            // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(11, 285);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(2);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(78, 20);
+            this.btnBack.TabIndex = 7;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // frmPositionTypeMaintenance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(720, 377);
+            this.ClientSize = new System.Drawing.Size(624, 315);
+            this.Controls.Add(this.btnBack);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.dgvPositions);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.txtPositionName);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "frmPositionForm";
-            this.Text = "Position Management";
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "frmPositionTypeMaintenance";
+            this.Text = "Position Type Maintenance";
             ((System.ComponentModel.ISupportInitialize)(this.dgvPositions)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -132,5 +159,7 @@ namespace COMP_003_CAPSTONE
         private Button btnEdit;
         private Button btnDelete;
         private DataGridView dgvPositions;
+        private Label label2;
+        private Button btnBack;
     }
 }

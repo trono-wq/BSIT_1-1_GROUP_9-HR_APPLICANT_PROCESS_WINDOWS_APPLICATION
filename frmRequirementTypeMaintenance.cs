@@ -1,23 +1,19 @@
 ﻿using HRApplicantProcessSystem.Database;
 using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.Common;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace COMP_003_CAPSTONE
 {
-    public partial class frmRequirementTypeForm : Form
+    public partial class frmRequirementTypeMaintenance : Form
     {
         // ======================================== SECTION 28.1: ( FORM INITIALIZATION ) =================================== //
-        public frmRequirementTypeForm()
+        public frmRequirementTypeMaintenance()
         {
             InitializeComponent();
             this.Load += new EventHandler(RequirementTypeForm_Load);
+            this.StartPosition = FormStartPosition.CenterScreen;    
         }
 
         // ======================================== SECTION 28.2: ( FORM LOAD ) ============================================ //
@@ -41,7 +37,7 @@ namespace COMP_003_CAPSTONE
         }
 
         // =================== SECTION 28.4: ( ADD REQUIREMENT TYPE ) =========================================================== //
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void btnAdd_Click_1(object sender, EventArgs e)
         {
             if (txtRequirementTypeName.Text == "")
             {
@@ -61,7 +57,7 @@ namespace COMP_003_CAPSTONE
         }
 
         // =================== SECTION 28.5: ( EDIT REQUIREMENT TYPE ) ========================================================== //
-        private void btnEdit_Click(object sender, EventArgs e)
+        private void btnEdit_Click_1(object sender, EventArgs e)
         {
             if (dgvRequirementTypes.SelectedRows.Count == 0)
             {
@@ -88,7 +84,7 @@ namespace COMP_003_CAPSTONE
         }
 
         // =================== SECTION 28.6: ( DELETE REQUIREMENT TYPE ) ======================================================= //
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void btnDelete_Click_1(object sender, EventArgs e)
         {
             if (dgvRequirementTypes.SelectedRows.Count == 0)
             {
@@ -109,6 +105,20 @@ namespace COMP_003_CAPSTONE
                 MessageBox.Show("Requirement type deleted successfully!");
                 LoadRequirementTypes();
             }
+        }
+
+        // =================== SECTION 28.7: ( BACK ) ======================================================= //
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is frmMaintenance)
+                {
+                    form.Show();
+                    break;
+                }
+            }
+            this.Close();
         }
     }
 }

@@ -1,23 +1,20 @@
 ﻿using HRApplicantProcessSystem.Database;
 using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.Common;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace COMP_003_CAPSTONE
 {
-    public partial class frmEmploymentTypeForm : Form
+    public partial class frmEmploymentTypeMaintenance : Form
     {
         // ======================================== SECTION 27.1: ( FORM INITIALIZATION ) =================================== //
-        public frmEmploymentTypeForm()
+        public frmEmploymentTypeMaintenance()
         {
             InitializeComponent();
             this.Load += new EventHandler(EmploymentTypeForm_Load);
+            this.StartPosition = FormStartPosition.CenterScreen;
+
         }
 
         // ======================================== SECTION 27.2: ( FORM LOAD ) ============================================ //
@@ -41,7 +38,7 @@ namespace COMP_003_CAPSTONE
         }
 
         // =================== SECTION 27.4: ( ADD EMPLOYMENT TYPE ) ========================================================= //
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void btnAdd_Click_1(object sender, EventArgs e)
         {
             if (txtEmploymentTypeName.Text == "")
             {
@@ -61,7 +58,7 @@ namespace COMP_003_CAPSTONE
         }
 
         // =================== SECTION 27.5: ( EDIT EMPLOYMENT TYPE ) ======================================================== //
-        private void btnEdit_Click(object sender, EventArgs e)
+        private void btnEdit_Click_1(object sender, EventArgs e)
         {
             if (dgvEmploymentTypes.SelectedRows.Count == 0)
             {
@@ -88,7 +85,7 @@ namespace COMP_003_CAPSTONE
         }
 
         // =================== SECTION 27.6: ( DELETE EMPLOYMENT TYPE ) ========================================================= //
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void btnDelete_Click_1(object sender, EventArgs e)
         {
             if (dgvEmploymentTypes.SelectedRows.Count == 0)
             {
@@ -109,6 +106,20 @@ namespace COMP_003_CAPSTONE
                 MessageBox.Show("Employment type deleted successfully!");
                 LoadEmploymentTypes();
             }
+        }
+
+        // =================== SECTION 27.7: ( BACK ) ========================================================= //
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is frmMaintenance)
+                {
+                    form.Show();
+                    break;
+                }
+            }
+            this.Close();
         }
     }
 }

@@ -1,23 +1,19 @@
 ﻿using HRApplicantProcessSystem.Database;
 using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.Common;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace COMP_003_CAPSTONE
 {
-    public partial class frmPositionForm : Form
+    public partial class frmPositionTypeMaintenance : Form
     {
         // ======================================== SECTION 31.1: ( FORM INITIALIZATION ) =================================== //
-        public frmPositionForm()
+        public frmPositionTypeMaintenance()
         {
             InitializeComponent();
             this.Load += new EventHandler(PositionForm_Load);
+            this.StartPosition = FormStartPosition.CenterScreen;    
         }
 
         // ======================================== SECTION 31.2: ( FORM LOAD ) ============================================ //
@@ -41,7 +37,7 @@ namespace COMP_003_CAPSTONE
         }
 
         // =================== SECTION 31.4: ( ADD POSITION ) =========================================================== //
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void btnAdd_Click_1(object sender, EventArgs e)
         {
             if (txtPositionName.Text == "")
             {
@@ -61,7 +57,7 @@ namespace COMP_003_CAPSTONE
         }
 
         // =================== SECTION 31.5: ( EDIT POSITION ) =========================================================== //
-        private void btnEdit_Click(object sender, EventArgs e)
+        private void btnEdit_Click_1(object sender, EventArgs e)
         {
             if (dgvPositions.SelectedRows.Count == 0)
             {
@@ -89,7 +85,7 @@ namespace COMP_003_CAPSTONE
         }
 
         // =================== SECTION 31.6: ( DELETE POSITION ) ========================================================= //
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void btnDelete_Click_1(object sender, EventArgs e)
         {
             if (dgvPositions.SelectedRows.Count == 0)
             {
@@ -112,9 +108,18 @@ namespace COMP_003_CAPSTONE
             }
         }
 
-        private void btnAdd_Click_1(object sender, EventArgs e)
+        // =================== SECTION 31.7: ( BACK ) ========================================================= //
+        private void btnBack_Click(object sender, EventArgs e)
         {
-
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is frmMaintenance)
+                {
+                    form.Show();
+                    break;
+                }
+            }
+            this.Close();
         }
     }
 }

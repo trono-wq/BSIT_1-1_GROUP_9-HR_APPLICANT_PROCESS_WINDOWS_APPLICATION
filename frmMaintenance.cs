@@ -9,50 +9,76 @@ namespace COMP_003_CAPSTONE
         public frmMaintenance()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;    
         }
 
         // =================== OPEN DEPARTMENT FORM ===================================================================== //
-        private void btnDepartments_Click(object sender, EventArgs e)
+        private void btnDepartments_Click_1(object sender, EventArgs e)
         {
+            this.Hide();
             frmDepartmentForm form = new frmDepartmentForm();
             form.ShowDialog();
+            this.Show();
         }
 
         // =================== OPEN POSITION FORM ===================================================================== //
-        private void btnPositions_Click(object sender, EventArgs e)
+        private void btnPositions_Click_1(object sender, EventArgs e)
         {
-            frmPositionForm form = new frmPositionForm();
+            this.Hide();
+            frmPositionTypeMaintenance form = new frmPositionTypeMaintenance();
             form.ShowDialog();
+            this.Show();
         }
 
         // =================== OPEN EMPLOYMENT TYPE FORM =============================================================== //
-        private void btnEmploymentTypes_Click(object sender, EventArgs e)
+        private void btnEmploymentTypes_Click_1(object sender, EventArgs e)
         {
-            frmEmploymentTypeForm form = new frmEmploymentTypeForm();
+            this.Hide();
+            frmEmploymentTypeMaintenance form = new frmEmploymentTypeMaintenance();
             form.ShowDialog();
+            this.Show();
         }
 
         // =================== OPEN REQUIREMENT TYPE FORM ============================================================== //
-        private void btnRequirementTypes_Click(object sender, EventArgs e)
+        private void btnRequirementTypes_Click_1(object sender, EventArgs e)
         {
-            frmRequirementTypeForm form = new frmRequirementTypeForm();
+            this.Hide();
+            frmRequirementTypeMaintenance form = new frmRequirementTypeMaintenance();
             form.ShowDialog();
+            this.Show();
         }
 
         // =================== OPEN INTERVIEW TYPE FORM ================================================================= //
-        private void btnInterviewTypes_Click(object sender, EventArgs e)
+        private void btnInterviewTypes_Click_1(object sender, EventArgs e)
         {
-            frmInterviewTypeForm form = new frmInterviewTypeForm();
+            this.Hide();
+            frmInterviewTypeMaintenance form = new frmInterviewTypeMaintenance();
             form.ShowDialog();
+            this.Show();
         }
 
         // =================== OPEN ASSESSMENT TYPE FORM ================================================================ //
-        private void btnAssessmentTypes_Click(object sender, EventArgs e)
+        private void btnAssessmentTypes_Click_1(object sender, EventArgs e)
         {
-            frmAssessmentTypeForm form = new frmAssessmentTypeForm();
+            this.Hide();
+            frmAssessmentTypeMaintenance form = new frmAssessmentTypeMaintenance();
             form.ShowDialog();
+            this.Show();
         }
 
-        
+        // =================== BACK ================================================================ //
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is frmHRManagerAdminDashboard)
+                {
+                    form.Show();
+                    break;
+                }
+            }
+            this.Close();
+        }
     }
 }

@@ -2,7 +2,6 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Data;
-using System.Data.Common;
 using System.Windows.Forms;
 
 namespace COMP_003_CAPSTONE
@@ -14,6 +13,7 @@ namespace COMP_003_CAPSTONE
         {
             InitializeComponent();
             this.Load += new EventHandler(ReportsForm_Load);
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         // ======= SECTION 23.2: ( FORM LOAD ) ================================================================================== //
@@ -29,7 +29,7 @@ namespace COMP_003_CAPSTONE
         }
 
         // ======= SECTION 23.3: ( GENERATE REPORT ) ============================================================================ //
-        private void btnGenerateReport_Click(object sender, EventArgs e)
+        private void btnGenerateReport_Click_1(object sender, EventArgs e)
         {
             string selected = cmbReportType.SelectedItem.ToString();
             if (selected == "Applicant List") LoadApplicantList();
@@ -156,6 +156,21 @@ namespace COMP_003_CAPSTONE
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
+        }
+
+        // ======= SECTION 23.9: ( BACK ) =================================================================== //
+
+        private void btnBack_Click_1(object sender, EventArgs e)
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is frmHRManagerAdminDashboard)
+                {
+                    form.Show();
+                    break;
+                }
+            }
+            this.Close();
         }
     }
 }

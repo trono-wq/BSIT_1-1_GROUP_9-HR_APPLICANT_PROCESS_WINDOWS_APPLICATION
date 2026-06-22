@@ -1,23 +1,19 @@
 ﻿using HRApplicantProcessSystem.Database;
 using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.Common;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace COMP_003_CAPSTONE
 {
-    public partial class frmInterviewTypeForm : Form
+    public partial class frmInterviewTypeMaintenance : Form
     {
         // ======================================== SECTION 29.1: ( FORM INITIALIZATION ) ===================================== //
-        public frmInterviewTypeForm()
+        public frmInterviewTypeMaintenance()
         {
             InitializeComponent();
             this.Load += new EventHandler(InterviewTypeForm_Load);
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         // ======================================== SECTION 29.2: ( FORM LOAD ) =============================================== //
@@ -41,7 +37,7 @@ namespace COMP_003_CAPSTONE
         }
 
         // =================== SECTION 29.4: ( ADD INTERVIEW TYPE ) =========================================================== //
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void btnAdd_Click_1(object sender, EventArgs e)
         {
             if (txtInterviewTypeName.Text == "")
             {
@@ -61,7 +57,7 @@ namespace COMP_003_CAPSTONE
         }
 
         // =================== SECTION 29.5: ( EDIT INTERVIEW TYPE ) ========================================================== //
-        private void btnEdit_Click(object sender, EventArgs e)
+        private void btnEdit_Click_1(object sender, EventArgs e)
         {
             if (dgvInterviewTypes.SelectedRows.Count == 0)
             {
@@ -88,7 +84,7 @@ namespace COMP_003_CAPSTONE
         }
 
         // =================== SECTION 29.6: ( DELETE INTERVIEW TYPE ) ======================================================== //
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void btnDelete_Click_1(object sender, EventArgs e)
         {
             if (dgvInterviewTypes.SelectedRows.Count == 0)
             {
@@ -109,6 +105,20 @@ namespace COMP_003_CAPSTONE
                 MessageBox.Show("Interview type deleted successfully!");
                 LoadInterviewTypes();
             }
+        }
+
+        // =================== SECTION 29.6: ( DELETE INTERVIEW TYPE ) ======================================================== //
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is frmMaintenance)
+                {
+                    form.Show();
+                    break;
+                }
+            }
+            this.Close();
         }
     }
 }

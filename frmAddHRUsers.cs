@@ -35,11 +35,6 @@ namespace COMP_003_CAPSTONE
             this.Close();
         }
 
-        private void FrmAddHRUsers_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
-        }
-
         // BUTTONS
 
         private void btn_AddNewUser_Click(object sender, EventArgs e)
