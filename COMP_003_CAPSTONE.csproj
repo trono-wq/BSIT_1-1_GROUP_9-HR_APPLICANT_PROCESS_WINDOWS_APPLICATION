@@ -238,6 +238,12 @@
     <Compile Include="frmScreening.Designer.cs">
       <DependentUpon>frmScreening.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmHiringDecision.resx">
+      <DependentUpon>frmHiringDecision.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPositionForm.resx">
+      <DependentUpon>frmPositionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <!-- RESOURCES -->
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

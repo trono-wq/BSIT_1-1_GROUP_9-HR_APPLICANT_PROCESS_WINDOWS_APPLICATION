@@ -38,10 +38,11 @@ namespace COMP_003_CAPSTONE
             {
                 MySqlConnection conn = new DatabaseConnection().GetConnection();
                 conn.Open();
-                string query = @"SELECT ap.application_id, a.pi_full_name, jv.position, ap.application_status
+                string query = @"SELECT ap.application_id, a.pi_full_name, p.position_type_name, ap.application_status
                         FROM Applications ap
                         JOIN Applicants a ON ap.applicant_id = a.applicant_id
                         JOIN JobVacancies jv ON ap.job_vacancy_id = jv.job_vacancy_id
+                        JOIN PositionTypes p ON jv.position_type_id = p.position_type_id
                         WHERE ap.application_status = 'For Final Review'";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
@@ -122,6 +123,11 @@ namespace COMP_003_CAPSTONE
                 MessageBox.Show("Error: " + ex.Message);
 
             }
+        }
+
+        private void btnSubmitDecision_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -35,7 +35,7 @@ namespace COMP_003_CAPSTONE
 
                 string query = @"
                    SELECT
-                      j.position_type_name,
+                      p.position_type_name,
                       d.department_name,
                       a.application_status,
                       a.o_application_updated_at
@@ -46,6 +46,8 @@ namespace COMP_003_CAPSTONE
                       ON j.department_id = d.department_id
                    INNER JOIN Applicants ap
                       ON a.applicant_id = ap.applicant_id
+                     INNER JOIN PositionTypes p 
+                        ON j.position_type_id = p.position_type_id  
                    WHERE ap.applicant_account_id = @accountId";
 
                 MySqlCommand cmd = new MySqlCommand(query, conn);
@@ -59,7 +61,7 @@ namespace COMP_003_CAPSTONE
                 {
                     {
                         dgvMyApplication.Rows.Add(
-                            reader["position"].ToString(),
+                            reader["position_type_name"].ToString(),
                             reader["department_name"].ToString(),
                             reader["application_status"].ToString(),
                             Convert.ToDateTime(
@@ -217,8 +219,10 @@ namespace COMP_003_CAPSTONE
                     ON a.job_vacancy_id = j.job_vacancy_id
                 INNER JOIN Applicants ap
                     ON a.applicant_id = ap.applicant_id
+                INNER JOIN PositionTypes p
+                    ON j.position_type_id = p.position_type_id 
                 SET a.application_status = 'Draft'
-                WHERE j.position_type_name = @position
+                WHERE p.position_type_name = @position
                 AND ap.applicant_account_id = @accountId";
 
                     MySqlCommand cmd =

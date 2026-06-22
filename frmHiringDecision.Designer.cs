@@ -21,82 +21,106 @@ namespace COMP_003_CAPSTONE
 
         private void InitializeComponent()
         {
-            label1 = new Label();
-            dgvApplicants = new DataGridView();
-            label2 = new Label();
-            cmbDecision = new ComboBox();
-            label3 = new Label();
-            txtRemarks = new TextBox();
-            btnSubmitDecision = new Button();
-            ((System.ComponentModel.ISupportInitialize)dgvApplicants).BeginInit();
-            SuspendLayout();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dgvApplicants = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cmbDecision = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtRemarks = new System.Windows.Forms.TextBox();
+            this.btnSubmitDecision = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvApplicants)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(64, 28);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(144, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Applicants For Final Review :";
+            // 
+            // dgvApplicants
+            // 
+            this.dgvApplicants.AllowUserToAddRows = false;
+            this.dgvApplicants.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvApplicants.Location = new System.Drawing.Point(64, 43);
+            this.dgvApplicants.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvApplicants.Name = "dgvApplicants";
+            this.dgvApplicants.ReadOnly = true;
+            this.dgvApplicants.RowHeadersWidth = 62;
+            this.dgvApplicants.Size = new System.Drawing.Size(779, 137);
+            this.dgvApplicants.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(64, 188);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(79, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Final Decision :";
+            // 
+            // cmbDecision
+            // 
+            this.cmbDecision.FormattingEnabled = true;
+            this.cmbDecision.Location = new System.Drawing.Point(64, 203);
+            this.cmbDecision.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbDecision.Name = "cmbDecision";
+            this.cmbDecision.Size = new System.Drawing.Size(781, 21);
+            this.cmbDecision.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(64, 227);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(55, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Remarks :";
+            // 
+            // txtRemarks
+            // 
+            this.txtRemarks.Location = new System.Drawing.Point(64, 245);
+            this.txtRemarks.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtRemarks.Multiline = true;
+            this.txtRemarks.Name = "txtRemarks";
+            this.txtRemarks.Size = new System.Drawing.Size(781, 83);
+            this.txtRemarks.TabIndex = 5;
+            // 
+            // btnSubmitDecision
+            // 
+            this.btnSubmitDecision.Location = new System.Drawing.Point(397, 330);
+            this.btnSubmitDecision.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSubmitDecision.Name = "btnSubmitDecision";
+            this.btnSubmitDecision.Size = new System.Drawing.Size(113, 18);
+            this.btnSubmitDecision.TabIndex = 6;
+            this.btnSubmitDecision.Text = "Submit Decision";
+            this.btnSubmitDecision.UseVisualStyleBackColor = true;
+            this.btnSubmitDecision.Click += new System.EventHandler(this.btnSubmitDecision_Click_1);
+            // 
+            // frmHiringDecision
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(617, 388);
+            this.Controls.Add(this.btnSubmitDecision);
+            this.Controls.Add(this.txtRemarks);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.cmbDecision);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.dgvApplicants);
+            this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Name = "frmHiringDecision";
+            this.Text = "Hiring Decision";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvApplicants)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
-            label1.AutoSize = true;
-            label1.Location = new Point(107, 54);
-            label1.Name = "label1";
-            label1.Size = new Size(235, 25);
-            label1.TabIndex = 0;
-            label1.Text = "Applicants For Final Review :";
-
-            dgvApplicants.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvApplicants.Location = new Point(107, 82);
-            dgvApplicants.Name = "dgvApplicants";
-            dgvApplicants.RowHeadersWidth = 62;
-            dgvApplicants.Size = new Size(1299, 263);
-            dgvApplicants.TabIndex = 1;
-            dgvApplicants.ReadOnly = true;
-            dgvApplicants.AllowUserToAddRows = false;
-
-            label2.AutoSize = true;
-            label2.Location = new Point(107, 362);
-            label2.Name = "label2";
-            label2.Size = new Size(129, 25);
-            label2.TabIndex = 2;
-            label2.Text = "Final Decision :";
-
-            cmbDecision.FormattingEnabled = true;
-            cmbDecision.Location = new Point(107, 390);
-            cmbDecision.Name = "cmbDecision";
-            cmbDecision.Size = new Size(1299, 33);
-            cmbDecision.TabIndex = 3;
-
-            label3.AutoSize = true;
-            label3.Location = new Point(107, 437);
-            label3.Name = "label3";
-            label3.Size = new Size(88, 25);
-            label3.TabIndex = 4;
-            label3.Text = "Remarks :";
-
-            txtRemarks.Location = new Point(107, 472);
-            txtRemarks.Multiline = true;
-            txtRemarks.Name = "txtRemarks";
-            txtRemarks.Size = new Size(1299, 156);
-            txtRemarks.TabIndex = 5;
-
-            btnSubmitDecision.Location = new Point(662, 634);
-            btnSubmitDecision.Name = "btnSubmitDecision";
-            btnSubmitDecision.Size = new Size(189, 34);
-            btnSubmitDecision.TabIndex = 6;
-            btnSubmitDecision.Text = "Submit Decision";
-            btnSubmitDecision.UseVisualStyleBackColor = true;
-            btnSubmitDecision.Click += btnSubmitDecision_Click;
-
-
-            AutoScaleDimensions = new SizeF(10F, 25F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1543, 747);
-            Controls.Add(btnSubmitDecision);
-            Controls.Add(txtRemarks);
-            Controls.Add(label3);
-            Controls.Add(cmbDecision);
-            Controls.Add(label2);
-            Controls.Add(dgvApplicants);
-            Controls.Add(label1);
-            Name = "HiringDecisionForm";
-            Text = "Hiring Decision";
-            ((System.ComponentModel.ISupportInitialize)dgvApplicants).EndInit();
-            ResumeLayout(false);
-            PerformLayout();
         }
 
         private Label label1;

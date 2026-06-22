@@ -32,7 +32,7 @@ namespace COMP_003_CAPSTONE
         {
             MySqlConnection conn = new DatabaseConnection().GetConnection();
             conn.Open();
-            string query = "SELECT position_id, position_name FROM Positions";
+            string query = "SELECT position_type_id, position_type_name FROM PositionTypes";
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
             DataTable dt = new DataTable();
             adapter.Fill(dt); //acsfault error
@@ -50,7 +50,7 @@ namespace COMP_003_CAPSTONE
             }
             MySqlConnection conn = new DatabaseConnection().GetConnection();
             conn.Open();
-            string query = "INSERT INTO Positions (position_name) VALUES (@name)";
+            string query = "INSERT INTO PositionTypes (position_type_name) VALUES (@name)";
             MySqlCommand cmd = new MySqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@name", txtPositionName.Text);
             cmd.ExecuteNonQuery();
@@ -77,7 +77,7 @@ namespace COMP_003_CAPSTONE
             int id = Convert.ToInt32(dgvPositions.SelectedRows[0].Cells["position_id"].Value);
             MySqlConnection conn = new DatabaseConnection().GetConnection();
             conn.Open();
-            string query = "UPDATE Positions SET position_name = @name WHERE position_id = @id";
+            string query = "UPDATE PositionTypes SET position_type_name = @name WHERE position_type_id = @id";
             MySqlCommand cmd = new MySqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@name", txtPositionName.Text);
             cmd.Parameters.AddWithValue("@id", id);
@@ -102,7 +102,7 @@ namespace COMP_003_CAPSTONE
                 int id = Convert.ToInt32(dgvPositions.SelectedRows[0].Cells["position_id"].Value);
                 MySqlConnection conn = new DatabaseConnection().GetConnection();
                 conn.Open();
-                string query = "DELETE FROM Positions WHERE position_id = @id";
+                string query = "DELETE FROM PositionTypes WHERE position_type_id = @id";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@id", id);
                 cmd.ExecuteNonQuery();
@@ -112,6 +112,9 @@ namespace COMP_003_CAPSTONE
             }
         }
 
+        private void btnAdd_Click_1(object sender, EventArgs e)
+        {
 
+        }
     }
 }

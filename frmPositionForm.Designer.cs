@@ -34,88 +34,94 @@ namespace COMP_003_CAPSTONE
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            txtPositionName = new TextBox();
-            btnAdd = new Button();
-            btnEdit = new Button();
-            btnDelete = new Button();
-            dgvPositions = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)dgvPositions).BeginInit();
-            SuspendLayout();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtPositionName = new System.Windows.Forms.TextBox();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.dgvPositions = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPositions)).BeginInit();
+            this.SuspendLayout();
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(108, 68);
-            label1.Name = "label1";
-            label1.Size = new Size(131, 25);
-            label1.TabIndex = 0;
-            label1.Text = "Position Name:";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(65, 35);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(78, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Position Name:";
             // 
             // txtPositionName
             // 
-            txtPositionName.Location = new Point(245, 68);
-            txtPositionName.Name = "txtPositionName";
-            txtPositionName.Size = new Size(866, 31);
-            txtPositionName.TabIndex = 1;
+            this.txtPositionName.Location = new System.Drawing.Point(147, 35);
+            this.txtPositionName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPositionName.Name = "txtPositionName";
+            this.txtPositionName.Size = new System.Drawing.Size(521, 20);
+            this.txtPositionName.TabIndex = 1;
             // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(1117, 68);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(112, 34);
-            btnAdd.TabIndex = 2;
-            btnAdd.Text = "Add";
-            btnAdd.UseVisualStyleBackColor = true;
-            btnAdd.Click += btnAdd_Click;
+            this.btnAdd.Location = new System.Drawing.Point(670, 35);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(67, 18);
+            this.btnAdd.TabIndex = 2;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click_1);
             // 
             // btnEdit
             // 
-            btnEdit.Location = new Point(1117, 105);
-            btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(112, 34);
-            btnEdit.TabIndex = 3;
-            btnEdit.Text = "Edit";
-            btnEdit.UseVisualStyleBackColor = true;
-            btnEdit.Click += btnEdit_Click;
+            this.btnEdit.Location = new System.Drawing.Point(670, 55);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(67, 18);
+            this.btnEdit.TabIndex = 3;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = true;
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(1117, 145);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(112, 34);
-            btnDelete.TabIndex = 4;
-            btnDelete.Text = "Delete";
-            btnDelete.UseVisualStyleBackColor = true;
-            btnDelete.Click += btnDelete_Click;
+            this.btnDelete.Location = new System.Drawing.Point(670, 75);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(67, 18);
+            this.btnDelete.TabIndex = 4;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
             // 
             // dgvPositions
             // 
-            dgvPositions.AllowUserToAddRows = false;
-            dgvPositions.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPositions.Location = new Point(245, 105);
-            dgvPositions.Name = "dgvPositions";
-            dgvPositions.ReadOnly = true;
-            dgvPositions.RowHeadersWidth = 62;
-            dgvPositions.Size = new Size(866, 461);
-            dgvPositions.TabIndex = 5;
+            this.dgvPositions.AllowUserToAddRows = false;
+            this.dgvPositions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPositions.Location = new System.Drawing.Point(147, 55);
+            this.dgvPositions.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvPositions.Name = "dgvPositions";
+            this.dgvPositions.ReadOnly = true;
+            this.dgvPositions.RowHeadersWidth = 62;
+            this.dgvPositions.Size = new System.Drawing.Size(520, 240);
+            this.dgvPositions.TabIndex = 5;
             // 
-            // PositionForm
+            // frmPositionForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1349, 725);
-            Controls.Add(dgvPositions);
-            Controls.Add(btnDelete);
-            Controls.Add(btnEdit);
-            Controls.Add(btnAdd);
-            Controls.Add(txtPositionName);
-            Controls.Add(label1);
-            Name = "PositionForm";
-            Text = "Position Management";
-            ((System.ComponentModel.ISupportInitialize)dgvPositions).EndInit();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(720, 377);
+            this.Controls.Add(this.dgvPositions);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnEdit);
+            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.txtPositionName);
+            this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Name = "frmPositionForm";
+            this.Text = "Position Management";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPositions)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion

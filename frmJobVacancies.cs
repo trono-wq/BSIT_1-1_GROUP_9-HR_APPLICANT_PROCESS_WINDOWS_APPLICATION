@@ -37,7 +37,7 @@ namespace COMP_003_CAPSTONE
                 string query = @"
                 SELECT
                    j.job_vacancy_id,
-                   j.position,
+                   p.position_type_name,
                    d.department_name,
                    e.employment_type_name,
                    j.vacancy_status
@@ -46,6 +46,8 @@ namespace COMP_003_CAPSTONE
                     ON j.department_id = d.department_id
                 JOIN EmploymentTypes e
                     ON j.employment_type_id = e.employment_type_id
+                JOIN PositionTypes p
+                    ON j.position_type_id = p.position_type_id
                 WHERE j.vacancy_status = 'Open'";
 
                 MySqlCommand cmd = new MySqlCommand(query, conn);
@@ -58,7 +60,7 @@ namespace COMP_003_CAPSTONE
                 {
                     dgvJobVacancies.Rows.Add(
                         reader["job_vacancy_id"],
-                        reader["position"],
+                        reader["position_type_name"],
                         reader["department_name"],
                         reader["employment_type_name"],
                         reader["vacancy_status"]
