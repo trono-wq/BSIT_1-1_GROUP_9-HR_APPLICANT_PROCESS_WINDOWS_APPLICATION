@@ -52,7 +52,7 @@
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data, Version=9.7.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.9.7.0\lib\net462\MySql.Data.dll</HintPath>
+      <HintPath>packages\MySql.Data.9.7.0\lib\net462\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -131,6 +131,12 @@
     </Compile>
     <Compile Include="frmApplicantReview.Designer.cs">
       <DependentUpon>frmApplicantReview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChangePassword.Designer.cs">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
     </Compile>
     <Compile Include="frmGeneralLogin.cs">
       <SubType>Form</SubType>
@@ -253,6 +259,9 @@
     <EmbeddedResource Include="frmApplicationStatus.resx">
       <DependentUpon>frmApplicationStatus.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmChangePassword.resx">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmGeneralLogin.resx">
       <DependentUpon>frmGeneralLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -285,6 +294,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMyApplication.resx">
       <DependentUpon>frmMyApplication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMyDocuments.resx">
+      <DependentUpon>frmMyDocuments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMyProfile.resx">
+      <DependentUpon>frmMyProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
