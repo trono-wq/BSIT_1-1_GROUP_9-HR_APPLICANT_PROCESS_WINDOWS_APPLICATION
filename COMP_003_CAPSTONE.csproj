@@ -138,6 +138,24 @@
     </Compile>
     <Compile Include="frmChangePassword.Designer.cs">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
+
+    <Compile Include="frmAssessmentTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAssessmentTypeForm.Designer.cs">
+      <DependentUpon>frmAssessmentTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDepartmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDepartmentForm.Designer.cs">
+      <DependentUpon>frmDepartmentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEmploymentTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEmploymentTypeForm.Designer.cs">
+      <DependentUpon>frmEmploymentTypeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="frmGeneralLogin.cs">
       <SubType>Form</SubType>
@@ -175,6 +193,12 @@
     <Compile Include="frmInterviewScheduling.Designer.cs">
       <DependentUpon>frmInterviewScheduling.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmInterviewTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInterviewTypeForm.Designer.cs">
+      <DependentUpon>frmInterviewTypeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmJobVacancies.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,7 +214,7 @@
     <Compile Include="frmHRStaffDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include=".Designer.cs">
+    <Compile Include="frmHRStaffDashboard.Designer.cs">
       <DependentUpon>frmHRStaffDashboard.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
@@ -224,11 +248,23 @@
     <Compile Include="frmMyProfile.Designer.cs">
       <DependentUpon>frmMyProfile.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPositionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPositionForm.Designer.cs">
+      <DependentUpon>frmPositionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmReports.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmReports.Designer.cs">
       <DependentUpon>frmReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRequirementTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRequirementTypeForm.Designer.cs">
+      <DependentUpon>frmRequirementTypeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="frmScreening.cs">
       <SubType>Form</SubType>
