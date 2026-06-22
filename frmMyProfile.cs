@@ -13,7 +13,7 @@ namespace COMP_003_CAPSTONE
 {
     public partial class frmMyProfile : Form
     {
-        string connString = "server=localhost;database=hr_applicant_process_window_application;uid=root;pwd=09303281417Ms;";
+        string connString = "server=localhost;database=hr_applicant_process_window_application;uid=root;pwd=1234;";
         private int applicantAccountId;
 
         public frmMyProfile()
@@ -28,7 +28,7 @@ namespace COMP_003_CAPSTONE
         private void CheckIfLocked()
         {
             string connString =
-                "server=localhost;database=hr_applicant_process_window_application;uid=root;pwd=09303281417Ms;";
+                "server=localhost;database=hr_applicant_process_window_application;uid=root;pwd=1234;";
 
             using (MySqlConnection conn =
                 new MySqlConnection(connString))

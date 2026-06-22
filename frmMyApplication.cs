@@ -27,7 +27,7 @@ namespace COMP_003_CAPSTONE
         private void LoadApplications()
         {
             string connString =
-                "server=localhost;database=hr_applicant_process_window_application;uid=root;pwd=09303281417Ms;";
+                "server=localhost;database=hr_applicant_process_window_application;uid=root;pwd=1234;";
 
             using (MySqlConnection conn = new MySqlConnection(connString))
             {
@@ -35,7 +35,7 @@ namespace COMP_003_CAPSTONE
 
                 string query = @"
                    SELECT
-                      j.position,
+                      j.position_type_name,
                       d.department_name,
                       a.application_status,
                       a.o_application_updated_at
@@ -73,7 +73,7 @@ namespace COMP_003_CAPSTONE
         private void CheckIfApplicationEditable()
         {
             string connString =
-                "server=localhost;database=hr_applicant_process_window_application;uid=root;pwd=09303281417Ms;";
+                "server=localhost;database=hr_applicant_process_window_application;uid=root;pwd=1234;";
 
             using (MySqlConnection conn =
                 new MySqlConnection(connString))
@@ -151,7 +151,7 @@ namespace COMP_003_CAPSTONE
                 dgvMyApplication.CurrentRow.Cells[0].Value.ToString();
 
             string connString =
-                "server=localhost;database=hr_applicant_process_window_application;uid=root;pwd=09303281417Ms;";
+                "server=localhost;database=hr_applicant_process_window_application;uid=root;pwd=1234;";
 
             using (MySqlConnection conn =
                    new MySqlConnection(connString))
@@ -165,7 +165,7 @@ namespace COMP_003_CAPSTONE
                 INNER JOIN Applicants ap
                     ON a.applicant_id = ap.applicant_id
                 SET a.application_status = 'Submitted'
-                WHERE j.position = @position
+                WHERE j.position_type_name  = @position
                 AND ap.applicant_account_id = @accountId";
 
                 MySqlCommand cmd =
@@ -204,7 +204,7 @@ namespace COMP_003_CAPSTONE
                     dgvMyApplication.CurrentRow.Cells[0].Value.ToString();
 
                 string connString =
-                    "server=localhost;database=hr_applicant_process_window_application;uid=root;pwd=09303281417Ms;";
+                    "server=localhost;database=hr_applicant_process_window_application;uid=root;pwd=1234;";
 
                 using (MySqlConnection conn =
                     new MySqlConnection(connString))
@@ -218,7 +218,7 @@ namespace COMP_003_CAPSTONE
                 INNER JOIN Applicants ap
                     ON a.applicant_id = ap.applicant_id
                 SET a.application_status = 'Draft'
-                WHERE j.position = @position
+                WHERE j.position_type_name = @position
                 AND ap.applicant_account_id = @accountId";
 
                     MySqlCommand cmd =
@@ -237,7 +237,7 @@ namespace COMP_003_CAPSTONE
                     INNER JOIN JobVacancies j
                         ON a.job_vacancy_id = j.job_vacancy_id
                     WHERE ap.applicant_account_id = @accountId
-                    AND j.position = @position
+                    AND j.position_type_name = @position
                     LIMIT 1";
   
                     MySqlCommand getIdCmd =

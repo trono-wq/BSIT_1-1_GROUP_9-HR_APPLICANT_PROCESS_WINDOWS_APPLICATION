@@ -37,7 +37,7 @@ namespace COMP_003_CAPSTONE
             dgvDocuments.Rows.Clear();
 
             string connString =
-                "server=localhost;database=hr_applicant_process_window_application;uid=root;pwd=09303281417Ms;";
+                "server=localhost;database=hr_applicant_process_window_application;uid=root;pwd=1234;";
 
             using (MySqlConnection conn =
                 new MySqlConnection(connString))
@@ -80,7 +80,7 @@ namespace COMP_003_CAPSTONE
         private void CheckIfLocked()
         {
             string connString =
-                "server=localhost;database=hr_applicant_process_window_application;uid=root;pwd=09303281417Ms;";
+                "server=localhost;database=hr_applicant_process_window_application;uid=root;pwd=1234;";
 
             using (MySqlConnection conn =
                 new MySqlConnection(connString))
@@ -127,7 +127,7 @@ namespace COMP_003_CAPSTONE
             string filePath = openFileDialog1.FileName;
 
             string connString =
-                "server=localhost;database=hr_applicant_process_window_application;uid=root;pwd=09303281417Ms;";
+                "server=localhost;database=hr_applicant_process_window_application;uid=root;pwd=1234;";
 
             using (MySqlConnection conn =
                 new MySqlConnection(connString))

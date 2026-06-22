@@ -28,7 +28,7 @@ namespace COMP_003_CAPSTONE
         private void frmJobVacancies_Load(object sender, EventArgs e)
         {
             string connString =
-            "server=localhost;database=hr_applicant_process_window_application;uid=root;pwd=09303281417Ms;";
+            "server=localhost;database=hr_applicant_process_window_application;uid=root;pwd=1234;";
 
             using (MySqlConnection conn = new MySqlConnection(connString))
             {
@@ -113,7 +113,7 @@ namespace COMP_003_CAPSTONE
                         .Cells["colJobVacancyId"].Value);
 
                 string connString =
-                    "server=localhost;database=hr_applicant_process_window_application;uid=root;pwd=09303281417Ms;";
+                    "server=localhost;database=hr_applicant_process_window_application;uid=root;pwd=1234;";
 
                 using (MySqlConnection conn =
                        new MySqlConnection(connString))
