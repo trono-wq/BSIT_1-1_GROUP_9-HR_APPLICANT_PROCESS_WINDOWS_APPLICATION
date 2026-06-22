@@ -5,7 +5,7 @@ namespace HRApplicantProcessSystem.Database
     public class DatabaseConnection
     {
         private string connectionString =
-            "server=localhost;database=hr_applicant_process_window_application;uid=root;pwd=admin123;";
+            "server=localhost;database=hr_applicant_process_window_application;uid=root;pwd=1234;";
 
         public MySqlConnection GetConnection()
         {
