@@ -16,6 +16,7 @@ namespace COMP_003_CAPSTONE
         public frmChangePassword()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;    
         }
         private int applicantAccountId;
 
@@ -155,6 +156,14 @@ namespace COMP_003_CAPSTONE
        
          private void btnBack_Click(object sender, EventArgs e)
         {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is frmApplicantLogin)
+                {
+                    form.Show();
+                    break;
+                }
+            }
             this.Close();
         }
     }

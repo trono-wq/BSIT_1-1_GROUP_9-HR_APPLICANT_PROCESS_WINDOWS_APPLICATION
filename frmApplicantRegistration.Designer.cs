@@ -45,83 +45,93 @@
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(508, 32);
+            this.lblTitle.Location = new System.Drawing.Point(23, 9);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(162, 25);
+            this.lblTitle.Size = new System.Drawing.Size(181, 17);
             this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "Create Account";
+            this.lblTitle.Text = "Application Registration";
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(22, 131);
+            this.lblName.Location = new System.Drawing.Point(15, 40);
+            this.lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(80, 20);
+            this.lblName.Size = new System.Drawing.Size(54, 13);
             this.lblName.TabIndex = 1;
             this.lblName.Text = "Full Name";
             // 
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(34, 231);
+            this.lblEmail.Location = new System.Drawing.Point(15, 92);
+            this.lblEmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(48, 20);
+            this.lblEmail.Size = new System.Drawing.Size(32, 13);
             this.lblEmail.TabIndex = 2;
             this.lblEmail.Text = "Email";
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(34, 332);
+            this.lblPassword.Location = new System.Drawing.Point(14, 148);
+            this.lblPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(78, 20);
+            this.lblPassword.Size = new System.Drawing.Size(53, 13);
             this.lblPassword.TabIndex = 3;
             this.lblPassword.Text = "Password";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(26, 154);
+            this.txtName.Location = new System.Drawing.Point(18, 55);
+            this.txtName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(100, 26);
+            this.txtName.Size = new System.Drawing.Size(186, 20);
             this.txtName.TabIndex = 4;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(26, 355);
+            this.txtPassword.Location = new System.Drawing.Point(17, 163);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(100, 26);
+            this.txtPassword.Size = new System.Drawing.Size(187, 20);
             this.txtPassword.TabIndex = 5;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(26, 254);
+            this.txtEmail.Location = new System.Drawing.Point(17, 107);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(100, 26);
+            this.txtEmail.Size = new System.Drawing.Size(187, 20);
             this.txtEmail.TabIndex = 6;
             // 
             // txtConfirmPassword
             // 
-            this.txtConfirmPassword.Location = new System.Drawing.Point(26, 438);
+            this.txtConfirmPassword.Location = new System.Drawing.Point(18, 219);
+            this.txtConfirmPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtConfirmPassword.Name = "txtConfirmPassword";
-            this.txtConfirmPassword.Size = new System.Drawing.Size(100, 26);
+            this.txtConfirmPassword.Size = new System.Drawing.Size(186, 20);
             this.txtConfirmPassword.TabIndex = 7;
             this.txtConfirmPassword.UseSystemPasswordChar = true;
             // 
             // lblConfirmPass
             // 
             this.lblConfirmPass.AutoSize = true;
-            this.lblConfirmPass.Location = new System.Drawing.Point(22, 415);
+            this.lblConfirmPass.Location = new System.Drawing.Point(15, 204);
+            this.lblConfirmPass.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblConfirmPass.Name = "lblConfirmPass";
-            this.lblConfirmPass.Size = new System.Drawing.Size(137, 20);
+            this.lblConfirmPass.Size = new System.Drawing.Size(91, 13);
             this.lblConfirmPass.TabIndex = 8;
             this.lblConfirmPass.Text = "Confirm Password";
             // 
             // btnCreate
             // 
-            this.btnCreate.Location = new System.Drawing.Point(37, 522);
+            this.btnCreate.Location = new System.Drawing.Point(17, 253);
+            this.btnCreate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(75, 29);
+            this.btnCreate.Size = new System.Drawing.Size(50, 19);
             this.btnCreate.TabIndex = 9;
             this.btnCreate.Text = "Create Account";
             this.btnCreate.UseVisualStyleBackColor = true;
@@ -129,9 +139,10 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(186, 522);
+            this.btnBack.Location = new System.Drawing.Point(154, 253);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(75, 29);
+            this.btnBack.Size = new System.Drawing.Size(50, 19);
             this.btnBack.TabIndex = 10;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = false;
@@ -139,9 +150,9 @@
             // 
             // frmApplicantRegistration
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.ClientSize = new System.Drawing.Size(225, 283);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.lblConfirmPass);
@@ -153,9 +164,8 @@
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblTitle);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmApplicantRegistration";
-            this.Text = "frmApplicantRegistration";
+            this.Text = "Applicant Registration";
             this.Load += new System.EventHandler(this.frmApplicantRegistration_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

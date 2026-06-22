@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using HRApplicantProcessSystem.Database;
 using MySql.Data.MySqlClient;
@@ -17,6 +10,7 @@ namespace COMP_003_CAPSTONE
         public frmApplicantLogin()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;    
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -61,7 +55,7 @@ namespace COMP_003_CAPSTONE
                             new frmApplicantDashboard();
 
                         dashboard.Show();
-                        this.Hide(); ;
+                        this.Hide(); 
                     }
                     else
                     {
@@ -80,6 +74,7 @@ namespace COMP_003_CAPSTONE
         {
             frmApplicantRegistration AR = new frmApplicantRegistration();
             AR.Show();
+            this.Hide();
         }
 
         private void frmApplicantLogin_Load(object sender, EventArgs e)
@@ -140,6 +135,7 @@ namespace COMP_003_CAPSTONE
         {
             frmApplicantRegistration AR = new frmApplicantRegistration();
             AR.Show();
+            this.Hide();    
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -148,6 +144,20 @@ namespace COMP_003_CAPSTONE
                 new frmChangePassword();
 
             cp.Show();
+            this.Hide();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is frmGeneralLogin)
+                {
+                    form.Show();
+                    break;
+                }
+            }
+            this.Close();
         }
     }
     }

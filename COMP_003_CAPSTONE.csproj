@@ -238,8 +238,20 @@
     <Compile Include="frmScreening.Designer.cs">
       <DependentUpon>frmScreening.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmApplicantDashboard.resx">
+      <DependentUpon>frmApplicantDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmApplicantLogin.resx">
+      <DependentUpon>frmApplicantLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmApplicantRegistration.resx">
+      <DependentUpon>frmApplicantRegistration.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAssessmentTypeMaintenance.resx">
       <DependentUpon>frmAssessmentTypeMaintenance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChangePassword.resx">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDepartment Maintenance.resx">
       <DependentUpon>frmDepartment Maintenance.cs</DependentUpon>

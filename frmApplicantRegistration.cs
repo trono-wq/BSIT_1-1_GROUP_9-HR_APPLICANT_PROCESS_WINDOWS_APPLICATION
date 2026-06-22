@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using HRApplicantProcessSystem.Database;
+
 namespace COMP_003_CAPSTONE
 {
     public partial class frmApplicantRegistration : Form
@@ -16,6 +10,7 @@ namespace COMP_003_CAPSTONE
         public frmApplicantRegistration()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;    
         }
 
     private void frmApplicantRegistration_Load(object sender, EventArgs e)
@@ -25,9 +20,15 @@ namespace COMP_003_CAPSTONE
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            frmApplicantLogin login = new frmApplicantLogin();
-            login.Show();
-            this.Hide();
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is frmApplicantLogin)
+                {
+                    form.Show();
+                    break;
+                }
+            }
+            this.Close();
         }
 
         private void btnCreate_Click(object sender, EventArgs e)

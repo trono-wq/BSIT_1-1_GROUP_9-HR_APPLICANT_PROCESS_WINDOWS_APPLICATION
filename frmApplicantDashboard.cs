@@ -18,6 +18,7 @@ namespace COMP_003_CAPSTONE
         public frmApplicantDashboard()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;        
         }
 
         public frmApplicantDashboard(int accountId)
@@ -208,7 +209,9 @@ namespace COMP_003_CAPSTONE
         private void btnMyProfile_Click_1(object sender, EventArgs e)
         {
             frmMyProfile MP = new frmMyProfile(applicantAccountId);
+
             MP.Show();
+            this.Hide();
         }
 
         private void btnJobVacancies_Click_1(object sender, EventArgs e)
