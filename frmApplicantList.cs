@@ -9,9 +9,14 @@ namespace COMP_003_CAPSTONE
 {
     public partial class frmApplicantList : Form
     {
-        public frmApplicantList()
+        public enum ReviewTarget { ApplicantReview, Screening, InterviewScheduling, InterviewEvaluation }
+
+        private ReviewTarget _target;
+
+        public frmApplicantList(ReviewTarget target = ReviewTarget.ApplicantReview)
         {
             InitializeComponent();
+            _target = target;
             SetupControls();
         }
 
@@ -88,7 +93,7 @@ namespace COMP_003_CAPSTONE
             this.Controls.Add(dgvApplicants);
 
             btnReview = new Button();
-            btnReview.Text = "Review Applicant";
+            btnReview.Text = GetButtonLabel();
             btnReview.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             btnReview.Size = new Size(160, 35);
             btnReview.Location = new Point(20, 505);
@@ -97,6 +102,21 @@ namespace COMP_003_CAPSTONE
             btnReview.FlatStyle = FlatStyle.Flat;
             btnReview.Click += new EventHandler(this.btnReview_Click);
             this.Controls.Add(btnReview);
+        }
+
+        private string GetButtonLabel()
+        {
+            switch (_target)
+            {
+                case ReviewTarget.Screening:
+                    return "Screen Applicant";
+                case ReviewTarget.InterviewScheduling:
+                    return "Schedule Interview";
+                case ReviewTarget.InterviewEvaluation:
+                    return "Evaluate Interview";
+                default:
+                    return "Review Applicant";
+            }
         }
 
         private void frmApplicantList_Load(object sender, EventArgs e)
@@ -170,10 +190,34 @@ namespace COMP_003_CAPSTONE
             }
 
             int applicationId = Convert.ToInt32(dgvApplicants.SelectedRows[0].Cells["application_id"].Value);
-            AuditTrail.Log("Opened Applicant Review", "Application ID: " + applicationId, "frmApplicantList");
-            frmApplicantReview review = new frmApplicantReview();
-            review.SetApplicationId(applicationId);
-            review.Show();
+            AuditTrail.Log("Opened Applicant Action", "Application ID: " + applicationId + " | Target: " + _target, "frmApplicantList");
+
+            switch (_target)
+            {
+                case ReviewTarget.Screening:
+                    frmScreening scr = new frmScreening();
+                    scr.SetApplicationId(applicationId);
+                    scr.Show();
+                    break;
+
+                case ReviewTarget.InterviewScheduling:
+                    frmInterviewScheduling sched = new frmInterviewScheduling();
+                    sched.SetApplicationId(applicationId);
+                    sched.Show();
+                    break;
+
+                case ReviewTarget.InterviewEvaluation:
+                    frmInterviewEvaluation eval = new frmInterviewEvaluation();
+                    eval.SetApplicationId(applicationId);
+                    eval.Show();
+                    break;
+
+                default:
+                    frmApplicantReview review = new frmApplicantReview();
+                    review.SetApplicationId(applicationId);
+                    review.Show();
+                    break;
+            }
         }
 
         private TextBox txtSearch;

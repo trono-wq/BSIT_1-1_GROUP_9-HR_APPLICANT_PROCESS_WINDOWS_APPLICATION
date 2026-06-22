@@ -59,32 +59,32 @@ namespace COMP_003_CAPSTONE
 
         private void button1_Click(object sender, EventArgs e)
         {
-            frmApplicantList AL = new frmApplicantList();
+            frmApplicantList AL = new frmApplicantList(frmApplicantList.ReviewTarget.ApplicantReview);
             AL.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            frmApplicantReview AR = new frmApplicantReview();
-            AR.Show();
+            frmApplicantList AL = new frmApplicantList(frmApplicantList.ReviewTarget.ApplicantReview);
+            AL.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            frmScreening SCR = new frmScreening();
-            SCR.Show();
+            frmApplicantList AL = new frmApplicantList(frmApplicantList.ReviewTarget.Screening);
+            AL.Show();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            frmInterviewScheduling IS = new frmInterviewScheduling();
-            IS.Show();
+            frmApplicantList AL = new frmApplicantList(frmApplicantList.ReviewTarget.InterviewScheduling);
+            AL.Show();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            frmInterviewEvaluation IE = new frmInterviewEvaluation();
-            IE.Show();
+            frmApplicantList AL = new frmApplicantList(frmApplicantList.ReviewTarget.InterviewEvaluation);
+            AL.Show();
         }
         private void txtOJV_Click(object sender, EventArgs e) { }
         private void label6_Click(object sender, EventArgs e) { }
@@ -92,16 +92,16 @@ namespace COMP_003_CAPSTONE
         private void txtFI_Click(object sender, EventArgs e) { }
         private void txtS_Click(object sender, EventArgs e) { }
         private void txtUR_Click(object sender, EventArgs e) { }
-        private void txtPA_Click(object sender, EventArgs e) { } 
+        private void txtPA_Click(object sender, EventArgs e) { }
         private void txtTA_Click(object sender, EventArgs e) { }
         private void txtAA_Click(object sender, EventArgs e) { }
-        private void label9_Click(object sender, EventArgs e) { } 
-        private void label8_Click(object sender, EventArgs e) { } 
-        private void label7_Click(object sender, EventArgs e) { } 
-        private void label5_Click(object sender, EventArgs e) { } 
+        private void label9_Click(object sender, EventArgs e) { }
+        private void label8_Click(object sender, EventArgs e) { }
+        private void label7_Click(object sender, EventArgs e) { }
+        private void label5_Click(object sender, EventArgs e) { }
         private void label4_Click(object sender, EventArgs e) { }
         private void label3_Click(object sender, EventArgs e) { }
         private void label2_Click(object sender, EventArgs e) { }
-        private void label1_Click(object sender, EventArgs e) { }       
+        private void label1_Click(object sender, EventArgs e) { }
     }
 }
