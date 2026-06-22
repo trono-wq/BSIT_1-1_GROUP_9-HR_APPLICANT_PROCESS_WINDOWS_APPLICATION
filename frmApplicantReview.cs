@@ -42,12 +42,13 @@ namespace COMP_003_CAPSTONE
                         ap.education,
                         ap.skills,
                         ap.work_experience,
-                        jv.position,
+                        p.position_type_name,
                         a.application_status,
                         a.locked
                         FROM Applications a
                         JOIN Applicants ap ON a.applicant_id = ap.applicant_id
                         JOIN JobVacancies jv ON a.job_vacancy_id = jv.job_vacancy_id
+                        JOIN PositionTypes p ON jv.position_type_id = p.position_type_id
                         WHERE a.application_id = @applicationId";
 
                     MySqlCommand cmd = new MySqlCommand(query, conn);

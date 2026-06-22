@@ -136,12 +136,13 @@ namespace COMP_003_CAPSTONE
                     string query = @"SELECT 
                         a.application_id,
                         ap.pi_full_name AS 'Full Name',
-                        jv.position AS 'Position',
+                        p.position_type_name AS 'Position',
                         a.application_status AS 'Status',
                         a.o_application_updated_at AS 'Last Updated'
                         FROM Applications a
                         JOIN Applicants ap ON a.applicant_id = ap.applicant_id
                         JOIN JobVacancies jv ON a.job_vacancy_id = jv.job_vacancy_id
+                        JOIN PositionTypes p ON jv.position_type_id = p.position_type_id
                         WHERE 1=1";
 
                     if (search != "")
