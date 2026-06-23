@@ -39,23 +39,26 @@
             this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnApply = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvJobVacancies)).BeginInit();
             this.SuspendLayout();
             // 
             // lblSearch
             // 
             this.lblSearch.AutoSize = true;
-            this.lblSearch.Location = new System.Drawing.Point(20, 38);
+            this.lblSearch.Location = new System.Drawing.Point(13, 49);
+            this.lblSearch.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(60, 20);
+            this.lblSearch.Size = new System.Drawing.Size(41, 13);
             this.lblSearch.TabIndex = 0;
             this.lblSearch.Text = "Search";
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(224, 30);
+            this.btnSearch.Location = new System.Drawing.Point(151, 46);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 37);
+            this.btnSearch.Size = new System.Drawing.Size(50, 20);
             this.btnSearch.TabIndex = 1;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -63,9 +66,10 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(86, 35);
+            this.txtSearch.Location = new System.Drawing.Point(58, 46);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(2);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(132, 26);
+            this.txtSearch.Size = new System.Drawing.Size(89, 20);
             this.txtSearch.TabIndex = 2;
             // 
             // dgvJobVacancies
@@ -77,15 +81,15 @@
             this.colDepartment,
             this.colEmployment,
             this.colStatus});
-            this.dgvJobVacancies.Location = new System.Drawing.Point(24, 134);
+            this.dgvJobVacancies.Location = new System.Drawing.Point(16, 70);
+            this.dgvJobVacancies.Margin = new System.Windows.Forms.Padding(2);
             this.dgvJobVacancies.MultiSelect = false;
             this.dgvJobVacancies.Name = "dgvJobVacancies";
             this.dgvJobVacancies.RowHeadersWidth = 62;
             this.dgvJobVacancies.RowTemplate.Height = 28;
             this.dgvJobVacancies.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvJobVacancies.Size = new System.Drawing.Size(685, 150);
+            this.dgvJobVacancies.Size = new System.Drawing.Size(658, 191);
             this.dgvJobVacancies.TabIndex = 3;
-            this.dgvJobVacancies.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvJobVacancies_CellContentClick);
             // 
             // colJobVacancyId
             // 
@@ -125,9 +129,10 @@
             // 
             // btnApply
             // 
-            this.btnApply.Location = new System.Drawing.Point(64, 498);
+            this.btnApply.Location = new System.Drawing.Point(297, 265);
+            this.btnApply.Margin = new System.Windows.Forms.Padding(2);
             this.btnApply.Name = "btnApply";
-            this.btnApply.Size = new System.Drawing.Size(75, 30);
+            this.btnApply.Size = new System.Drawing.Size(50, 25);
             this.btnApply.TabIndex = 4;
             this.btnApply.Text = "Apply";
             this.btnApply.UseVisualStyleBackColor = true;
@@ -135,29 +140,40 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(244, 498);
+            this.btnBack.Location = new System.Drawing.Point(351, 265);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(2);
             this.btnBack.Name = "btnBack";
             this.btnBack.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnBack.Size = new System.Drawing.Size(75, 30);
+            this.btnBack.Size = new System.Drawing.Size(50, 25);
             this.btnBack.TabIndex = 5;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(275, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(126, 20);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Job Vacancies";
+            // 
             // frmJobVacancies
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.ClientSize = new System.Drawing.Size(685, 298);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnApply);
             this.Controls.Add(this.dgvJobVacancies);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.lblSearch);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmJobVacancies";
-            this.Text = "frmJobVacancies";
+            this.Text = "Job Vacancies";
             this.Load += new System.EventHandler(this.frmJobVacancies_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvJobVacancies)).EndInit();
             this.ResumeLayout(false);
@@ -178,5 +194,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colDepartment;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEmployment;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
+        private System.Windows.Forms.Label label1;
     }
 }

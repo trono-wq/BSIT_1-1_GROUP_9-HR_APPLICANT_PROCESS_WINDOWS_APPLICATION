@@ -38,6 +38,7 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btnUploadNBI = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocuments)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,11 +48,12 @@
             this.dgvDocuments.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colRequirementType,
             this.colStatus});
-            this.dgvDocuments.Location = new System.Drawing.Point(12, 24);
+            this.dgvDocuments.Location = new System.Drawing.Point(11, 43);
+            this.dgvDocuments.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvDocuments.Name = "dgvDocuments";
             this.dgvDocuments.RowHeadersWidth = 62;
             this.dgvDocuments.RowTemplate.Height = 28;
-            this.dgvDocuments.Size = new System.Drawing.Size(417, 150);
+            this.dgvDocuments.Size = new System.Drawing.Size(361, 156);
             this.dgvDocuments.TabIndex = 0;
             this.dgvDocuments.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDocuments_CellContentClick);
             // 
@@ -71,9 +73,10 @@
             // 
             // btnUploadResume
             // 
-            this.btnUploadResume.Location = new System.Drawing.Point(12, 197);
+            this.btnUploadResume.Location = new System.Drawing.Point(373, 43);
+            this.btnUploadResume.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnUploadResume.Name = "btnUploadResume";
-            this.btnUploadResume.Size = new System.Drawing.Size(147, 36);
+            this.btnUploadResume.Size = new System.Drawing.Size(98, 23);
             this.btnUploadResume.TabIndex = 1;
             this.btnUploadResume.Text = "Upload Resume";
             this.btnUploadResume.UseVisualStyleBackColor = true;
@@ -81,9 +84,10 @@
             // 
             // btnUploadCertificate
             // 
-            this.btnUploadCertificate.Location = new System.Drawing.Point(12, 363);
+            this.btnUploadCertificate.Location = new System.Drawing.Point(373, 16);
+            this.btnUploadCertificate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnUploadCertificate.Name = "btnUploadCertificate";
-            this.btnUploadCertificate.Size = new System.Drawing.Size(155, 36);
+            this.btnUploadCertificate.Size = new System.Drawing.Size(98, 23);
             this.btnUploadCertificate.TabIndex = 2;
             this.btnUploadCertificate.Text = "Upload Certificate";
             this.btnUploadCertificate.UseVisualStyleBackColor = true;
@@ -91,9 +95,10 @@
             // 
             // btnUploadTranscript
             // 
-            this.btnUploadTranscript.Location = new System.Drawing.Point(12, 321);
+            this.btnUploadTranscript.Location = new System.Drawing.Point(11, 203);
+            this.btnUploadTranscript.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnUploadTranscript.Name = "btnUploadTranscript";
-            this.btnUploadTranscript.Size = new System.Drawing.Size(147, 36);
+            this.btnUploadTranscript.Size = new System.Drawing.Size(53, 23);
             this.btnUploadTranscript.TabIndex = 3;
             this.btnUploadTranscript.Text = "Upload Transcript";
             this.btnUploadTranscript.UseVisualStyleBackColor = true;
@@ -101,9 +106,10 @@
             // 
             // btnUploadID
             // 
-            this.btnUploadID.Location = new System.Drawing.Point(12, 279);
+            this.btnUploadID.Location = new System.Drawing.Point(373, 70);
+            this.btnUploadID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnUploadID.Name = "btnUploadID";
-            this.btnUploadID.Size = new System.Drawing.Size(147, 36);
+            this.btnUploadID.Size = new System.Drawing.Size(98, 23);
             this.btnUploadID.TabIndex = 4;
             this.btnUploadID.Text = "Upload ID";
             this.btnUploadID.UseVisualStyleBackColor = true;
@@ -111,9 +117,10 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(12, 405);
+            this.btnBack.Location = new System.Drawing.Point(332, 203);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(75, 33);
+            this.btnBack.Size = new System.Drawing.Size(40, 23);
             this.btnBack.TabIndex = 5;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -125,19 +132,31 @@
             // 
             // btnUploadNBI
             // 
-            this.btnUploadNBI.Location = new System.Drawing.Point(12, 239);
+            this.btnUploadNBI.Location = new System.Drawing.Point(373, 97);
+            this.btnUploadNBI.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnUploadNBI.Name = "btnUploadNBI";
-            this.btnUploadNBI.Size = new System.Drawing.Size(147, 36);
+            this.btnUploadNBI.Size = new System.Drawing.Size(98, 23);
             this.btnUploadNBI.TabIndex = 6;
             this.btnUploadNBI.Text = "Upload NBI";
             this.btnUploadNBI.UseVisualStyleBackColor = true;
             this.btnUploadNBI.Click += new System.EventHandler(this.btnUploadNBI_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(119, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(127, 20);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "My Documents";
+            // 
             // frmMyDocuments
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(477, 232);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnUploadNBI);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnUploadID);
@@ -145,11 +164,13 @@
             this.Controls.Add(this.btnUploadCertificate);
             this.Controls.Add(this.btnUploadResume);
             this.Controls.Add(this.dgvDocuments);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmMyDocuments";
-            this.Text = "frmMyDocuments";
+            this.Text = "My Documents";
             this.Load += new System.EventHandler(this.frmMyDocuments_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocuments)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -165,5 +186,6 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button btnUploadNBI;
+        private System.Windows.Forms.Label label1;
     }
 }

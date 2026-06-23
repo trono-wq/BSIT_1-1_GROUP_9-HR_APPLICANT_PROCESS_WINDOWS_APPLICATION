@@ -247,6 +247,9 @@
     <EmbeddedResource Include="frmApplicantRegistration.resx">
       <DependentUpon>frmApplicantRegistration.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmApplicationStatus.resx">
+      <DependentUpon>frmApplicationStatus.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAssessmentTypeMaintenance.resx">
       <DependentUpon>frmAssessmentTypeMaintenance.cs</DependentUpon>
     </EmbeddedResource>
@@ -268,8 +271,20 @@
     <EmbeddedResource Include="frmInterviewTypeMaintenance.resx">
       <DependentUpon>frmInterviewTypeMaintenance.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmJobVacancies.resx">
+      <DependentUpon>frmJobVacancies.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMaintenance.resx">
       <DependentUpon>frmMaintenance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMyApplication.resx">
+      <DependentUpon>frmMyApplication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMyDocuments.resx">
+      <DependentUpon>frmMyDocuments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMyProfile.resx">
+      <DependentUpon>frmMyProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPositionTypeMaintenance.resx">
       <DependentUpon>frmPositionTypeMaintenance.cs</DependentUpon>

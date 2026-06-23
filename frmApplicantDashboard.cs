@@ -15,20 +15,14 @@ namespace COMP_003_CAPSTONE
     {
         private int applicantAccountId;
 
-        public frmApplicantDashboard()
-        {
-            InitializeComponent();
-            this.StartPosition = FormStartPosition.CenterScreen;        
-        }
-
         public frmApplicantDashboard(int accountId)
         {
             InitializeComponent();
             applicantAccountId = accountId;
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
         private void frmApplicantDashboard_Load(object sender, EventArgs e)
         {
-            MessageBox.Show("Dashboard Loaded");
             LoadDashboardData();
         }
         private void LoadDashboardData()

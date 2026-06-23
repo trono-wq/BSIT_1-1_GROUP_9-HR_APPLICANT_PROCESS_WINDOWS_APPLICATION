@@ -16,14 +16,10 @@ public partial class frmApplicationStatus : Form
 {
     private int applicantAccountId;
 
-    public frmApplicationStatus()
-    {
-        InitializeComponent();
-        }
-
         public frmApplicationStatus(int accountId)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             applicantAccountId = accountId;
         }
         private void LoadStatusHistory()
@@ -78,11 +74,6 @@ public partial class frmApplicationStatus : Form
             LoadStatusHistory();
         }
 
-        private void dgvApplicationStatus_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-           
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             frmApplicantDashboard dashboard =
@@ -90,16 +81,6 @@ public partial class frmApplicationStatus : Form
 
             dashboard.Show();
             this.Hide();
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgvApplicationStatus_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

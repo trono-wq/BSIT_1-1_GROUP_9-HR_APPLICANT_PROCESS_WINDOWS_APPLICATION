@@ -16,14 +16,11 @@ namespace COMP_003_CAPSTONE
         string connString = "server=localhost;database=hr_applicant_process_window_application;uid=root;pwd=1234;";
         private int applicantAccountId;
 
-        public frmMyProfile()
-        {
-            InitializeComponent();
-        }
         public frmMyProfile(int accountId)
         {
             InitializeComponent();
             applicantAccountId = accountId;
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
         private void CheckIfLocked()
         {
@@ -214,6 +211,19 @@ namespace COMP_003_CAPSTONE
 
                 MessageBox.Show("Profile saved successfully!");
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                if(form is frmApplicantDashboard)
+                {
+                    form.Show();
+                    break;
+                }
+            }
+            this.Close();
         }
     }
 }

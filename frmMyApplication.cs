@@ -19,11 +19,9 @@ namespace COMP_003_CAPSTONE
         {
             InitializeComponent();
             applicantAccountId = accountId;
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
-        public frmMyApplication()
-        {
-            InitializeComponent();
-        }
+
         private void LoadApplications()
         {
             string connString =
@@ -129,10 +127,6 @@ namespace COMP_003_CAPSTONE
         {
             LoadApplications();
             CheckIfApplicationEditable();
-
-            MessageBox.Show(
-                "Rows Loaded: " +
-                 dgvMyApplication.Rows.Count);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

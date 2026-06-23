@@ -19,11 +19,7 @@ namespace COMP_003_CAPSTONE
         {
             InitializeComponent();
             applicantAccountId = accountId;
-        }
-
-        public frmMyDocuments()
-        {
-            InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void frmMyDocuments_Load(object sender, EventArgs e)

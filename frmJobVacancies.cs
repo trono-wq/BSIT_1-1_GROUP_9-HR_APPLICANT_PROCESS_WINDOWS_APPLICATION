@@ -19,10 +19,7 @@ namespace COMP_003_CAPSTONE
         {
             InitializeComponent();
             applicantAccountId = accountId;
-        }
-        public frmJobVacancies()
-        {
-            InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void frmJobVacancies_Load(object sender, EventArgs e)
@@ -68,11 +65,6 @@ namespace COMP_003_CAPSTONE
 
                 }
             }
-        }
-
-        private void dgvJobVacancies_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -211,14 +203,17 @@ namespace COMP_003_CAPSTONE
             }
         }
 
-
         private void btnBack_Click(object sender, EventArgs e)
         {
-            frmApplicantDashboard dashboard =
-                new frmApplicantDashboard(applicantAccountId);
-
-            dashboard.Show();
-            this.Hide();
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is frmApplicantDashboard)
+                {
+                    form.Show();
+                    break;                 
+                }
+            }
+            this.Close();
         }
     }
 }

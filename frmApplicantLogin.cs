@@ -51,11 +51,7 @@ namespace COMP_003_CAPSTONE
 
                         MessageBox.Show("Login Successful!");
 
-                        frmApplicantDashboard dashboard =
-                            new frmApplicantDashboard();
-
-                        dashboard.Show();
-                        this.Hide(); 
+                        
                     }
                     else
                     {
@@ -129,8 +125,6 @@ namespace COMP_003_CAPSTONE
             }
         }
 
-            
-
         private void btnRegister_Click_1(object sender, EventArgs e)
         {
             frmApplicantRegistration AR = new frmApplicantRegistration();
@@ -160,5 +154,5 @@ namespace COMP_003_CAPSTONE
             this.Close();
         }
     }
-    }
+}
     
