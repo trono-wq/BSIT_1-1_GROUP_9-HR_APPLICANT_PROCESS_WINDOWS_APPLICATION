@@ -57,7 +57,7 @@
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(110, 9);
+            this.lblTitle.Location = new System.Drawing.Point(141, 9);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(80, 17);
@@ -129,7 +129,7 @@
             this.txtFullName.Location = new System.Drawing.Point(144, 41);
             this.txtFullName.Margin = new System.Windows.Forms.Padding(2);
             this.txtFullName.Name = "txtFullName";
-            this.txtFullName.Size = new System.Drawing.Size(135, 20);
+            this.txtFullName.Size = new System.Drawing.Size(198, 20);
             this.txtFullName.TabIndex = 7;
             // 
             // dtpDOB
@@ -137,7 +137,7 @@
             this.dtpDOB.Location = new System.Drawing.Point(144, 65);
             this.dtpDOB.Margin = new System.Windows.Forms.Padding(2);
             this.dtpDOB.Name = "dtpDOB";
-            this.dtpDOB.Size = new System.Drawing.Size(135, 20);
+            this.dtpDOB.Size = new System.Drawing.Size(198, 20);
             this.dtpDOB.TabIndex = 8;
             // 
             // cmbGender
@@ -150,7 +150,7 @@
             this.cmbGender.Location = new System.Drawing.Point(144, 90);
             this.cmbGender.Margin = new System.Windows.Forms.Padding(2);
             this.cmbGender.Name = "cmbGender";
-            this.cmbGender.Size = new System.Drawing.Size(135, 21);
+            this.cmbGender.Size = new System.Drawing.Size(198, 21);
             this.cmbGender.TabIndex = 9;
             // 
             // cmbCivilStatus
@@ -162,7 +162,7 @@
             this.cmbCivilStatus.Location = new System.Drawing.Point(144, 115);
             this.cmbCivilStatus.Margin = new System.Windows.Forms.Padding(2);
             this.cmbCivilStatus.Name = "cmbCivilStatus";
-            this.cmbCivilStatus.Size = new System.Drawing.Size(135, 21);
+            this.cmbCivilStatus.Size = new System.Drawing.Size(198, 21);
             this.cmbCivilStatus.TabIndex = 10;
             // 
             // txtNationality
@@ -170,7 +170,7 @@
             this.txtNationality.Location = new System.Drawing.Point(144, 140);
             this.txtNationality.Margin = new System.Windows.Forms.Padding(2);
             this.txtNationality.Name = "txtNationality";
-            this.txtNationality.Size = new System.Drawing.Size(135, 20);
+            this.txtNationality.Size = new System.Drawing.Size(198, 20);
             this.txtNationality.TabIndex = 11;
             // 
             // txtContact
@@ -178,7 +178,7 @@
             this.txtContact.Location = new System.Drawing.Point(144, 164);
             this.txtContact.Margin = new System.Windows.Forms.Padding(2);
             this.txtContact.Name = "txtContact";
-            this.txtContact.Size = new System.Drawing.Size(135, 20);
+            this.txtContact.Size = new System.Drawing.Size(198, 20);
             this.txtContact.TabIndex = 12;
             // 
             // txtAddress
@@ -186,7 +186,7 @@
             this.txtAddress.Location = new System.Drawing.Point(144, 188);
             this.txtAddress.Margin = new System.Windows.Forms.Padding(2);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(135, 20);
+            this.txtAddress.Size = new System.Drawing.Size(198, 20);
             this.txtAddress.TabIndex = 13;
             // 
             // txtSkills
@@ -194,7 +194,7 @@
             this.txtSkills.Location = new System.Drawing.Point(144, 212);
             this.txtSkills.Margin = new System.Windows.Forms.Padding(2);
             this.txtSkills.Name = "txtSkills";
-            this.txtSkills.Size = new System.Drawing.Size(135, 20);
+            this.txtSkills.Size = new System.Drawing.Size(198, 20);
             this.txtSkills.TabIndex = 14;
             // 
             // txtEducation
@@ -202,7 +202,7 @@
             this.txtEducation.Location = new System.Drawing.Point(144, 236);
             this.txtEducation.Margin = new System.Windows.Forms.Padding(2);
             this.txtEducation.Name = "txtEducation";
-            this.txtEducation.Size = new System.Drawing.Size(135, 20);
+            this.txtEducation.Size = new System.Drawing.Size(198, 20);
             this.txtEducation.TabIndex = 15;
             // 
             // txtExperience
@@ -212,7 +212,7 @@
             this.txtExperience.Multiline = true;
             this.txtExperience.Name = "txtExperience";
             this.txtExperience.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtExperience.Size = new System.Drawing.Size(135, 177);
+            this.txtExperience.Size = new System.Drawing.Size(198, 177);
             this.txtExperience.TabIndex = 16;
             // 
             // lblAddress
@@ -281,7 +281,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(300, 445);
+            this.ClientSize = new System.Drawing.Size(356, 445);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.lblExperience);

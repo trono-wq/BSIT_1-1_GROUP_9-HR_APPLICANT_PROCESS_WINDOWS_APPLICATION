@@ -209,24 +209,28 @@ namespace COMP_003_CAPSTONE
                     frmScreening scr = new frmScreening();
                     scr.SetApplicationId(applicationId);
                     scr.Show();
+                    this.Hide();
                     break;
 
                 case ReviewTarget.InterviewScheduling:
                     frmInterviewScheduling sched = new frmInterviewScheduling();
                     sched.SetApplicationId(applicationId);
                     sched.Show();
+                    this.Hide();
                     break;
 
                 case ReviewTarget.InterviewEvaluation:
                     frmInterviewEvaluation eval = new frmInterviewEvaluation();
                     eval.SetApplicationId(applicationId);
                     eval.Show();
+                    this.Hide();
                     break;
 
                 default:
                     frmApplicantReview review = new frmApplicantReview();
                     review.SetApplicationId(applicationId);
                     review.Show();
+                    this.Hide();
                     break;
             }
         }

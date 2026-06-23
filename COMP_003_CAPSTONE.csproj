@@ -247,6 +247,9 @@
     <EmbeddedResource Include="frmApplicantRegistration.resx">
       <DependentUpon>frmApplicantRegistration.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmApplicantReview.resx">
+      <DependentUpon>frmApplicantReview.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmApplicationStatus.resx">
       <DependentUpon>frmApplicationStatus.cs</DependentUpon>
     </EmbeddedResource>
