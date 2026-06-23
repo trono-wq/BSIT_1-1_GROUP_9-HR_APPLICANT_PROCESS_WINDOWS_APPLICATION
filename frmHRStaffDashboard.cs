@@ -57,34 +57,43 @@ namespace COMP_003_CAPSTONE
             }
         }
 
+        // Opens a child form, hides this dashboard, and re-shows the dashboard
+        // automatically once the child form is closed.
+        private void OpenChildForm(Form childForm)
+        {
+            childForm.FormClosed += (s, args) => this.Show();
+            this.Hide();
+            childForm.Show();
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             frmApplicantList AL = new frmApplicantList(frmApplicantList.ReviewTarget.ApplicantReview);
-            AL.Show();
+            OpenChildForm(AL);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             frmApplicantList AL = new frmApplicantList(frmApplicantList.ReviewTarget.ApplicantReview);
-            AL.Show();
+            OpenChildForm(AL);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             frmApplicantList AL = new frmApplicantList(frmApplicantList.ReviewTarget.Screening);
-            AL.Show();
+            OpenChildForm(AL);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             frmApplicantList AL = new frmApplicantList(frmApplicantList.ReviewTarget.InterviewScheduling);
-            AL.Show();
+            OpenChildForm(AL);
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             frmApplicantList AL = new frmApplicantList(frmApplicantList.ReviewTarget.InterviewEvaluation);
-            AL.Show();
+            OpenChildForm(AL);
         }
         private void txtOJV_Click(object sender, EventArgs e) { }
         private void label6_Click(object sender, EventArgs e) { }

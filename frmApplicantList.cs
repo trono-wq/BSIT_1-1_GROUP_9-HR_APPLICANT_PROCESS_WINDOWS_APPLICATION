@@ -192,32 +192,40 @@ namespace COMP_003_CAPSTONE
             int applicationId = Convert.ToInt32(dgvApplicants.SelectedRows[0].Cells["application_id"].Value);
             AuditTrail.Log("Opened Applicant Action", "Application ID: " + applicationId + " | Target: " + _target, "frmApplicantList");
 
+            Form nextForm;
+
             switch (_target)
             {
                 case ReviewTarget.Screening:
-                    frmScreening scr = new frmScreening();
+                    var scr = new frmScreening();
                     scr.SetApplicationId(applicationId);
-                    scr.Show();
+                    nextForm = scr;
                     break;
 
                 case ReviewTarget.InterviewScheduling:
-                    frmInterviewScheduling sched = new frmInterviewScheduling();
+                    var sched = new frmInterviewScheduling();
                     sched.SetApplicationId(applicationId);
-                    sched.Show();
+                    nextForm = sched;
                     break;
 
                 case ReviewTarget.InterviewEvaluation:
-                    frmInterviewEvaluation eval = new frmInterviewEvaluation();
+                    var eval = new frmInterviewEvaluation();
                     eval.SetApplicationId(applicationId);
-                    eval.Show();
+                    nextForm = eval;
                     break;
 
                 default:
-                    frmApplicantReview review = new frmApplicantReview();
+                    var review = new frmApplicantReview();
                     review.SetApplicationId(applicationId);
-                    review.Show();
+                    nextForm = review;
                     break;
             }
+
+            // Hide this list while the next form is open, and bring it back
+            // automatically once that form is closed.
+            nextForm.FormClosed += (s, args) => this.Show();
+            this.Hide();
+            nextForm.Show();
         }
 
         private TextBox txtSearch;
