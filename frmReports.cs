@@ -45,10 +45,11 @@ namespace COMP_003_CAPSTONE
             {
                 MySqlConnection conn = new DatabaseConnection().GetConnection();
                 conn.Open();
-                string query = @"SELECT a.pi_full_name, jv.position, ap.application_status
+                string query = @"SELECT a.pi_full_name, p.position_type_name, ap.application_status
                         FROM Applicants a
                         JOIN Applications ap ON a.applicant_id = ap.applicant_id
-                        JOIN JobVacancies jv ON ap.job_vacancy_id = jv.job_vacancy_id";
+                        JOIN JobVacancies jv ON ap.job_vacancy_id = jv.job_vacancy_id
+                        JOIN PositionTypes p ON jv.position_type_id = p.position_type_id";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
@@ -67,10 +68,11 @@ namespace COMP_003_CAPSTONE
             {
                 MySqlConnection conn = new DatabaseConnection().GetConnection();
                 conn.Open();
-                string query = @"SELECT a.pi_full_name, jv.position, ap.application_status
+                string query = @"SELECT a.pi_full_name, p.position_type_name, ap.application_status
         FROM Applicants a
         JOIN Applications ap ON a.applicant_id = ap.applicant_id
         JOIN JobVacancies jv ON ap.job_vacancy_id = jv.job_vacancy_id
+        JOIN PositionTypes p ON jv.position_type_id = p.position_type_id
         WHERE ap.application_status NOT IN ('Accepted','Rejected','Withdrawn')";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
@@ -91,10 +93,11 @@ namespace COMP_003_CAPSTONE
             {
                 MySqlConnection conn = new DatabaseConnection().GetConnection();
                 conn.Open();
-                string query = @"SELECT a.pi_full_name, jv.position, hd.final_decision, hd.final_remarks
+                string query = @"SELECT a.pi_full_name, p.position_type_name, hd.final_decision, hd.final_remarks
                         FROM Applicants a
                         JOIN Applications ap ON a.applicant_id = ap.applicant_id
                         JOIN JobVacancies jv ON ap.job_vacancy_id = jv.job_vacancy_id
+                        JOIN PositionTypes p ON jv.position_type_id = p.position_type_id
                         JOIN HiringDecisions hd ON ap.application_id = hd.application_id
                         WHERE hd.final_decision IN ('Accepted','Rejected')";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
@@ -116,10 +119,11 @@ namespace COMP_003_CAPSTONE
             {
                 MySqlConnection conn = new DatabaseConnection().GetConnection();
                 conn.Open();
-                string query = @"SELECT a.pi_full_name, jv.position, isch.interview_date_time, isch.mode_location, isch.status
+                string query = @"SELECT a.pi_full_name, p.position_type_name, isch.interview_date_time, isch.mode_location, isch.status
                         FROM Applicants a
                         JOIN Applications ap ON a.applicant_id = ap.applicant_id
                         JOIN JobVacancies jv ON ap.job_vacancy_id = jv.job_vacancy_id
+                        JOIN PositionTypes p ON jv.position_type_id = p.position_type_id
                         JOIN InterviewSchedules isch ON ap.application_id = isch.application_id";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();

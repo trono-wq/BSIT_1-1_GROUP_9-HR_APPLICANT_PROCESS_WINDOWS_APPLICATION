@@ -24,6 +24,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "frmInterviewEvaluation";
             this.Text = "frmInterviewEvaluation";
+            this.Load += new System.EventHandler(this.frmInterviewEvaluation_Load_1);
             this.ResumeLayout(false);
 
         }

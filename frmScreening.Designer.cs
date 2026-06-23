@@ -37,6 +37,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "frmScreening";
             this.Text = "frmScreening";
+            this.Load += new System.EventHandler(this.frmScreening_Load);
             this.ResumeLayout(false);
 
         }

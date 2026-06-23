@@ -174,7 +174,7 @@ namespace COMP_003_CAPSTONE
                 INNER JOIN PositionTypes p
                     ON j.position_type_id = p.position_type_id
                 SET a.application_status = 'Submitted'
-                WHERE p.position_type_id  = @position
+                WHERE p.position_type_name  = @position
                 AND ap.applicant_account_id = @accountId";
 
                 MySqlCommand cmd =
@@ -247,9 +247,10 @@ namespace COMP_003_CAPSTONE
                         ON a.applicant_id = ap.applicant_id
                     INNER JOIN JobVacancies j
                         ON a.job_vacancy_id = j.job_vacancy_id
-                    WHERE ap.applicant_account_id = @accountId
                     INNER JOIN PositionTypes p
                         ON j.position_type_id = p.position_type_id    
+                    WHERE ap.applicant_account_id = @accountId
+                    
                     AND p.position_type_name = @position    
                     LIMIT 1";
   

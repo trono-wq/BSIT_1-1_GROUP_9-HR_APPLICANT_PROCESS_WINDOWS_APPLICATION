@@ -24,6 +24,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "frmInterviewScheduling";
             this.Text = "frmInterviewScheduling";
+            this.Load += new System.EventHandler(this.frmInterviewScheduling_Load_1);
             this.ResumeLayout(false);
 
         }
