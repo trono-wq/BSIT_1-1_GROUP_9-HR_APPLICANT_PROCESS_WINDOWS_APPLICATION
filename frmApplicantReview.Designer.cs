@@ -37,6 +37,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "frmApplicantReview";
             this.Text = "frmApplicantReview";
+            this.Load += new System.EventHandler(this.frmApplicantReview_Load);
             this.ResumeLayout(false);
 
         }

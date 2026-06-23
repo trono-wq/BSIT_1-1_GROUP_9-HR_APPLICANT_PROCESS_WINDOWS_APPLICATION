@@ -207,6 +207,14 @@ namespace COMP_003_CAPSTONE
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is frmApplicantList)
+                {
+                    form.Show();
+                    break;
+                }
+            }
             this.Close();
         }
 
@@ -360,7 +368,7 @@ namespace COMP_003_CAPSTONE
 
             // Close Button
             btnClose = new Button();
-            btnClose.Text = "Close";
+            btnClose.Text = "Back";
             btnClose.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             btnClose.Size = new Size(100, 35);
             btnClose.Location = new Point(650, 545);
@@ -382,5 +390,9 @@ namespace COMP_003_CAPSTONE
         private Button btnUnlock;
         private Button btnClose;
 
+        private void frmApplicantReview_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
