@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnApplicantReview = new System.Windows.Forms.Button();
+            this.btnScreening = new System.Windows.Forms.Button();
+            this.btnInterviewSchedule = new System.Windows.Forms.Button();
+            this.btnInterviewEvaluation = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -51,6 +51,7 @@
             this.txtOJV = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.btnLogOut = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -63,45 +64,45 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "HR Staff Dashboard";
             // 
-            // button2
+            // btnApplicantReview
             // 
-            this.button2.Location = new System.Drawing.Point(16, 73);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(113, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Applicant Review";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnApplicantReview.Location = new System.Drawing.Point(16, 73);
+            this.btnApplicantReview.Name = "btnApplicantReview";
+            this.btnApplicantReview.Size = new System.Drawing.Size(113, 23);
+            this.btnApplicantReview.TabIndex = 2;
+            this.btnApplicantReview.Text = "Applicant Review";
+            this.btnApplicantReview.UseVisualStyleBackColor = true;
+            this.btnApplicantReview.Click += new System.EventHandler(this.btnApplicantReview_Click);
             // 
-            // button3
+            // btnScreening
             // 
-            this.button3.Location = new System.Drawing.Point(16, 102);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(113, 23);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Screening";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnScreening.Location = new System.Drawing.Point(16, 102);
+            this.btnScreening.Name = "btnScreening";
+            this.btnScreening.Size = new System.Drawing.Size(113, 23);
+            this.btnScreening.TabIndex = 3;
+            this.btnScreening.Text = "Screening";
+            this.btnScreening.UseVisualStyleBackColor = true;
+            this.btnScreening.Click += new System.EventHandler(this.btnScreening_Click);
             // 
-            // button4
+            // btnInterviewSchedule
             // 
-            this.button4.Location = new System.Drawing.Point(16, 131);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(113, 23);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Interview Schedule";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btnInterviewSchedule.Location = new System.Drawing.Point(16, 131);
+            this.btnInterviewSchedule.Name = "btnInterviewSchedule";
+            this.btnInterviewSchedule.Size = new System.Drawing.Size(113, 23);
+            this.btnInterviewSchedule.TabIndex = 4;
+            this.btnInterviewSchedule.Text = "Interview Schedule";
+            this.btnInterviewSchedule.UseVisualStyleBackColor = true;
+            this.btnInterviewSchedule.Click += new System.EventHandler(this.btnInterviewSchedule_Click);
             // 
-            // button5
+            // btnInterviewEvaluation
             // 
-            this.button5.Location = new System.Drawing.Point(16, 160);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(113, 23);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "Interview Evaluation";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.btnInterviewEvaluation.Location = new System.Drawing.Point(16, 160);
+            this.btnInterviewEvaluation.Name = "btnInterviewEvaluation";
+            this.btnInterviewEvaluation.Size = new System.Drawing.Size(113, 23);
+            this.btnInterviewEvaluation.TabIndex = 5;
+            this.btnInterviewEvaluation.Text = "Interview Evaluation";
+            this.btnInterviewEvaluation.UseVisualStyleBackColor = true;
+            this.btnInterviewEvaluation.Click += new System.EventHandler(this.btnInterviewEvaluation_Click);
             // 
             // label2
             // 
@@ -256,7 +257,6 @@
             this.label18.Size = new System.Drawing.Size(57, 13);
             this.label18.TabIndex = 22;
             this.label18.Text = "Summary";
-            this.label18.Click += new System.EventHandler(this.label18_Click);
             // 
             // label10
             // 
@@ -268,11 +268,22 @@
             this.label10.TabIndex = 23;
             this.label10.Text = "Applicant List";
             // 
+            // btnLogOut
+            // 
+            this.btnLogOut.Location = new System.Drawing.Point(433, 192);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(52, 23);
+            this.btnLogOut.TabIndex = 24;
+            this.btnLogOut.Text = "Log out";
+            this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click_1);
+            // 
             // frmHRStaffDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(497, 189);
+            this.ClientSize = new System.Drawing.Size(497, 226);
+            this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.txtOJV);
@@ -291,10 +302,10 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnInterviewEvaluation);
+            this.Controls.Add(this.btnInterviewSchedule);
+            this.Controls.Add(this.btnScreening);
+            this.Controls.Add(this.btnApplicantReview);
             this.Controls.Add(this.label1);
             this.Name = "frmHRStaffDashboard";
             this.Text = "frmHRStaffDashboard";
@@ -307,10 +318,10 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnApplicantReview;
+        private System.Windows.Forms.Button btnScreening;
+        private System.Windows.Forms.Button btnInterviewSchedule;
+        private System.Windows.Forms.Button btnInterviewEvaluation;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -329,5 +340,6 @@
         private System.Windows.Forms.Label txtOJV;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button btnLogOut;
     }
 }

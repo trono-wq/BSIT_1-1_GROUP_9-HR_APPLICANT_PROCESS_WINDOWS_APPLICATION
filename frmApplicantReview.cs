@@ -25,10 +25,6 @@ namespace COMP_003_CAPSTONE
             AuditTrail.Log("Viewed Applicant Profile", "Application ID: " + _applicationId, "frmApplicantReview");
         }
 
-        private void frmApplicantReview_Load(object sender, EventArgs e)
-        {
-        }
-
         private void LoadApplicantData()
         {
             try
@@ -58,7 +54,7 @@ namespace COMP_003_CAPSTONE
                     if (reader.Read())
                     {
                         lblFullNameValue.Text = reader["pi_full_name"].ToString();
-                        lblPositionValue.Text = reader["position"].ToString();
+                        lblPositionValue.Text = reader["position_type_name"].ToString();
                         lblStatusValue.Text = reader["application_status"].ToString();
                         rtxtEducation.Text = reader["education"].ToString();
                         rtxtSkills.Text = reader["skills"].ToString();

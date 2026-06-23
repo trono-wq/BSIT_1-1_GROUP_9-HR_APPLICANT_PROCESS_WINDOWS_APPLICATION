@@ -3,6 +3,7 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Data;
 using System.Drawing;
+using System.Security.Cryptography;
 using System.Windows.Forms;
 
 namespace COMP_003_CAPSTONE
@@ -102,6 +103,15 @@ namespace COMP_003_CAPSTONE
             btnReview.FlatStyle = FlatStyle.Flat;
             btnReview.Click += new EventHandler(this.btnReview_Click);
             this.Controls.Add(btnReview);
+
+            btnBack = new Button();
+            btnBack.Text = "Back";
+            btnBack.Size = new Size(100, 35);
+            btnBack.Location = new Point(190, 505);
+            btnBack.Click += new EventHandler(this.btnBack_Click);
+            this.Controls.Add(btnBack);
+
+
         }
 
         private string GetButtonLabel()
@@ -220,11 +230,24 @@ namespace COMP_003_CAPSTONE
                     break;
             }
         }
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                if(form is frmHRStaffDashboard)
+                {
+                    form.Show();
+                    break;
+                }
+            }
+            this.Close();
+        }
 
         private TextBox txtSearch;
         private ComboBox cmbStatus;
         private Button btnSearch;
         private Button btnReview;
         private DataGridView dgvApplicants;
+        private Button btnBack;
     }
 }

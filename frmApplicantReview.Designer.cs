@@ -36,8 +36,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "frmApplicantReview";
-            this.Text = "frmApplicantReview";
-            this.Load += new System.EventHandler(this.frmApplicantReview_Load);
+            this.Text = "frmApplicantReview"; 
             this.ResumeLayout(false);
 
         }

@@ -14,13 +14,13 @@ namespace COMP_003_CAPSTONE
 {
     public partial class frmHRStaffDashboard : Form
     {
+        // FORMS
 
         public frmHRStaffDashboard()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;    
         }
-
-        private void label18_Click(object sender, EventArgs e) { }
 
         private void frmStaffDashboard_Load(object sender, EventArgs e)
         {
@@ -57,28 +57,44 @@ namespace COMP_003_CAPSTONE
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnLogOut_Click_1(object sender, EventArgs e)
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form is frmHRLogin HRL)
+                {
+                    HRL.ClearHRLogin();
+                    form.Show();
+                    break;
+                }
+            }
+            this.Close();
+        }
+
+        // BUTTONS
+
+        private void btnApplicantReview_Click(object sender, EventArgs e)
         {
             frmApplicantList AL = new frmApplicantList(frmApplicantList.ReviewTarget.ApplicantReview);
             AL.Show();
             this.Hide();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnScreening_Click(object sender, EventArgs e)
         {
             frmApplicantList AL = new frmApplicantList(frmApplicantList.ReviewTarget.Screening);
             AL.Show();
             this.Hide();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void btnInterviewSchedule_Click(object sender, EventArgs e)
         {
             frmApplicantList AL = new frmApplicantList(frmApplicantList.ReviewTarget.InterviewScheduling);
             AL.Show();
             this.Hide();
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void btnInterviewEvaluation_Click(object sender, EventArgs e)
         {
             frmApplicantList AL = new frmApplicantList(frmApplicantList.ReviewTarget.InterviewEvaluation);
             AL.Show();

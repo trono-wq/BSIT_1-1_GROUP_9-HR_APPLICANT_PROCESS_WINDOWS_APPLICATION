@@ -60,7 +60,7 @@ namespace COMP_003_CAPSTONE
                     if (reader.Read())
                     {
                         lblApplicantNameValue.Text = reader["pi_full_name"].ToString();
-                        lblPositionValue.Text = reader["position"].ToString();
+                        lblPositionValue.Text = reader["position_type_name"].ToString();
                     }
                 }
             }

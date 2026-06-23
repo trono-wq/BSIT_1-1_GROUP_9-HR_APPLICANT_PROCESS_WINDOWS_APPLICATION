@@ -268,6 +268,12 @@
     <EmbeddedResource Include="frmHRStaffDashboard.resx">
       <DependentUpon>frmHRStaffDashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmInterviewEvaluation.resx">
+      <DependentUpon>frmInterviewEvaluation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInterviewScheduling.resx">
+      <DependentUpon>frmInterviewScheduling.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmInterviewTypeMaintenance.resx">
       <DependentUpon>frmInterviewTypeMaintenance.cs</DependentUpon>
     </EmbeddedResource>
@@ -294,6 +300,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRequirementTypeMaintenance.resx">
       <DependentUpon>frmRequirementTypeMaintenance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmScreening.resx">
+      <DependentUpon>frmScreening.cs</DependentUpon>
     </EmbeddedResource>
     <!-- RESOURCES -->
     <EmbeddedResource Include="Properties\Resources.resx">
