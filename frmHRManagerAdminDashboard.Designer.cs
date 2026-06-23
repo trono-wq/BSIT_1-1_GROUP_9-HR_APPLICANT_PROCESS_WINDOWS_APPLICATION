@@ -55,6 +55,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnAddHRUsers = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -266,7 +267,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(12, 183);
+            this.label10.Location = new System.Drawing.Point(178, 178);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(67, 13);
             this.label10.TabIndex = 41;
@@ -275,7 +276,7 @@
             // cmbDatabases
             // 
             this.cmbDatabases.FormattingEnabled = true;
-            this.cmbDatabases.Location = new System.Drawing.Point(87, 180);
+            this.cmbDatabases.Location = new System.Drawing.Point(251, 175);
             this.cmbDatabases.Name = "cmbDatabases";
             this.cmbDatabases.Size = new System.Drawing.Size(147, 21);
             this.cmbDatabases.TabIndex = 42;
@@ -284,9 +285,9 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 207);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 202);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(453, 287);
+            this.dataGridView1.Size = new System.Drawing.Size(453, 292);
             this.dataGridView1.TabIndex = 43;
             // 
             // btnAddHRUsers
@@ -301,7 +302,7 @@
             // 
             // btnLogOut
             // 
-            this.btnLogOut.Location = new System.Drawing.Point(410, 180);
+            this.btnLogOut.Location = new System.Drawing.Point(410, 174);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(55, 21);
             this.btnLogOut.TabIndex = 45;
@@ -309,11 +310,22 @@
             this.btnLogOut.UseVisualStyleBackColor = true;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 173);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(147, 23);
+            this.button1.TabIndex = 46;
+            this.button1.Text = "Applicant List";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmHRManagerAdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(477, 507);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.btnAddHRUsers);
             this.Controls.Add(this.dataGridView1);
@@ -379,5 +391,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnAddHRUsers;
         private System.Windows.Forms.Button btnLogOut;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -99,6 +99,13 @@ namespace COMP_003_CAPSTONE
             this.Hide();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmApplicantList list = new frmApplicantList(frmApplicantList.ReviewTarget.MA);
+            list.Show();
+            this.Hide();
+        }
+
         // OTHERS
 
         private void cmbDatabases_SelectedIndexChanged(object sender, EventArgs e)
@@ -128,6 +135,7 @@ namespace COMP_003_CAPSTONE
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
+
 
     }
 }

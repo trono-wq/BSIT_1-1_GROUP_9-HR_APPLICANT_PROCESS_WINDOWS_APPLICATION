@@ -35,6 +35,12 @@ namespace COMP_003_CAPSTONE
                     conn.Open();
                     string query = @"SELECT 
                         ap.pi_full_name,
+                        ap.pi_date_of_birth,
+                        ap.pi_gender,
+                        ap.pi_civil_status,
+                        ap.pi_nationality,
+                        ap.address,
+                        ap.contact,
                         ap.education,
                         ap.skills,
                         ap.work_experience,
@@ -59,6 +65,14 @@ namespace COMP_003_CAPSTONE
                         rtxtEducation.Text = reader["education"].ToString();
                         rtxtSkills.Text = reader["skills"].ToString();
                         rtxtWorkExp.Text = reader["work_experience"].ToString();
+                        lblDateOfBirthValue.Text =Convert.ToDateTime(reader["pi_date_of_birth"]).ToShortDateString();
+                        lblGenderValue.Text = reader["pi_gender"].ToString();
+                        lblCivilStatusValue.Text = reader["pi_civil_status"].ToString();
+                        lblNationalityValue.Text = reader["pi_nationality"].ToString();
+                        lblAddressValue.Text = reader["address"].ToString();
+                        lblContactValue.Text = reader["contact"].ToString();
+
+
 
                         bool isLocked = Convert.ToBoolean(reader["locked"]);
                         if (isLocked)
@@ -221,7 +235,7 @@ namespace COMP_003_CAPSTONE
         private void SetupControls()
         {
             this.Text = "Applicant Review";
-            this.Size = new Size(800, 650);
+            this.Size = new Size(800, 760);
             this.StartPosition = FormStartPosition.CenterScreen;
             this.BackColor = Color.White;
 
@@ -248,17 +262,95 @@ namespace COMP_003_CAPSTONE
             lblFullNameValue.AutoSize = true;
             this.Controls.Add(lblFullNameValue);
 
+            // Date of Birth
+            Label lblDOB = new Label();
+            lblDOB.Text = "Date of Birth:";
+            lblDOB.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            lblDOB.Location = new Point(20, 90);
+            lblDOB.AutoSize = true;
+            this.Controls.Add(lblDOB);
+
+            lblDateOfBirthValue = new Label();
+            lblDateOfBirthValue.Location = new Point(150, 90);
+            lblDateOfBirthValue.AutoSize = true;
+            this.Controls.Add(lblDateOfBirthValue);
+
+            // Gender
+            Label lblGender = new Label();
+            lblGender.Text = "Gender:";
+            lblGender.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            lblGender.Location = new Point(20, 120);
+            lblGender.AutoSize = true;
+            this.Controls.Add(lblGender);
+
+            lblGenderValue = new Label();
+            lblGenderValue.Location = new Point(150, 120);
+            lblGenderValue.AutoSize = true;
+            this.Controls.Add(lblGenderValue);
+
+            // Civil Status
+            Label lblCivilStatus = new Label();
+            lblCivilStatus.Text = "Civil Status:";
+            lblCivilStatus.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            lblCivilStatus.Location = new Point(20, 150);
+            lblCivilStatus.AutoSize = true;
+            this.Controls.Add(lblCivilStatus);
+
+            lblCivilStatusValue = new Label();
+            lblCivilStatusValue.Location = new Point(150, 150);
+            lblCivilStatusValue.AutoSize = true;
+            this.Controls.Add(lblCivilStatusValue);
+
+            // Nationality
+            Label lblNationality = new Label();
+            lblNationality.Text = "Nationality:";
+            lblNationality.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            lblNationality.Location = new Point(400, 90);
+            lblNationality.AutoSize = true;
+            this.Controls.Add(lblNationality);
+
+            lblNationalityValue = new Label();
+            lblNationalityValue.Location = new Point(520, 90);
+            lblNationalityValue.AutoSize = true;
+            this.Controls.Add(lblNationalityValue);
+
+            // Contact
+            Label lblContact = new Label();
+            lblContact.Text = "Contact:";
+            lblContact.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            lblContact.Location = new Point(400, 120);
+            lblContact.AutoSize = true;
+            this.Controls.Add(lblContact);
+
+            lblContactValue = new Label();
+            lblContactValue.Location = new Point(520, 120);
+            lblContactValue.AutoSize = true;
+            this.Controls.Add(lblContactValue);
+
+            // Address
+            Label lblAddress = new Label();
+            lblAddress.Text = "Address:";
+            lblAddress.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            lblAddress.Location = new Point(400, 150);
+            lblAddress.AutoSize = true;
+            this.Controls.Add(lblAddress);
+
+            lblAddressValue = new Label();
+            lblAddressValue.Location = new Point(520, 150);
+            lblAddressValue.Size = new Size(220, 40);
+            this.Controls.Add(lblAddressValue);
+
             // Position
             Label lblPosition = new Label();
             lblPosition.Text = "Position:";
             lblPosition.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-            lblPosition.Location = new Point(20, 90);
+            lblPosition.Location = new Point(20, 200);
             lblPosition.AutoSize = true;
             this.Controls.Add(lblPosition);
 
             lblPositionValue = new Label();
             lblPositionValue.Font = new Font("Segoe UI", 10);
-            lblPositionValue.Location = new Point(150, 90);
+            lblPositionValue.Location = new Point(150, 200);
             lblPositionValue.AutoSize = true;
             this.Controls.Add(lblPositionValue);
 
@@ -266,13 +358,13 @@ namespace COMP_003_CAPSTONE
             Label lblStatus = new Label();
             lblStatus.Text = "Status:";
             lblStatus.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-            lblStatus.Location = new Point(20, 120);
+            lblStatus.Location = new Point(20, 230);
             lblStatus.AutoSize = true;
             this.Controls.Add(lblStatus);
 
             lblStatusValue = new Label();
             lblStatusValue.Font = new Font("Segoe UI", 10);
-            lblStatusValue.Location = new Point(150, 120);
+            lblStatusValue.Location = new Point(150, 230);
             lblStatusValue.AutoSize = true;
             this.Controls.Add(lblStatusValue);
 
@@ -280,12 +372,12 @@ namespace COMP_003_CAPSTONE
             Label lblEducation = new Label();
             lblEducation.Text = "Education:";
             lblEducation.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-            lblEducation.Location = new Point(20, 160);
+            lblEducation.Location = new Point(20, 270);
             lblEducation.AutoSize = true;
             this.Controls.Add(lblEducation);
 
             rtxtEducation = new RichTextBox();
-            rtxtEducation.Location = new Point(20, 180);
+            rtxtEducation.Location = new Point(20, 290);
             rtxtEducation.Size = new Size(350, 80);
             rtxtEducation.ReadOnly = true;
             rtxtEducation.Font = new Font("Segoe UI", 10);
@@ -295,12 +387,12 @@ namespace COMP_003_CAPSTONE
             Label lblSkills = new Label();
             lblSkills.Text = "Skills:";
             lblSkills.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-            lblSkills.Location = new Point(400, 160);
+            lblSkills.Location = new Point(400, 270);
             lblSkills.AutoSize = true;
             this.Controls.Add(lblSkills);
 
             rtxtSkills = new RichTextBox();
-            rtxtSkills.Location = new Point(400, 180);
+            rtxtSkills.Location = new Point(400, 290);
             rtxtSkills.Size = new Size(350, 80);
             rtxtSkills.ReadOnly = true;
             rtxtSkills.Font = new Font("Segoe UI", 10);
@@ -310,12 +402,12 @@ namespace COMP_003_CAPSTONE
             Label lblWorkExp = new Label();
             lblWorkExp.Text = "Work Experience:";
             lblWorkExp.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-            lblWorkExp.Location = new Point(20, 275);
+            lblWorkExp.Location = new Point(20, 385);
             lblWorkExp.AutoSize = true;
             this.Controls.Add(lblWorkExp);
 
             rtxtWorkExp = new RichTextBox();
-            rtxtWorkExp.Location = new Point(20, 295);
+            rtxtWorkExp.Location = new Point(20, 405);
             rtxtWorkExp.Size = new Size(730, 80);
             rtxtWorkExp.ReadOnly = true;
             rtxtWorkExp.Font = new Font("Segoe UI", 10);
@@ -325,13 +417,13 @@ namespace COMP_003_CAPSTONE
             Label lblDocs = new Label();
             lblDocs.Text = "Submitted Documents:";
             lblDocs.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-            lblDocs.Location = new Point(20, 390);
+            lblDocs.Location = new Point(20, 500);
             lblDocs.AutoSize = true;
             this.Controls.Add(lblDocs);
 
             dgvDocuments = new DataGridView();
-            dgvDocuments.Location = new Point(20, 410);
-            dgvDocuments.Size = new Size(730, 120);
+            dgvDocuments.Location = new Point(20, 520);
+            dgvDocuments.Size = new Size(730, 80);
             dgvDocuments.BackgroundColor = Color.White;
             dgvDocuments.AllowUserToAddRows = false;
             dgvDocuments.ReadOnly = true;
@@ -346,7 +438,7 @@ namespace COMP_003_CAPSTONE
             btnLockReview.Text = "Lock for Review";
             btnLockReview.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             btnLockReview.Size = new Size(150, 35);
-            btnLockReview.Location = new Point(20, 545);
+            btnLockReview.Location = new Point(20, 660);
             btnLockReview.BackColor = Color.FromArgb(255, 140, 0);
             btnLockReview.ForeColor = Color.White;
             btnLockReview.FlatStyle = FlatStyle.Flat;
@@ -357,8 +449,8 @@ namespace COMP_003_CAPSTONE
             btnUnlock = new Button();
             btnUnlock.Text = "Unlock";
             btnUnlock.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-            btnUnlock.Size = new Size(100, 35);
-            btnUnlock.Location = new Point(180, 545);
+            btnUnlock.Size = new Size(150, 35);
+            btnUnlock.Location = new Point(180, 660);
             btnUnlock.BackColor = Color.FromArgb(0, 120, 215);
             btnUnlock.ForeColor = Color.White;
             btnUnlock.FlatStyle = FlatStyle.Flat;
@@ -371,7 +463,7 @@ namespace COMP_003_CAPSTONE
             btnClose.Text = "Back";
             btnClose.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             btnClose.Size = new Size(100, 35);
-            btnClose.Location = new Point(650, 545);
+            btnClose.Location = new Point(650, 660);
             btnClose.BackColor = Color.FromArgb(128, 128, 128);
             btnClose.ForeColor = Color.White;
             btnClose.FlatStyle = FlatStyle.Flat;
@@ -382,6 +474,13 @@ namespace COMP_003_CAPSTONE
         private Label lblFullNameValue;
         private Label lblPositionValue;
         private Label lblStatusValue;
+        private Label lblDateOfBirthValue;
+        private Label lblGenderValue;
+        private Label lblCivilStatusValue;
+        private Label lblNationalityValue;
+        private Label lblAddressValue;
+        private Label lblContactValue;
+
         private RichTextBox rtxtEducation;
         private RichTextBox rtxtSkills;
         private RichTextBox rtxtWorkExp;
@@ -389,6 +488,7 @@ namespace COMP_003_CAPSTONE
         private Button btnLockReview;
         private Button btnUnlock;
         private Button btnClose;
+
 
         private void frmApplicantReview_Load(object sender, EventArgs e)
         {

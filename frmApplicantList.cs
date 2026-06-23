@@ -10,7 +10,7 @@ namespace COMP_003_CAPSTONE
 {
     public partial class frmApplicantList : Form
     {
-        public enum ReviewTarget { ApplicantReview, Screening, InterviewScheduling, InterviewEvaluation }
+        public enum ReviewTarget { ApplicantReview, Screening, InterviewScheduling, InterviewEvaluation, MA }
 
         private ReviewTarget _target;
 
@@ -104,10 +104,16 @@ namespace COMP_003_CAPSTONE
             btnReview.Click += new EventHandler(this.btnReview_Click);
             this.Controls.Add(btnReview);
 
+            if (_target == ReviewTarget.MA)
+            {
+                btnReview.Enabled = false;
+                btnReview.Visible = false;
+            }
+
             btnBack = new Button();
             btnBack.Text = "Back";
             btnBack.Size = new Size(100, 35);
-            btnBack.Location = new Point(190, 505);
+            btnBack.Location = new Point(750, 505);
             btnBack.Click += new EventHandler(this.btnBack_Click);
             this.Controls.Add(btnBack);
 
@@ -124,6 +130,8 @@ namespace COMP_003_CAPSTONE
                     return "Schedule Interview";
                 case ReviewTarget.InterviewEvaluation:
                     return "Evaluate Interview";
+                case ReviewTarget.MA:
+
                 default:
                     return "Review Applicant";
             }
@@ -147,12 +155,16 @@ namespace COMP_003_CAPSTONE
                         a.application_id,
                         ap.pi_full_name AS 'Full Name',
                         p.position_type_name AS 'Position',
+                        e.employment_type_name AS 'Employment Type',
+                        d.department_name AS 'Department',
                         a.application_status AS 'Status',
                         a.o_application_updated_at AS 'Last Updated'
                         FROM Applications a
                         JOIN Applicants ap ON a.applicant_id = ap.applicant_id
                         JOIN JobVacancies jv ON a.job_vacancy_id = jv.job_vacancy_id
                         JOIN PositionTypes p ON jv.position_type_id = p.position_type_id
+                        JOIN EmploymentTypes e ON jv.employment_type_id = e.employment_type_id     
+                        JOIN Departments d ON jv.department_id = d.department_id
                         WHERE 1=1";
 
                     if (search != "")
@@ -226,6 +238,12 @@ namespace COMP_003_CAPSTONE
                     this.Hide();
                     break;
 
+                case ReviewTarget.MA:
+                    frmHRManagerAdminDashboard ma = new frmHRManagerAdminDashboard();
+                    ma.Show();
+                    this.Hide();
+                    break;
+
                 default:
                     frmApplicantReview review = new frmApplicantReview();
                     review.SetApplicationId(applicationId);
@@ -239,6 +257,11 @@ namespace COMP_003_CAPSTONE
             foreach (Form form in Application.OpenForms)
             {
                 if(form is frmHRStaffDashboard)
+                {
+                    form.Show();
+                    break;
+                }
+                else if (form is frmHRManagerAdminDashboard)
                 {
                     form.Show();
                     break;
