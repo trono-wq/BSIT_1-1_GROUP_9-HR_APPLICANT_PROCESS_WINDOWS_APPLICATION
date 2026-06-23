@@ -29,16 +29,13 @@
         private void InitializeComponent()
         {
             this.dgvDocuments = new System.Windows.Forms.DataGridView();
-            this.colRequirementType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnUploadResume = new System.Windows.Forms.Button();
-            this.btnUploadCertificate = new System.Windows.Forms.Button();
-            this.btnUploadTranscript = new System.Windows.Forms.Button();
-            this.btnUploadID = new System.Windows.Forms.Button();
+            this.btnUpload = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.btnUploadNBI = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.colRequirementTypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRequirementType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocuments)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,16 +43,58 @@
             // 
             this.dgvDocuments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDocuments.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colRequirementTypeID,
             this.colRequirementType,
             this.colStatus});
-            this.dgvDocuments.Location = new System.Drawing.Point(11, 43);
-            this.dgvDocuments.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvDocuments.Location = new System.Drawing.Point(16, 66);
             this.dgvDocuments.Name = "dgvDocuments";
             this.dgvDocuments.RowHeadersWidth = 62;
             this.dgvDocuments.RowTemplate.Height = 28;
-            this.dgvDocuments.Size = new System.Drawing.Size(361, 156);
+            this.dgvDocuments.Size = new System.Drawing.Size(542, 240);
             this.dgvDocuments.TabIndex = 0;
             this.dgvDocuments.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDocuments_CellContentClick);
+            // 
+            // btnUpload
+            // 
+            this.btnUpload.Location = new System.Drawing.Point(16, 312);
+            this.btnUpload.Name = "btnUpload";
+            this.btnUpload.Size = new System.Drawing.Size(80, 35);
+            this.btnUpload.TabIndex = 3;
+            this.btnUpload.Text = "Upload";
+            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
+            // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(498, 312);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(60, 35);
+            this.btnBack.TabIndex = 5;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(178, 14);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(183, 29);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "My Documents";
+            // 
+            // colRequirementTypeID
+            // 
+            this.colRequirementTypeID.HeaderText = "Requirement Type ID";
+            this.colRequirementTypeID.MinimumWidth = 8;
+            this.colRequirementTypeID.Name = "colRequirementTypeID";
+            this.colRequirementTypeID.Visible = false;
+            this.colRequirementTypeID.Width = 150;
             // 
             // colRequirementType
             // 
@@ -71,100 +110,15 @@
             this.colStatus.Name = "colStatus";
             this.colStatus.Width = 150;
             // 
-            // btnUploadResume
-            // 
-            this.btnUploadResume.Location = new System.Drawing.Point(373, 43);
-            this.btnUploadResume.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnUploadResume.Name = "btnUploadResume";
-            this.btnUploadResume.Size = new System.Drawing.Size(98, 23);
-            this.btnUploadResume.TabIndex = 1;
-            this.btnUploadResume.Text = "Upload Resume";
-            this.btnUploadResume.UseVisualStyleBackColor = true;
-            this.btnUploadResume.Click += new System.EventHandler(this.btnUploadResume_Click);
-            // 
-            // btnUploadCertificate
-            // 
-            this.btnUploadCertificate.Location = new System.Drawing.Point(373, 16);
-            this.btnUploadCertificate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnUploadCertificate.Name = "btnUploadCertificate";
-            this.btnUploadCertificate.Size = new System.Drawing.Size(98, 23);
-            this.btnUploadCertificate.TabIndex = 2;
-            this.btnUploadCertificate.Text = "Upload Certificate";
-            this.btnUploadCertificate.UseVisualStyleBackColor = true;
-            this.btnUploadCertificate.Click += new System.EventHandler(this.btnUploadCertificate_Click);
-            // 
-            // btnUploadTranscript
-            // 
-            this.btnUploadTranscript.Location = new System.Drawing.Point(11, 203);
-            this.btnUploadTranscript.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnUploadTranscript.Name = "btnUploadTranscript";
-            this.btnUploadTranscript.Size = new System.Drawing.Size(53, 23);
-            this.btnUploadTranscript.TabIndex = 3;
-            this.btnUploadTranscript.Text = "Upload Transcript";
-            this.btnUploadTranscript.UseVisualStyleBackColor = true;
-            this.btnUploadTranscript.Click += new System.EventHandler(this.btnUploadTranscript_Click);
-            // 
-            // btnUploadID
-            // 
-            this.btnUploadID.Location = new System.Drawing.Point(373, 70);
-            this.btnUploadID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnUploadID.Name = "btnUploadID";
-            this.btnUploadID.Size = new System.Drawing.Size(98, 23);
-            this.btnUploadID.TabIndex = 4;
-            this.btnUploadID.Text = "Upload ID";
-            this.btnUploadID.UseVisualStyleBackColor = true;
-            this.btnUploadID.Click += new System.EventHandler(this.btnUploadID_Click);
-            // 
-            // btnBack
-            // 
-            this.btnBack.Location = new System.Drawing.Point(332, 203);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(40, 23);
-            this.btnBack.TabIndex = 5;
-            this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // btnUploadNBI
-            // 
-            this.btnUploadNBI.Location = new System.Drawing.Point(373, 97);
-            this.btnUploadNBI.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnUploadNBI.Name = "btnUploadNBI";
-            this.btnUploadNBI.Size = new System.Drawing.Size(98, 23);
-            this.btnUploadNBI.TabIndex = 6;
-            this.btnUploadNBI.Text = "Upload NBI";
-            this.btnUploadNBI.UseVisualStyleBackColor = true;
-            this.btnUploadNBI.Click += new System.EventHandler(this.btnUploadNBI_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(119, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(127, 20);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "My Documents";
-            // 
             // frmMyDocuments
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(477, 232);
+            this.ClientSize = new System.Drawing.Size(716, 357);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnUploadNBI);
             this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.btnUploadID);
-            this.Controls.Add(this.btnUploadTranscript);
-            this.Controls.Add(this.btnUploadCertificate);
-            this.Controls.Add(this.btnUploadResume);
+            this.Controls.Add(this.btnUpload);
             this.Controls.Add(this.dgvDocuments);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmMyDocuments";
             this.Text = "My Documents";
             this.Load += new System.EventHandler(this.frmMyDocuments_Load);
@@ -177,15 +131,12 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvDocuments;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colRequirementType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
-        private System.Windows.Forms.Button btnUploadResume;
-        private System.Windows.Forms.Button btnUploadCertificate;
-        private System.Windows.Forms.Button btnUploadTranscript;
-        private System.Windows.Forms.Button btnUploadID;
+        private System.Windows.Forms.Button btnUpload;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.Button btnUploadNBI;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colRequirementTypeID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colRequirementType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
     }
 }

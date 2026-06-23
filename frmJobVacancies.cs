@@ -215,6 +215,11 @@ namespace COMP_003_CAPSTONE
             }
             this.Close();
         }
+
+        private void dgvJobVacancies_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
 
