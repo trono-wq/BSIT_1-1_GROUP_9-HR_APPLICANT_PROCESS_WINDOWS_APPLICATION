@@ -150,7 +150,7 @@ namespace COMP_003_CAPSTONE
 
                     MessageBox.Show("Evaluation saved! Status updated to: " + newStatus,
                         "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
+                  
                 }
             }
             catch (Exception ex)

@@ -164,7 +164,7 @@ namespace COMP_003_CAPSTONE
 
                     MessageBox.Show("Interview scheduled successfully!",
                         "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
+                    
                 }
             }
             catch (Exception ex)
