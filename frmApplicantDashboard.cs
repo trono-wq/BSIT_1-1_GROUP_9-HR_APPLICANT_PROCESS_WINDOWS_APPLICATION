@@ -184,8 +184,7 @@ namespace COMP_003_CAPSTONE
 
         private void btnMyDocuments_Click(object sender, EventArgs e)
         {
-            frmMyDocuments MD =
-                new frmMyDocuments(applicantAccountId);
+            frmMyDocuments MD = new frmMyDocuments(applicantAccountId);
 
             MD.Show();
             this.Hide();
