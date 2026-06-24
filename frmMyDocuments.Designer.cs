@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.dgvDocuments = new System.Windows.Forms.DataGridView();
-            this.colRequirementTypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRequirementType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnUpload = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.label1 = new System.Windows.Forms.Label();
+            this.colRequirementTypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRequirementType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocuments)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,13 +46,47 @@
             this.colRequirementTypeID,
             this.colRequirementType,
             this.colStatus});
-            this.dgvDocuments.Location = new System.Drawing.Point(11, 43);
-            this.dgvDocuments.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvDocuments.Location = new System.Drawing.Point(16, 66);
             this.dgvDocuments.Name = "dgvDocuments";
             this.dgvDocuments.RowHeadersWidth = 62;
             this.dgvDocuments.RowTemplate.Height = 28;
-            this.dgvDocuments.Size = new System.Drawing.Size(361, 156);
+            this.dgvDocuments.Size = new System.Drawing.Size(542, 240);
             this.dgvDocuments.TabIndex = 0;
+            this.dgvDocuments.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDocuments_CellContentClick);
+            // 
+            // btnUpload
+            // 
+            this.btnUpload.Location = new System.Drawing.Point(16, 312);
+            this.btnUpload.Name = "btnUpload";
+            this.btnUpload.Size = new System.Drawing.Size(80, 35);
+            this.btnUpload.TabIndex = 3;
+            this.btnUpload.Text = "Upload";
+            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
+            // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(498, 312);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(60, 35);
+            this.btnBack.TabIndex = 5;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(178, 14);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(183, 29);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "My Documents";
             // 
             // colRequirementTypeID
             // 
@@ -76,51 +110,15 @@
             this.colStatus.Name = "colStatus";
             this.colStatus.Width = 150;
             // 
-            // btnUpload
-            // 
-            this.btnUpload.Location = new System.Drawing.Point(11, 203);
-            this.btnUpload.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnUpload.Name = "btnUpload";
-            this.btnUpload.Size = new System.Drawing.Size(53, 23);
-            this.btnUpload.TabIndex = 3;
-            this.btnUpload.Text = "Upload";
-            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
-            // 
-            // btnBack
-            // 
-            this.btnBack.Location = new System.Drawing.Point(332, 203);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(40, 23);
-            this.btnBack.TabIndex = 5;
-            this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(119, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(127, 20);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "My Documents";
-            // 
             // frmMyDocuments
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(392, 232);
+            this.ClientSize = new System.Drawing.Size(716, 357);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnUpload);
             this.Controls.Add(this.dgvDocuments);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmMyDocuments";
             this.Text = "My Documents";
             this.Load += new System.EventHandler(this.frmMyDocuments_Load);
