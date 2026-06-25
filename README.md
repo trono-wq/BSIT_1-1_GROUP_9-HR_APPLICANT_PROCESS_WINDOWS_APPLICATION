@@ -1,23 +1,5 @@
-AI Usage Statement
-Artificial Intelligence (AI) tools were used as a learning and support resource during the 
-development of the HR Applicant Process Management System. AI was mainly used to 
-help understand programming concepts, troubleshoot coding errors, generate sample 
-code, and provide guidance in designing the user interface and system features.
-The development team reviewed, tested, and modified all AI-generated suggestions before 
-using them in the project. Final decisions regarding the system design, database structure, 
-functionality, and implementation were made by the researchers and developers of the 
-project.
-AI was used to: 
+Short AI usage explanation
 
-• Understand C# and MySQL programming concepts
+  Artificial Intelligence (AI) tools were used during the development of the HR Applicant Process Management System as a learning, guidance, and support resource. AI assisted the development team in understanding C# Windows Forms, MySQL database integration, Git version control, user interface design, database management, and system implementation. It was also used to provide code examples, troubleshoot programming errors, explain technical concepts, suggest logic for system features, support documentation writing, and guide the creation of modules such as recruitment management, hiring decisions, reports, job vacancy management, dashboards, authentication, audit trails, and database operations.
 
-• Assist in debugging and fixing errors
-
-• Generate sample code and logic suggestions
-
-• Help design forms and user interfaces
-
-• Assist in writing documentation and reports
-
-The project remains the original work of the development team, with AI serving only as a 
-supporting tool throughout the development process
+  All AI-generated suggestions were reviewed, tested, modified, and validated by the developers before implementation. Final decisions regarding system design, database structure, program logic, user interface, and project documentation were made solely by the development team. AI served only as a supporting educational and reference tool and did not replace the team's own work, understanding, or decision-making throughout the project.
